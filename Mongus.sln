@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongus.Web", "Mongus.Web\Mongus.Web.csproj", "{39F5D99E-7546-468D-9754-C72844078EBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongus.Domain", "Mongus.Domain\Mongus.Domain.csproj", "{22CF4FF8-D5B6-43AE-BC67-180F7AF8AE02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39F5D99E-7546-468D-9754-C72844078EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F5D99E-7546-468D-9754-C72844078EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F5D99E-7546-468D-9754-C72844078EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F5D99E-7546-468D-9754-C72844078EBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22CF4FF8-D5B6-43AE-BC67-180F7AF8AE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CF4FF8-D5B6-43AE-BC67-180F7AF8AE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CF4FF8-D5B6-43AE-BC67-180F7AF8AE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CF4FF8-D5B6-43AE-BC67-180F7AF8AE02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
