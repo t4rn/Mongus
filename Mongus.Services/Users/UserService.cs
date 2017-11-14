@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Mongus.Domain.Users;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Mongus.Domain.Users;
 
 namespace Mongus.Services.Users
 {
@@ -16,24 +14,25 @@ namespace Mongus.Services.Users
             _userRepository = userRepository;
         }
 
-        public Task<User> AddAsync(User user)
+        public async Task<User> AddAsync(User user)
         {
-            throw new NotImplementedException();
+            user.CreateDate = DateTime.Now;
+            return await _userRepository.AddAsync(user);
         }
 
-        public void DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _userRepository.DeleteAsync(id);
         }
 
-        public Task<IEnumerable<User>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _userRepository.GetAllAsync();
         }
 
-        public Task<User> GetAsync(int id)
+        public async Task<User> GetAsync(string id)
         {
-            throw new NotImplementedException();
+            return await _userRepository.GetAsync(id);
         }
     }
 }

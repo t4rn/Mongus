@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Mongus.Domain.Users;
 using Mongus.Services.Users;
 
 namespace Mongus.Web.AutofacModules
@@ -18,7 +17,7 @@ namespace Mongus.Web.AutofacModules
             //builder.Register(c => new EfRepository(_connStr))
             //    .As<IUserRepository>().InstancePerRequest();
 
-            builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerRequest();
+            builder.RegisterType<UserService>().As<IUserService>().InstancePerRequest();
 
             base.Load(builder);
         }

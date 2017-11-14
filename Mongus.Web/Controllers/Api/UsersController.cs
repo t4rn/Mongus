@@ -10,23 +10,23 @@ namespace Mongus.Web.Controllers.Api
 {
     public class UsersController : ApiController
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserService _userService;
         private readonly IMapper _mapper;
 
-        public UsersController(IUserRepository userRepository, IMapper mapper)
+        public UsersController(IUserService userService, IMapper mapper)
         {
-            _userRepository = userRepository;
+            _userService = userService;
             _mapper = mapper;
         }
 
         // GET: api/Users
         public async Task<IHttpActionResult> Get()
         {
-            var users = await _userRepository.GetAllAsync();
+            var users = await _userService.GetAllAsync();
             if (users != null)
             {
                 var usersVM = _mapper.Map<IEnumerable<UserVM>>(users);
-                return Ok(await _userRepository.GetAllAsync());
+                return Ok(await _userService.GetAllAsync());
             }
             else
             {
@@ -37,7 +37,7 @@ namespace Mongus.Web.Controllers.Api
         // GET: api/Users/5
         public async Task<IHttpActionResult> Get(string id)
         {
-            var user = await _userRepository.GetAsync(id);
+            var user = await _userService.GetAsync(id);
             if (user != null)
             {
                 var userVM = _mapper.Map<UserVM>(user);
@@ -53,7 +53,7 @@ namespace Mongus.Web.Controllers.Api
         public async Task<IHttpActionResult> Post([FromBody]UserVM user)
         {
             var userToAdd = _mapper.Map<User>(user);
-            await _userRepository.AddAsync(userToAdd);
+            await _userService.AddAsync(userToAdd);
 
             user = _mapper.Map<UserVM>(userToAdd);
 
@@ -68,7 +68,7 @@ namespace Mongus.Web.Controllers.Api
         // DELETE: api/Users/5
         public IHttpActionResult Delete(string id)
         {
-            _userRepository.DeleteAsync(id);
+            _userService.DeleteAsync(id);
             return Ok($"User with Id '{id}' deleted.");
         }
     }

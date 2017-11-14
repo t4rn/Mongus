@@ -17,8 +17,6 @@ namespace Mongus.Services.Users
 
         public async Task<User> AddAsync(User user)
         {
-            user.CreateDate = DateTime.Now;
-
             await _context.Users.InsertOneAsync(user);
 
             return user;

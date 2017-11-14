@@ -7,8 +7,8 @@ namespace Mongus.Services.Users
     public interface IUserService
     {
         Task<User> AddAsync(User user);
-        Task<User> GetAsync(int id);
+        Task<User> GetAsync(string id);
         Task<IEnumerable<User>> GetAllAsync();
-        void DeleteAsync(int id);
+        Task<bool> DeleteAsync(string id);
     }
 }
