@@ -14,5 +14,12 @@ namespace Mongus.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Users()
+        {
+            ViewBag.Title = "Users";
+
+            return View();
+        }
     }
 }

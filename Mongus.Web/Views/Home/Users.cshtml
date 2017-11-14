@@ -1,0 +1,274 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<button id="btnAddUser" type="button" class="btn btn-success btn">Add User</button>
+
+<div>
+    <h3>All users</h3>
+    <div id="divResult" />
+</div>
+
+<div id="searchDiv">
+    <h3>Find user by ID:</h3>
+    <form class="form-inline">
+        <div class="form-group">
+            <input id="userId" type="text" class="form-control" />
+            <button id="btnGetUserById" type="button" class="btn btn-primary btn">Get user by ID</button>
+        </div>
+    </form>
+
+    <div>
+        <ul id="ulUserDetails" />
+    </div>
+
+    <div id="notFoundDialog" title="User not found">
+        <p id="notFoundMessage" />
+    </div>
+</div>
+
+
+<div id="dialog-form" title="Create new user">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form id="addUserForm">
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" name="name" id="firstname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" name="name" id="lastname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" name="login" id="login" class="form-control">
+        </div>
+        <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </form>
+</div>
+
+
+
+@section Scripts
+{
+    <script>
+
+        $(function () {
+
+            $.ajax({
+                type: "GET",
+                url: "/api/users/",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response != null) {
+                        var strResult = "<table id='table-users' class='table'><th>Id</th><th>First Name</th><th>Last Name</th><th>Actions</th>";
+
+                        if ($.isArray(response)) {
+                            $.each(response, function (index, response) {
+
+                                //appendUserToTable(response);
+
+                                strResult += "<tr id='tr-" + response.Id + "'>";
+                                strResult += "<td>" + response.Id + "</td><td>" + response.FirstName + "</td><td>" + response.LastName + "</td>";
+                                strResult += "<td><button  id='btnDeleteUser-" + response.Id + "' " + "class='btn btn-danger btn-sm  remove-user'>Delete</button></td>";
+                                strResult += "</tr>";
+                            });
+                        }
+
+                        strResult += "</table>";
+
+                    }
+                    else {
+                        strResult = "No users available...";
+                    }
+
+                    $("#divResult").append(strResult);
+                },
+                failure: function (response) {
+                    alert("failure: " + response.responseText);
+                },
+                error: function (response) {
+                    alert("error: " + response.responseText);
+                }
+            });
+
+
+            function appendUserToTable(user) {
+                var strResult = "<tr id='tr-" + user.Id + "'>";
+                strResult += "<td>" + user.Id + "</td><td>" + user.FirstName + "</td><td>" + user.LastName + "</td>";
+                strResult += "<td><button id='btnDeleteUser-" + user.Id + "' " + "class='btn btn-danger btn-sm remove-user'>Delete</button></td>";
+                strResult += "</tr>";
+
+                $("#table-users").append(strResult);
+            }
+
+            $("#btnGetUserById").button().on("click", function () {
+                var userId = $("#userId").val();
+                console.log("userId: " + userId);
+
+                $.ajax({
+                    type: "GET",
+                    url: "/api/users/" + userId,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data != null) {
+                            var str = 'User ' + data.FirstName + ' ' + data.LastName + ' with Id ' + data.Id + ' created on ' + data.CreateDate;
+                            $('<li/>', { text: str })
+                                .appendTo($('#ulUserDetails'));
+                        }
+                        else {
+                            $("#notFoundDialog").dialog("open");
+                            $("#notFoundMessage").html("User with Id " + userId + " not found!");
+                        }
+                    },
+                    failure: function (response) {
+                        alert("failure: " + response.responseText);
+                    },
+                    error: function (response) {
+                        alert("error: " + response.responseText);
+                    }
+                });
+            });
+
+            $("#notFoundDialog").dialog(
+                {
+                    autoOpen: false,
+                    show: {
+                        effect: "blind",
+                        duration: 100
+                    },
+                    hide: {
+                        effect: "explode",
+                        duration: 100
+                    },
+                    buttons: [{
+                        text: "OK",
+                        "class": 'btn btn-default btn-sm',
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    }]
+                });
+
+            var addUserDialog,
+                firstname = $("#firstname"),
+                lastname = $("#lastname"),
+                login = $("#login");
+
+
+            function prepareAndAddUser() {
+                var valid = true;
+
+                var user = {
+                    firstName: firstname.val(),
+                    lastname: lastname.val(),
+                    login: login.val()
+                };
+
+                if (valid) {
+                    addUser(user);
+                    addUserDialog.dialog("close");
+                }
+                return valid;
+            }
+
+            function addUser(user) {
+                $.ajax({
+                    type: "POST",
+                    url: "/api/users/",
+                    data: JSON.stringify(user),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("POST success: " + JSON.stringify(data));
+                        appendUserToTable(data);
+                    },
+                    failure: function (response) {
+                        alert("failure: " + response.responseText);
+                    },
+                    error: function (response) {
+                        alert("error: " + response.responseText);
+                    }
+                });
+            }
+
+            addUserDialog = $("#dialog-form").dialog({
+                autoOpen: false,
+                height: 400,
+                width: 350,
+                modal: true,
+                buttons: [
+                            {
+                                text: "Cancel",
+                                "class": 'btn btn-default btn-sm',
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            {
+                                text: "Create User",
+                                "class": 'btn btn-primary btn-sm',
+                                click: prepareAndAddUser
+                            }],
+                close: function () {
+                    $("#addUserForm")[0].reset();
+                }
+            });
+
+            $("#btnAddUser").button().on("click", function () {
+                var d = $(this).attr('id');
+                addUserDialog.dialog("open");
+            });
+
+            $(document).on('click', '.remove-user', function () {
+                var btnId = $(this).attr('id');
+                var userId = btnId.substring(14);
+                console.log("userId for removal: " + userId);
+
+                if (userId > 0) {
+                    $.when(
+                        deleteUser(userId)
+                    )
+                    .then(function () {
+                        $("#tr-" + userId).remove();
+                    })
+                    .fail(function (data) {
+                            console.log('error while deleting: ' + JSON.stringify(data));
+                    });
+
+                }
+                else {
+                    alert("Delete aborted - Id: " + userId);
+                }
+
+            });
+
+            function deleteUser(userId) {
+                return $.ajax({
+                    type: "DELETE",
+                    url: "/api/users/" + userId,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("DELETE succcess: " + JSON.stringify(data));
+                    },
+                    failure: function (response) {
+                        alert("failure: " + response.responseText);
+                    },
+                    error: function (response) {
+                        alert("error: " + response.responseText);
+                    }
+                })
+            }
+        });
+
+    </script>
+}
