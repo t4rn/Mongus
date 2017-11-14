@@ -9,7 +9,17 @@
 
 <div>
     <h3>All users</h3>
-    <div id="divResult" />
+    <div id="divResult">
+        <table id="table-users" class="table table-hover">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Create Date</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <div id="searchDiv">
@@ -68,28 +78,13 @@
                 success: function (response) {
 
                     if (response != null) {
-                        var strResult = "<table id='table-users' class='table'><th>Id</th><th>First Name</th><th>Last Name</th><th>Actions</th>";
-
+                        // display users in table
                         if ($.isArray(response)) {
                             $.each(response, function (index, response) {
-
-                                //appendUserToTable(response);
-
-                                strResult += "<tr id='tr-" + response.Id + "'>";
-                                strResult += "<td>" + response.Id + "</td><td>" + response.FirstName + "</td><td>" + response.LastName + "</td>";
-                                strResult += "<td><button  id='btnDeleteUser-" + response.Id + "' " + "class='btn btn-danger btn-sm  remove-user'>Delete</button></td>";
-                                strResult += "</tr>";
+                                appendUserToTable(response);
                             });
                         }
-
-                        strResult += "</table>";
-
                     }
-                    else {
-                        strResult = "No users available...";
-                    }
-
-                    $("#divResult").append(strResult);
                 },
                 failure: function (response) {
                     alert("failure: " + response.responseText);
@@ -101,12 +96,12 @@
 
 
             function appendUserToTable(user) {
-                var strResult = "<tr id='tr-" + user.Id + "'>";
-                strResult += "<td>" + user.Id + "</td><td>" + user.FirstName + "</td><td>" + user.LastName + "</td>";
-                strResult += "<td><button id='btnDeleteUser-" + user.Id + "' " + "class='btn btn-danger btn-sm remove-user'>Delete</button></td>";
-                strResult += "</tr>";
+                var row = "<tr id='tr-" + user.Id + "'>";
+                row += "<td>" + user.Id + "</td><td>" + user.FirstName + "</td><td>" + user.LastName + "</td>" + "<td>" + user.CreateDate.toString() + "</td>";
+                row += "<td><button id='btnDeleteUser-" + user.Id + "' " + "class='btn btn-danger btn-sm remove-user'>Delete</button></td>";
+                row += "</tr>";
 
-                $("#table-users").append(strResult);
+                $("#table-users").append(row);
             }
 
             $("#btnGetUserById").button().on("click", function () {
@@ -241,7 +236,7 @@
                         $("#tr-" + userId).remove();
                     })
                     .fail(function (data) {
-                            console.log('error while deleting: ' + JSON.stringify(data));
+                        console.log('error while deleting: ' + JSON.stringify(data));
                     });
 
                 }
