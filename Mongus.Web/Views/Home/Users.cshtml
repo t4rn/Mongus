@@ -233,7 +233,7 @@
                 var userId = btnId.substring(14);
                 console.log("userId for removal: " + userId);
 
-                if (userId > 0) {
+                if (userId != null) {
                     $.when(
                         deleteUser(userId)
                     )

@@ -1,4 +1,7 @@
-﻿using Mongus.Domain.Users;
+﻿using MongoDB.Driver;
+using MongoDB.Driver.Linq;
+using Mongus.Domain.Users;
+using Mongus.Services.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,40 +9,35 @@ using System.Threading.Tasks;
 
 namespace Mongus.Services.Users
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository, IUserRepository
     {
-        private static List<User> users = new List<User>
-            {
-                new User { Id = 1, FirstName = "John", LastName = "Doe", Login = "jdoe", CreateDate = DateTime.Now.AddMonths(-2) },
-                new User { Id = 2, FirstName = "Anna", LastName = "Smith", Login = "asmith", CreateDate = DateTime.Now.AddMonths(-12) },
-            };
+        public UserRepository(DatabaseContext databaseContext) : base(databaseContext)
+        {
+        }
 
         public async Task<User> AddAsync(User user)
         {
-            user.Id = users.OrderByDescending(x => x.Id).First().Id + 1;
             user.CreateDate = DateTime.Now;
-            users.Add(user);
+
+            await _context.Users.InsertOneAsync(user);
 
             return user;
         }
 
-        public void DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(string id)
         {
-            var userForDelete = users.FirstOrDefault(x => x.Id == id);
-            if (userForDelete != null)
-            {
-                users.Remove(userForDelete);
-            }
+            DeleteResult deleteResult = await _context.Users.DeleteOneAsync(x => x.Id == id);
+            return deleteResult.IsAcknowledged;
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return users;
+            return await _context.Users.AsQueryable().ToListAsync();
         }
 
-        public async Task<User> GetAsync(int id)
+        public async Task<User> GetAsync(string id)
         {
-            return users.FirstOrDefault(x => x.Id == id);
+            return await _context.Users.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

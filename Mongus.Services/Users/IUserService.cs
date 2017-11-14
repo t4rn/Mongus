@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Mongus.Domain.Users;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Mongus.Domain.Users
+namespace Mongus.Services.Users
 {
-    public interface IUserRepository
+    public interface IUserService
     {
         Task<User> AddAsync(User user);
         Task<User> GetAsync(int id);

@@ -1,12 +1,9 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
+﻿using System;
 
-namespace Mongus.Domain.Users
+namespace Mongus.Web.Models.Users
 {
-    public class User
+    public class UserVM
     {
-        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Login { get; set; }
         public string FirstName { get; set; }

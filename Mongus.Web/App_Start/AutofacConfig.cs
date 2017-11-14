@@ -1,8 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using Mongus.Services.AutofacModules;
 using Mongus.Web.AutofacModules;
-using System.Reflection;
+using Mongus.Web.Properties;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -15,8 +16,8 @@ namespace Mongus.Web.App_Start
             var builder = new ContainerBuilder();
 
             // Register dependencies in controllers
-            builder.RegisterControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
+            builder.RegisterApiControllers(typeof(WebApiApplication).Assembly);
             //builder.RegisterAssemblyModules(typeof(MvcApplication).Assembly);
 
             // Register dependencies in filter attributes
@@ -27,6 +28,9 @@ namespace Mongus.Web.App_Start
 
             // Register our Data dependencies
             builder.RegisterModule(new AutofacModule(""));
+
+            builder.RegisterModule(new AutoMapperModule());
+            builder.RegisterModule(new MongoModule(Settings.Default.cs, Settings.Default.dbName));
 
             var container = builder.Build();
 
