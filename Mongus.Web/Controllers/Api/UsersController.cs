@@ -1,9 +1,4 @@
 ﻿using Mongus.Domain.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -11,30 +6,29 @@ namespace Mongus.Web.Controllers.Api
 {
     public class UsersController : ApiController
     {
-        private static List<User> users = new List<User>
-            {
-                new User { Id = 1, FirstName = "John", LastName = "Doe", Login = "jdoe", CreateDate = DateTime.Now.AddMonths(-2) },
-                new User { Id = 2, FirstName = "Anna", LastName = "Smith", Login = "asmith", CreateDate = DateTime.Now.AddMonths(-12) },
-            };
+        private readonly IUserRepository _userRepository;
+
+        public UsersController(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
 
         // GET: api/Users
         public async Task<IHttpActionResult> Get()
         {
-            return Ok(users);
+            return Ok(await _userRepository.GetAllAsync());
         }
 
         // GET: api/Users/5
         public async Task<IHttpActionResult> Get(int id)
         {
-            return Ok(users.FirstOrDefault(x => x.Id == id));
+            return Ok(await _userRepository.GetAsync(id));
         }
 
         // POST: api/Users
         public async Task<IHttpActionResult> Post([FromBody]User user)
         {
-            user.Id = users.OrderByDescending(x => x.Id).First().Id + 1;
-            user.CreateDate = DateTime.Now;
-            users.Add(user);
+            await _userRepository.AddAsync(user);
 
             return Created("", user);
         }
@@ -45,18 +39,10 @@ namespace Mongus.Web.Controllers.Api
         }
 
         // DELETE: api/Users/5
-        public async Task<IHttpActionResult> Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
-            var userForDelete = users.FirstOrDefault(x => x.Id == id);
-            if (userForDelete != null)
-            {
-                users.Remove(userForDelete);
-                return Ok($"User with Id '{id}' deleted.");
-            }
-            else
-            {
-                return BadRequest($"Failed to delete user with Id '{id}'.");
-            }
+            _userRepository.DeleteAsync(id);
+            return Ok($"User with Id '{id}' deleted.");
         }
     }
 }
