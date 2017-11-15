@@ -38,12 +38,11 @@
         var userId = $("#userId").val();
         console.log("userId: " + userId);
 
-        $.ajax({
-            type: "GET",
-            url: API_URL + "/api/users/" + userId,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
+        $.when(
+                getUser(userId)
+            )
+            .then(function (data) {
+
                 if (data != null) {
                     var str = 'User ' + data.FirstName + ' ' + data.LastName + ' with Id ' + data.Id + ' created on ' + data.CreateDate;
                     $('<li/>', { text: str })
@@ -53,14 +52,10 @@
                     $("#notFoundDialog").dialog("open");
                     $("#notFoundMessage").html("User with Id " + userId + " not found!");
                 }
-            },
-            failure: function (response) {
-                alert("failure: " + response.responseText);
-            },
-            error: function (response) {
-                alert("error: " + response.responseText);
-            }
-        });
+            })
+            .fail(function (data) {
+                console.log('error while geting user with Id: ' + userId + ' error: ' + JSON.stringify(data));
+            });
     });
 
     $("#notFoundDialog").dialog(
@@ -83,12 +78,6 @@
             }]
         });
 
-    var addUserDialog,
-        firstname = $("#firstname"),
-        lastname = $("#lastname"),
-        login = $("#login");
-
-
     function prepareAndAddUser() {
         var valid = true;
 
@@ -104,54 +93,6 @@
         }
         return valid;
     }
-
-    function addUser(user) {
-        $.ajax({
-            type: "POST",
-            url: API_URL + "/api/users/",
-            data: JSON.stringify(user),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (data) {
-                console.log("POST success: " + JSON.stringify(data));
-                appendUserToTable(data);
-            },
-            failure: function (response) {
-                alert("failure: " + response.responseText);
-            },
-            error: function (response) {
-                alert("error: " + response.responseText);
-            }
-        });
-    }
-
-    addUserDialog = $("#dialog-form").dialog({
-        autoOpen: false,
-        height: 400,
-        width: 350,
-        modal: true,
-        buttons: [
-                    {
-                        text: "Cancel",
-                        "class": 'btn btn-default btn-sm',
-                        click: function () {
-                            $(this).dialog("close");
-                        }
-                    },
-                    {
-                        text: "Create User",
-                        "class": 'btn btn-primary btn-sm',
-                        click: prepareAndAddUser
-                    }],
-        close: function () {
-            $("#addUserForm")[0].reset();
-        }
-    });
-
-    $("#btnAddUser").button().on("click", function () {
-        var d = $(this).attr('id');
-        addUserDialog.dialog("open");
-    });
 
     $(document).on('click', '.remove-user', function () {
         var btnId = $(this).attr('id');
@@ -176,6 +117,64 @@
 
     });
 
+    /* Dialog */
+
+    var firstname = $("#firstname"),
+    lastname = $("#lastname"),
+    login = $("#login");
+
+    var addUserDialog = $("#dialog-form").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 350,
+        modal: true,
+        buttons: [
+                    {
+                        text: "Cancel",
+                        "class": 'btn btn-default btn-sm',
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    {
+                        text: "Create User",
+                        "class": 'btn btn-primary btn-sm',
+                        click: prepareAndAddUser
+                    }],
+        close: function () {
+            $("#addUserForm")[0].reset();
+        }
+    });
+
+    $("#birthDatePicker").datepicker();
+
+    $("#btnAddUser").button().on("click", function () {
+        var d = $(this).attr('id');
+        addUserDialog.dialog("open");
+    });
+
+    /* CRUD */
+
+    function addUser(user) {
+        $.ajax({
+            type: "POST",
+            url: API_URL + "/api/users/",
+            data: JSON.stringify(user),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                console.log("POST success: " + JSON.stringify(data));
+                appendUserToTable(data);
+            },
+            failure: function (response) {
+                alert("failure: " + response.responseText);
+            },
+            error: function (response) {
+                alert("error: " + response.responseText);
+            }
+        });
+    }
+
     function deleteUser(userId) {
         return $.ajax({
             type: "DELETE",
@@ -192,5 +191,23 @@
                 alert("error: " + response.responseText);
             }
         })
+    }
+
+    function getUser(userId) {
+        return $.ajax({
+            type: "GET",
+            url: API_URL + "/api/users/" + userId,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                return data;
+            },
+            failure: function (response) {
+                alert("failure: " + response.responseText);
+            },
+            error: function (response) {
+                alert("error: " + response.responseText);
+            }
+        });
     }
 });
