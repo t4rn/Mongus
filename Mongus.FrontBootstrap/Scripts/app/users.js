@@ -9,7 +9,8 @@
         var row = "<tr id='tr-" + user.Id + "'>";
         row += "<td>" + user.Id + "</td><td>" + user.FirstName + "</td><td>" + user.LastName + "</td>" + "<td>" + user.CreateDate.toString() + "</td>"
             + "<td>" + userBirthDate + "</td>";
-        row += "<td><button id='btnDeleteUser-" + user.Id + "' " + "class='btn btn-danger btn-sm remove-user'>Delete</button></td>";
+        row += "<td><button id='btnDeleteUser-" + user.Id + "' " + "class='btn btn-danger btn-sm remove-user'>Delete</button>"
+            + " <button id='btnEditUser-" + user.Id + "' " + "class='btn btn-warning btn-sm edit-user'>Edit</button></td>";
         row += "</tr>";
 
         $("#table-users").append(row);
@@ -76,6 +77,10 @@
         return valid;
     }
 
+    function prepareAndUpdateUser() {
+        updateUserDialog.dialog("close");
+    };
+
     $(document).on('click', '.remove-user', function () {
         var btnId = $(this).attr('id');
         var userId = btnId.substring(14);
@@ -96,6 +101,34 @@
         else {
             alert("Delete failed - Id: " + userId);
         }
+
+    });
+
+    $(document).on('click', '.edit-user', function () {
+        var btnId = $(this).attr('id');
+        var userId = btnId.substring(12);
+
+        $.when(
+            getUser(userId)
+            )
+            .then(function (user) {
+
+                if (user != null) {
+                    firstnameInput.val(user.FirstName);
+                    lastnameInput.val(user.LastName);
+                    loginInput.val(user.Login);
+                    birthDateInput.val(user.BirthDate);
+
+                    updateUserDialog.dialog("open");
+                }
+                else {
+                    $("#notFoundDialog").dialog("open");
+                    $("#notFoundMessage").html("User with Id " + userId + " not found!");
+                }
+            })
+            .fail(function (data) {
+                console.log('error while geting user with Id: ' + userId + ' error: ' + JSON.stringify(data));
+            });
 
     });
 
@@ -124,6 +157,30 @@
                         text: "Create User",
                         "class": 'btn btn-primary btn-sm',
                         click: prepareAndAddUser
+                    }],
+        close: function () {
+            $("#addUserForm")[0].reset();
+        }
+    });
+
+    var updateUserDialog = $("#dialog-form").dialog({
+        autoOpen: false,
+        title: "Edit User",
+        height: 500,
+        width: 350,
+        modal: true,
+        buttons: [
+                    {
+                        text: "Cancel",
+                        "class": 'btn btn-default btn-sm',
+                        click: function () {
+                            $(this).dialog("close");
+                        }
+                    },
+                    {
+                        text: "Save User",
+                        "class": 'btn btn-primary btn-sm',
+                        click: prepareAndUpdateUser
                     }],
         close: function () {
             $("#addUserForm")[0].reset();
