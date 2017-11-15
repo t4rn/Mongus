@@ -5,9 +5,11 @@ using Mongus.Web.Models.Users;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Mongus.Web.Controllers.Api
 {
+    [EnableCors(origins: "http://localhost", headers: "*", methods: "*")]
     public class UsersController : ApiController
     {
         private readonly IUserService _userService;

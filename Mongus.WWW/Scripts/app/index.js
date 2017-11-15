@@ -1,10 +1,14 @@
-﻿angular.module('mongusApp', ['ngMaterial'])
+﻿(function () {
+    'use strict';
 
-.controller('HomeController', function ($scope) {
-    $scope.title1 = 'Button';
-    $scope.title4 = 'Warn';
-    $scope.isDisabled = true;
+    angular.module('MongusApp', ['ngMaterial'])
+        .controller('HomeController', HomeController);
 
-    $scope.googleUrl = 'http://google.com';
+    function HomeController($scope) {
+        $scope.currentNavItem = 'page1';
 
-});
+        $scope.goto = function (page) {
+            console.log("Goto " + page);
+        }
+    }
+})();
