@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 
 namespace Mongus.Web.Controllers.Api
 {
-    [EnableCors(origins: "http://localhost", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UsersController : ApiController
     {
         private readonly IUserService _userService;

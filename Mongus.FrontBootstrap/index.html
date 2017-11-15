@@ -3,10 +3,15 @@
 <head>
     <title>Mongus von Dominus</title>
     <meta charset="utf-8" />
+    <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
+
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.2.1.js"></script>
-    <link href="Content/bootswatch/cerulean/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <link href="Content/bootswatch/yeti/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/app/config.js"></script>
+    <script src="Scripts/app/index.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -22,7 +27,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/Home/Users">Users</a></li>
+                    <li><a href="/users.html">Users</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -41,7 +46,7 @@
             <h1>Mongus Dominus</h1>
             <p class="lead">Web API consumed with jQuery.</p>
 
-            <p><button id="btnGetAllValues" type="button" class="btn btn-primary btn-lg">Get all values</button></p>
+            <p><button id="btnGetAllValues" type="button" class="btn btn-primary btn">Get all values</button></p>
 
             <form class="form-inline">
                 <div class="form-group">
@@ -57,88 +62,6 @@
                 Placeholder for result...
             </div>
         </div>
-
-        <script>
-        $(function () {
-
-            $("#btnGetAllValues").click(function () {
-                ProcessRequest(null);
-            });
-
-            $("#btnGetValueById").click(function () {
-                var valueId = $("#valueId").val();
-
-                ProcessRequest(valueId);
-                //var person = '{Name: "' + $("#txtName").val() + '" }';
-            });
-
-            function ProcessRequest(id) {
-                console.log("id: " + id);
-
-                var apiUrl = id != null ? API_URL + "/api/values/" + id : API_URL + "/api/values/";
-
-                console.log("apiUrl: " + apiUrl);
-
-                $.ajax({
-                    type: "GET",
-                    url: apiUrl,
-                    //data: person,
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        WriteResponse(response);
-                    },
-                    failure: function (response) {
-                        alert("failure: " + response.responseText);
-                    },
-                    error: function (response) {
-                        alert("error: " + response.responseText);
-                    }
-                });
-            };
-
-            function WriteResponse(data) {
-                var json = JSON.stringify(data);
-                console.log("data: " + json);
-                var strResult = "";
-
-                if (data != null) {
-
-                    strResult = "<table class='table'><th>Value</th>";
-
-                    if ($.isArray(data)) {
-                        $.each(data, function (index, data) {
-                            strResult += "<tr><td>" + data + "</td></tr>";
-                        });
-                    }
-                    else {
-                        strResult += "<tr><td>" + data + "</td></tr>";
-                    }
-
-                    strResult += "</table>";
-
-                }
-                else {
-                    strResult = "Empty result...";
-                }
-
-                console.log("strResult: " + strResult);
-
-                //var strResult = data;
-                //var strResult = "<table><th>EmpID</th><th>Emp Name</th><th>Emp Department</th><th>Mobile No</th>";
-                //$.each(employees, function (index, employee) {
-                //    strResult += "<tr><td>" + employee.ID + "</td><td> " + employee.EmpName + "</td><td>" + employee.EmpDepartment + "</td><td>" + employee.EmpMobile + "</td></tr>";
-                //});
-                //strResult += "</table>";
-                $("#divResult").html(strResult);
-            };
-
-        });
-        </script>
-        
-
-
-
         <hr />
         <footer>
             <p>2017 - My ASP.NET Application</p>

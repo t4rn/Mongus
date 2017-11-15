@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mongus von Dominus</title>
+    <meta charset="utf-8" />
+    <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-3.2.1.js"></script>
+    <script src="Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <link href="Content/bootswatch/yeti/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/app/config.js"></script>
+    <script src="Scripts/app/users.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Mongus Dominus</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/users.html">Users</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/help">.NET Docs</a></li>
+                            <li><a href="/swagger">Swagger</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="">In progress...</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        <h2>Users</h2>
+        <button id="btnAddUser" type="button" class="btn btn-success btn">Add User</button>
+        <div>
+            <h3>All users</h3>
+            <div id="divResult">
+                <table id="table-users" class="table table-hover">
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Create Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="searchDiv">
+            <h3>Find user by ID:</h3>
+            <form class="form-inline">
+                <div class="form-group">
+                    <input id="userId" type="text" class="form-control" />
+                    <button id="btnGetUserById" type="button" class="btn btn-primary btn">Get user by ID</button>
+                </div>
+            </form>
+
+            <div>
+                <ul id="ulUserDetails" />
+            </div>
+
+            <div id="notFoundDialog" title="User not found">
+                <p id="notFoundMessage" />
+            </div>
+        </div>
+
+
+        <div id="dialog-form" title="Create new user">
+            <p class="validateTips">All form fields are required.</p>
+
+            <form id="addUserForm">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="name" id="firstname" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="name" id="lastname" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="text" name="login" id="login" class="form-control">
+                </div>
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </form>
+        </div>
+
+
+        <hr />
+        <footer>
+            <p>&copy; 2017 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+</body>
+</html>
