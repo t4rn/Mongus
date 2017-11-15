@@ -1,33 +1,14 @@
 ﻿$(function () {
 
-    $.ajax({
-        type: "GET",
-        url: API_URL + "/api/users/",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (response) {
-
-            if (response != null) {
-                // display users in table
-                if ($.isArray(response)) {
-                    $.each(response, function (index, response) {
-                        appendUserToTable(response);
-                    });
-                }
-            }
-        },
-        failure: function (response) {
-            alert("failure: " + response.responseText);
-        },
-        error: function (response) {
-            alert("error: " + response.responseText);
-        }
-    });
-
+    getUsersAll();
 
     function appendUserToTable(user) {
+
+        var userBirthDate = user.BirthDate != null ? user.BirthDate.toString() : "";
+
         var row = "<tr id='tr-" + user.Id + "'>";
-        row += "<td>" + user.Id + "</td><td>" + user.FirstName + "</td><td>" + user.LastName + "</td>" + "<td>" + user.CreateDate.toString() + "</td>";
+        row += "<td>" + user.Id + "</td><td>" + user.FirstName + "</td><td>" + user.LastName + "</td>" + "<td>" + user.CreateDate.toString() + "</td>"
+            + "<td>" + userBirthDate + "</td>";
         row += "<td><button id='btnDeleteUser-" + user.Id + "' " + "class='btn btn-danger btn-sm remove-user'>Delete</button></td>";
         row += "</tr>";
 
@@ -82,9 +63,10 @@
         var valid = true;
 
         var user = {
-            firstName: firstname.val(),
-            lastname: lastname.val(),
-            login: login.val()
+            firstName: firstnameInput.val(),
+            lastname: lastnameInput.val(),
+            login: loginInput.val(),
+            birthDate: birthDateInput.val()
         };
 
         if (valid) {
@@ -112,16 +94,18 @@
 
         }
         else {
-            alert("Delete aborted - Id: " + userId);
+            alert("Delete failed - Id: " + userId);
         }
 
     });
 
     /* Dialog */
 
-    var firstname = $("#firstname"),
-    lastname = $("#lastname"),
-    login = $("#login");
+    var firstnameInput = $("#firstname"),
+    lastnameInput = $("#lastname"),
+    loginInput = $("#login"),
+    birthDateInput = $("#birthDatePicker");
+    $("#birthDatePicker").datepicker();
 
     var addUserDialog = $("#dialog-form").dialog({
         autoOpen: false,
@@ -146,8 +130,6 @@
         }
     });
 
-    $("#birthDatePicker").datepicker();
-
     $("#btnAddUser").button().on("click", function () {
         var d = $(this).attr('id');
         addUserDialog.dialog("open");
@@ -156,6 +138,7 @@
     /* CRUD */
 
     function addUser(user) {
+        console.log("adding user do DB: " + JSON.stringify(user));
         $.ajax({
             type: "POST",
             url: API_URL + "/api/users/",
@@ -163,7 +146,7 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-                console.log("POST success: " + JSON.stringify(data));
+                console.log("POST success -> returned data: " + JSON.stringify(data));
                 appendUserToTable(data);
             },
             failure: function (response) {
@@ -210,4 +193,30 @@
             }
         });
     }
+
+    function getUsersAll() {
+        $.ajax({
+            type: "GET",
+            url: API_URL + "/api/users/",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+
+                if (response != null) {
+                    // display users in table
+                    if ($.isArray(response)) {
+                        $.each(response, function (index, response) {
+                            appendUserToTable(response);
+                        });
+                    }
+                }
+            },
+            failure: function (response) {
+                alert("failure: " + response.responseText);
+            },
+            error: function (response) {
+                alert("error: " + response.responseText);
+            }
+        });
+    };
 });
