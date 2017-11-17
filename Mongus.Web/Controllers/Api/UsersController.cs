@@ -63,8 +63,12 @@ namespace Mongus.Web.Controllers.Api
         }
 
         // PUT: api/Users/5
-        public void Put(int id, [FromBody]string value)
+        public async Task<IHttpActionResult> Put([FromBody]UserVM user)
         {
+            var userToUpdate = _mapper.Map<User>(user);
+            await _userService.UpdateAsync(userToUpdate);
+
+            return Ok(user);
         }
 
         // DELETE: api/Users/5

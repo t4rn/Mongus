@@ -56,6 +56,7 @@
                 <table id="table-users" class="table table-hover">
                     <tr>
                         <th>Id</th>
+                        <th>Login</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Create Date</th>
@@ -67,9 +68,8 @@
         </div>
 
         <!--Find user by ID-->
-
+        <h3>Find user by ID:</h3>
         <div id="searchDiv" class="row">
-            <h3>Find user by ID:</h3>
             <div class="col-md-5">
                 <div class="input-group">
                     <input id="userId" type="text" class="form-control" />
@@ -92,10 +92,13 @@
 
         <!--Add User Dialog -->
 
-        <div id="dialog-form" title="Create new user">
+        <div id="dialogForm" title="Create new user">
             <p class="validateTips">All form fields are required.</p>
 
-            <form id="addUserForm">
+            <form id="userForm">
+                <div class="form-group">
+                    <input type="hidden" name="userId" id="userId" class="form-control">
+                </div>
                 <div class="form-group">
                     <label for="firstname">First Name</label>
                     <input type="text" name="name" id="firstname" class="form-control">

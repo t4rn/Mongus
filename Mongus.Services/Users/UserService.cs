@@ -34,5 +34,10 @@ namespace Mongus.Services.Users
         {
             return await _userRepository.GetAsync(id);
         }
+
+        public async Task UpdateAsync(User user)
+        {
+            await _userRepository.UpdateAsync(user);
+        }
     }
 }

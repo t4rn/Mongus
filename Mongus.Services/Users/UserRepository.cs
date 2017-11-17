@@ -37,5 +37,10 @@ namespace Mongus.Services.Users
         {
             return await _context.Users.AsQueryable().FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        public async Task UpdateAsync(User user)
+        {
+            await _context.Users.ReplaceOneAsync(x => x.Id == user.Id, user);
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Mongus.Services.Users
         Task<User> GetAsync(string id);
         Task<IEnumerable<User>> GetAllAsync();
         Task<bool> DeleteAsync(string id);
+        Task UpdateAsync(User user);
     }
 }
