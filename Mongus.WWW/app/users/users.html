@@ -1,0 +1,81 @@
+﻿
+<div ng-controller="usersController">
+
+    <div layout="column" layout-align="center center">
+        <div>
+            <h2>Users</h2>
+        </div>
+
+        <md-content class="md-padding" layout-xs="column" layout="row">
+
+            <div flex-xs flex-gt-xs="25">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Add User</span>
+                        </md-card-title-text>
+                    </md-card-title>
+
+                    <md-card-content layout="column" layout-align="space-between">
+
+                        <md-button id="btnAddUser" class="md-raised md-primary"
+                                   ng-click="showAddUserDialog()">
+                            Add User
+                        </md-button>
+                    </md-card-content>
+                </md-card>
+
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Get User</span>
+                        </md-card-title-text>
+                    </md-card-title>
+
+                    <md-input-container flex class="md-icon-float md-block md-title">
+                        <label>User ID</label>
+                        <input type="text" ng-model="userId">
+                    </md-input-container>
+                    <div>
+                        <md-button id="btnGetUserById" class="md-raised md-primary"
+                                   ng-click="getUserById($event, userId)">
+                            Get user by ID
+                        </md-button>
+                    </div>
+
+                </md-card>
+            </div>
+            <div flex-xs flex-gt-xs="75" layout="column">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">All Users</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content layout="row" layout-align="space-between">
+                        <table class="table-bordered">
+                            <tr>
+                                <th>Id</th>
+                                <th>Login</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Create Date</th>
+                                <th>Birth Date</th>
+                            </tr>
+                            <tr ng-repeat="user in usersAll">
+                                <td>{{ user.Id }}</td>
+                                <td>{{ user.Login }}</td>
+                                <td>{{ user.FirstName }}</td>
+                                <td>{{ user.LastName }}</td>
+                                <td>{{ user.CreateDate }}</td>
+                                <td>{{ user.BirthDate }}</td>
+                            </tr>
+                        </table>
+                    </md-card-content>
+                </md-card>
+            </div>
+
+        </md-content>
+    </div>
+
+</div>

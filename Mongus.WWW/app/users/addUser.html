@@ -1,0 +1,81 @@
+﻿<md-dialog>
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Create new User</h2>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <span>Fill out the form. All fields are required.</span>
+                <div layout-gt-sm="column">
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Login</label>
+                        <input type="text" class="form-control" name="login" ng-model="newUser.login" md-maxlength="8" required autofocus />
+                        <div ng-messages="userForm.login.$error">
+                            <div ng-message="required">Login is required !</div>
+                            <div ng-message="md-maxlength">Maximum 8 characters allowed !</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" name="firstName" ng-model="newUser.firstName" required autofocus />
+                        <div ng-messages="userForm.firstName.$error">
+                            <div ng-message="required">First name is required!</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" name="lastName" ng-model="newUser.lastName" required autofocus />
+                        <div ng-messages="userForm.lastName.$error">
+                            <div ng-message="required">Last name is required !</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" ng-model="newUser.email" ng-pattern="/^.+.+\..+$/" required autofocus />
+                        <div ng-messages="userForm.email.$error">
+                            <div ng-message-exp="['required','pattern']">Email is required in correct format !</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="passwd" ng-model="newUser.passwd" md-maxlength="10" required autofocus />
+                        <div ng-messages="userForm.passwd.$error">
+                            <div ng-message="required">Password is required !</div>
+                            <div ng-message="md-maxlength">Maximum 10 characters allowed !</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Birth Date</label>
+                        <div flex-gt-xs>
+                            <md-datepicker ng-model="newUser.birthDate" md-placeholder="Enter date" 
+                                           md-max-date="maxDate"></md-datepicker>
+                        </div>
+                        <div ng-messages="birthDate.birthDate.$error">
+                            <div ng-message="required">Birth date is required !</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-icon-float md-block" flex-gt-sm>
+                        <md-button class="md-raised md-primary" ng-click="cancel()">
+                            <md-tooltip>
+                                Cancel
+                            </md-tooltip>
+                            Cancel
+                        </md-button>
+                        <md-button class="md-raised md-primary" ng-click="saveUser()"
+                                   ng-disabled="!(newUser.firstName && newUser.lastName && newUser.email && newUser.login && newUser.passwd)">
+                            <md-tooltip>
+                                Save
+                            </md-tooltip>
+                            Save
+                        </md-button>
+
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

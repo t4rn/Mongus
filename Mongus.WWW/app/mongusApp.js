@@ -14,10 +14,11 @@
     });
 
     $routeProvider.when("/users", {
-        controller: "userController",
+        controller: "usersController",
         //controllerAs: "vm",
-        templateUrl: "/app/user/user.html"
+        templateUrl: "/app/users/users.html"
     });
+
     //$routeProvider.when("/editor/:tripName", {
     //    controller: "tripEditorController",
     //    controllerAs: "vm",
@@ -25,6 +26,6 @@
     //});
 
     $routeProvider.otherwise({ redirectTo: "/" });
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
 
 });
