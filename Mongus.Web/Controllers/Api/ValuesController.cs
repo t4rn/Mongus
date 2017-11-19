@@ -16,7 +16,7 @@ namespace Mongus.Web.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return $"Value is {id}";
+            return $"You passed {id}";
         }
 
         // POST api/values

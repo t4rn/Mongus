@@ -1,0 +1,42 @@
+﻿
+<div ng-controller="valuesController">
+
+
+
+    <div layout="column" layout-align="center center">
+
+        <div>
+            <div layout="row" flex>
+                <md-input-container flex class="md-icon-float md-block md-title">
+                    <label>Value ID here</label>
+                    <input type="text" ng-model="valueId">
+                </md-input-container>
+                <div>
+                    <md-button id="btnGetValueById" class="md-raised md-primary" 
+                               ng-click="getValueById($event)" ng-disabled="isGetValueDisabled()">
+                        Get value by ID
+                    </md-button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <md-button id="btnGetAllValues" type="button" class="md-warn md-raised md-hue-2"
+                       ng-click="getAllValues()">
+                Get all values
+            </md-button>
+
+            <table class="table-bordered" ng-show="showTable()">
+                <tr>
+                    <th>Value</th>
+                </tr>
+                <tr ng-repeat="v in values">
+                    <td>{{ v }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

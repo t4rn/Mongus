@@ -1,51 +1,30 @@
-﻿
-body {
-    //padding-top: 50px;
-    padding-bottom: 20px;
+﻿body {
+    background-color: #EEEEEE;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+main {
+  overflow-y: auto;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+
+.table-bordered {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-/* AngularJS Material */
+.table-bordered td, .table-bordered th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
 
+.table-bordered tr:nth-child(even){background-color: #f2f2f2;}
 
-.buttondemoBasicUsage section {
-  background: #f7f7f7;
-  border-radius: 3px;
-  text-align: center;
-  margin: 1em;
-  position: relative !important;
-  padding-bottom: 10px; }
+.table-bordered tr:hover {background-color: #ddd;}
 
-.buttondemoBasicUsage md-content {
-  margin-right: 7px; }
-
-.buttondemoBasicUsage section .md-button {
-  margin-top: 16px;
-  margin-bottom: 16px; }
-
-.buttondemoBasicUsage .label {
-  position: absolute;
-  bottom: 5px;
-  left: 7px;
-  font-size: 14px;
-  opacity: 0.54; }
-
-.navBardemoBasicUsage md-content .ext-content {
-  padding: 50px;
-  margin: 20px;
-  background-color: #FFF2E0; }
-
-.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
-  color: white; }
+.table-bordered th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

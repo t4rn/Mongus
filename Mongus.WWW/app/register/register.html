@@ -1,0 +1,77 @@
+﻿<div ng-controller="registerController" layout="column" layout-padding ng-cloak>
+    <br />
+    <md-content class="md-no-momentum">
+        <md-toolbar>
+            <h2 class="md-toolbar-tools">
+                <span flex>Register User</span>
+            </h2>
+        </md-toolbar><br /><br />
+        <form name="userForm">
+            <div layout-gt-sm="column" flex="30">
+                <md-input-container class="md-icon-float md-block">
+                    <label>First Name</label>
+                    <!--<md-icon md-svg-src="~/Content/Icons/employee.svg" class="fName"></md-icon>-->
+                    <input type="text" class="form-control" name="fName" ng-model="fName" required autofocus />
+                    <div ng-messages="userForm.fName.$error">
+                        <div ng-message="required">First name is required!</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block">
+                    <label>Last Name</label>
+                    <!--<md-icon md-svg-src="~/Content/Icons/employee.svg" class="lName"></md-icon>-->
+                    <input type="text" class="form-control" name="lName" ng-model="lName" required autofocus />
+                    <div ng-messages="userForm.lName.$error">
+                        <div ng-message="required">Last name is required !</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="column" flex="30">
+                <md-input-container class="md-icon-float md-block">
+                    <label>Email</label>
+                    <!--<md-icon md-svg-src="~/Content/Icons/placeholder.svg" class="uEmail"></md-icon>-->
+                    <input type="email" class="form-control" name="uEmail" ng-model="uEmail" ng-pattern="/^.+.+\..+$/" required autofocus />
+                    <div ng-messages="userForm.uEmail.$error">
+                        <div ng-message-exp="['required','pattern']">Email is required in correct format !</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-icon-float md-block">
+                    <label>Username</label>
+                    <!--<md-icon md-svg-src="~/Content/Icons/placeholder.svg" class="uName"></md-icon>-->
+                    <input type="text" class="form-control" name="uName" ng-model="uName" md-maxlength="8" required autofocus />
+                    <div ng-messages="userForm.uName.$error">
+                        <div ng-message="required">Username is required !</div>
+                        <div ng-message="md-maxlength">Maximum 8 characters allowed !</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="column" flex="30">
+                <md-input-container class="md-icon-float md-block" flex-gt-sm>
+                    <label>Password</label>
+                    <!--<md-icon md-svg-src="~/Content/Icons/cityscape.svg" class="uPwd"></md-icon>-->
+                    <input type="password" class="form-control" name="uPwd" ng-model="uPwd" md-maxlength="10" required autofocus />
+                    <div ng-messages="userForm.uPwd.$error">
+                        <div ng-message="required">Password is required !</div>
+                        <div ng-message="md-maxlength">Maximum 10 characters allowed !</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-icon-float md-block" flex-gt-sm>
+                    <md-button class="md-raised md-primary" ng-click="SaveUser();" ng-disabled="!(fName && lName && uEmail && uName && uPwd)">
+                        <md-tooltip>
+                            Save
+                        </md-tooltip>
+                        Save
+                    </md-button>
+                    <md-button class="md-raised md-primary">
+                        <md-tooltip>
+                            Sign in
+                        </md-tooltip>
+                        Sign in
+                    </md-button>
+
+                </md-input-container>
+            </div>
+        </form>
+    </md-content>
+</div>

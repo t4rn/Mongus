@@ -1,7 +1,12 @@
-﻿var app = angular.module("myApp", ['ngMaterial', 'ngMessages']);
+﻿
+"use strict";
 
-app.controller("controll", function ($scope, myService) {
+// getting the existing module
+angular.module("mongusApp")
+.controller("registerController", registerController)
+.service("myService", myService);
 
+function registerController($scope, myService) {
 
     $scope.SaveUser = function () {
 
@@ -40,10 +45,9 @@ app.controller("controll", function ($scope, myService) {
         $scope.uName = "";
         $scope.userForm.$setPristine();
     }
-});
+};
 
-app.service("myService", function ($http) {
-
+function myService() {
     this.AddUser = function (User) {
         var response = $http
         ({
@@ -54,4 +58,4 @@ app.service("myService", function ($http) {
         });
         return response;
     };
-});
+}

@@ -1,66 +1,71 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>Mongus 2.0</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Mongus von Dominus</title>
+    <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/angular-material.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
 
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/angular-animate.js"></script>
     <script src="Scripts/angular-aria.js"></script>
+    <script src="Scripts/angular-messages.js"></script>
     <script src="Scripts/angular-material.js"></script>
-    <script src="Scripts/app/index.js"></script>
 
-    <script type="text/javascript">
+    <script src="app/config.js"></script>
+    <script src="app/mongusApp.js"></script>
+    <script src="app/values/valuesController.js"></script>
+    <script src="app/register/registerController.js"></script>
 
-        angular.module('firstApplication', ['ngMaterial']);
-    </script>
+    <!-- preety url -->
+    <base href="/">
 
 </head>
-<body ng-cloak layout="column">
+<body ng-app="mongusApp">
 
-    <!-- Container #1 (see wireframe) -->
-    <md-toolbar layout="row" class="md-toolbar-tools">
-        <h1>Angular Material - Starter App</h1>
-    </md-toolbar>
+    <div layout="column" layout-fill ng-cloak>
 
-    <!-- Container #2 -->
-    <div flex layout="row">
-
-        <!-- Container #3 -->
-        <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
-            Sidenav
-        </md-sidenav>
-
-        <!-- Container #4 -->
-        <md-content flex id="content">
-            Content
-        </md-content>
-
-    </div>
-
-</body>
-
-<!--<body>
-
-    <div ng-controller="HomeController" ng-cloak="" class="toolbardemoBasicUsage" ng-app="MongusApp">
-
-        <md-content>
+        <!--<md-content class="md-no-momentum">-->
+        <header>
             <md-toolbar>
                 <div class="md-toolbar-tools">
-                    <md-truncate>Toolbar with Standard Buttons</md-truncate>
+                    <a href="/"><md-truncate>Mongus Dominus AngularJS Material</md-truncate></a>
 
 
-                    <md-button class="md-raised" aria-label="Learn More">
-                        Learn More
+                    <md-button class="md-raised" aria-label="Values..." href="/values">
+                        Values
+                    </md-button>
+                    <md-button class="md-raised" aria-label="Register..." href="/register">
+                        Register
+                    </md-button>
+                    <md-button class="md-raised" aria-label="Users..." href="/users">
+                        Users
                     </md-button>
                 </div>
             </md-toolbar>
-        </md-content>
+        </header>
+
+        <main flex>
+
+            <md-whiteframe class="md-whiteframe-2dp" layout-align="center center">
+
+                <div ng-view></div>
+
+            </md-whiteframe>
+
+        </main>
+        <footer>
+            <md-toolbar class="md-scroll-shrink">
+                <div layout="row" layout-align="center center" flex>
+                    2017 - My ASP.NET Application
+                </div>
+            </md-toolbar>
+        </footer>
+
+        <!--</md-content>-->
+
     </div>
-
-
-</body>-->
+</body>
 </html>
