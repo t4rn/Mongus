@@ -5,7 +5,7 @@
     angular.module("mongusApp")
     .controller("indexController", indexController);
 
-    function indexController($scope) {
+    function indexController($scope, $mdSidenav) {
 
         var vm = $scope;
         vm.theme = "default";
@@ -42,5 +42,8 @@
             }
         };
 
+        vm.toggleSidebar = function () {
+            $mdSidenav("leftSidebar").toggle();
+        };
     }
 })();

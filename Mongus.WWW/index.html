@@ -6,6 +6,7 @@
     <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/angular-material.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
@@ -29,13 +30,87 @@
     <div ng-controller="indexController" layout="column" layout-fill ng-cloak md-theme="{{ theme }}" ng-style="myStyle">
         <!--<md-content class="md-no-momentum">-->
         <header>
+
+            <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+                        md-component-id="leftSidebar" layout="column" layout-fill>
+
+                <div flex>
+                    <md-toolbar>
+                        <span flex></span>
+
+                        <div layout="row">
+                            <div layout="column" class="md-toolbar-tools-bottom inset">
+                                <img class="round-image" src="app/assets/avatar.png" style="width: 100px; " />
+                                <span></span>
+                                <div>John Smith</div>
+                                <div>IT Company</div>
+                            </div>
+                            <span flex></span>
+                            <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="toggleSidebar()">
+                                <md-tooltip>Close Side Panel</md-tooltip>
+                                <md-icon class="material-icons">chevron_left</md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar>
+                    <md-list>
+                        <md-list-item>
+                            <md-icon class="material-icons">home</md-icon>
+                            <p>Home</p>
+                        </md-list-item>
+                        <md-subheader class="md-no-sticky">Favorites</md-subheader>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE0C9;</md-icon>
+                            <p>Messages</p>
+                            <div class="md-secondary">2</div>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE878;</md-icon>
+                            <p>Events</p>
+                            <md-icon class="md-secondary">2</md-icon>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE251;</md-icon>
+                            <p>Photos</p>
+                            <md-icon class="md-secondary">2</md-icon>
+                        </md-list-item>
+                        <md-divider></md-divider>
+                        <md-subheader class="md-no-sticky">Pages</md-subheader>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE7F9;</md-icon>
+                            <p>Pages Feed</p>
+                            <div class="md-secondary">2</div>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE1BC;</md-icon>
+                            <p>Like Pages</p>
+                            <div class="md-secondary">20+</div>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <md-toolbar>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-icon class="material-icons">shopping_cart</md-icon>
+                        <md-icon class="material-icons">accessible</md-icon>
+                        <md-icon class="material-icons">alarm</md-icon>
+                        <md-icon class="material-icons">bookmark_border</md-icon>
+                    </div>
+                </md-toolbar>
+
+            </md-sidenav>
+
+
             <md-toolbar class="md-whiteframe-7dp">
                 <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Side Panel" ng-click="toggleSidebar()">
+                        <md-tooltip>Open Side Panel</md-tooltip>
+                        <md-icon class="material-icons">menu</md-icon>
+                    </md-button>
+
+
                     <a href="/">
                         <img class="logo-image" src="/app/assets/logo.png" style="width: 44px; height:44px;">
                         <!--<md-truncate>Mongus Dominus AngularJS Material</md-truncate>-->
                     </a>
-
                     <md-button aria-label="Values..." href="#!/values">
                         Values
                     </md-button>
@@ -49,6 +124,10 @@
                         Charts
                     </md-button>
                     <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Search button" ng-click="">
+                        <md-tooltip>Search on website...</md-tooltip>
+                        <md-icon class="material-icons">search</md-icon>
+                    </md-button>
                     <md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
                         Change Theme
                     </md-button>
@@ -68,13 +147,12 @@
         <footer>
             <md-toolbar class="md-scroll-shrink">
                 <div layout="row" layout-align="center center" flex>
-                    2017 - My ASP.NET Application
+                    2017 - My AngularJS Material Application
                 </div>
             </md-toolbar>
         </footer>
 
         <!--</md-content>-->
-
     </div>
 </body>
 </html>
