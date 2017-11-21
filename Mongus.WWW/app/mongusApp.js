@@ -1,5 +1,5 @@
 ﻿angular.module("mongusApp", ["ngMaterial", "ngRoute"])
-.config(function ($routeProvider, $locationProvider) {
+.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide) {
 
     $routeProvider.when("/values", {
         controller: "valuesController",
@@ -27,5 +27,16 @@
 
     $routeProvider.otherwise({ redirectTo: "/" });
     //$locationProvider.html5Mode(true);
+
+    $mdThemingProvider.theme('default')
+        .primaryPalette('indigo')
+        .accentPalette('brown');
+
+    $mdThemingProvider.theme('altTheme')
+        .primaryPalette('orange')
+        .warnPalette('green')
+        .accentPalette('pink');
+
+    $provide.value('themeProvider', $mdThemingProvider);
 
 });

@@ -16,6 +16,7 @@
 
     <script src="app/config.js"></script>
     <script src="app/mongusApp.js"></script>
+    <script src="app/index/indexController.js"></script>
     <script src="app/values/valuesController.js"></script>
     <script src="app/register/registerController.js"></script>
     <script src="app/users/usersController.js"></script>
@@ -25,12 +26,10 @@
 
 </head>
 <body ng-app="mongusApp">
-
-    <div layout="column" layout-fill ng-cloak>
-
+    <div ng-controller="indexController" layout="column" layout-fill ng-cloak md-theme="{{ theme }}" ng-style="{'background-color': getBackgroundColor()}">
         <!--<md-content class="md-no-momentum">-->
         <header>
-            <md-toolbar>
+            <md-toolbar class="md-whiteframe-7dp">
                 <div class="md-toolbar-tools">
                     <a href="/"><md-truncate>Mongus Dominus AngularJS Material</md-truncate></a>
 
@@ -43,6 +42,10 @@
                     </md-button>
                     <md-button aria-label="Users..." href="#!/users">
                         Users
+                    </md-button>
+                    <span flex></span>
+                    <md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
+                        Change Theme
                     </md-button>
                 </div>
             </md-toolbar>
