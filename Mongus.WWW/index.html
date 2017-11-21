@@ -31,8 +31,10 @@
         <header>
             <md-toolbar class="md-whiteframe-7dp">
                 <div class="md-toolbar-tools">
-                    <a href="/"><md-truncate>Mongus Dominus AngularJS Material</md-truncate></a>
-
+                    <a href="/">
+                        <img class="logo-image" src="/app/assets/logo.png" style="width: 44px; height:44px;">
+                        <!--<md-truncate>Mongus Dominus AngularJS Material</md-truncate>-->
+                    </a>
 
                     <md-button aria-label="Values..." href="#!/values">
                         Values
@@ -42,6 +44,9 @@
                     </md-button>
                     <md-button aria-label="Users..." href="#!/users">
                         Users
+                    </md-button>
+                    <md-button aria-label="Users..." href="#!/charts">
+                        Charts
                     </md-button>
                     <span flex></span>
                     <md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
