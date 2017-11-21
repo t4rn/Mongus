@@ -6,7 +6,6 @@ main {
   overflow-y: auto;
 }
 
-
 .table-bordered {
     border-collapse: collapse;
     width: 100%;
@@ -25,6 +24,6 @@ main {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #3F51B5;
-    color: white;
+    /*background-color: #3F51B5;*/
+    color: rgba(0,0,0,.54);
 }

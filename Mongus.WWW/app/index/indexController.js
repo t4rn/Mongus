@@ -9,16 +9,22 @@
 
         var vm = $scope;
         vm.theme = "default";
-        //vm.webStyle = "{'background-color':'blue'}";
-        //vm.myColor = "green";
+
         vm.defaultStyle = {
             theme: "default",
-            backgroundColor: "#EEEEEE"
+            backgroundColor: "#EEEEEE",
+            color: "black"
         };
 
         vm.altStyle = {
             theme: "altTheme",
-            backgroundColor: "#0C2238"
+            backgroundColor: "#0C2238",
+            color: "white"
+        };
+
+        vm.myStyle = {
+            background: vm.defaultStyle.backgroundColor,
+            color: vm.defaultStyle.color
         };
 
         vm.changeTheme = function changeTheme() {
@@ -26,20 +32,15 @@
 
             if (vm.theme == "default") {
                 vm.theme = vm.altStyle.theme;
+                vm.myStyle.background = vm.altStyle.backgroundColor;
+                vm.myStyle.color = vm.altStyle.color;
             }
             else {
                 vm.theme = vm.defaultStyle.theme;
+                vm.myStyle.background = vm.defaultStyle.backgroundColor;
+                vm.myStyle.color = vm.defaultStyle.color;
             }
         };
-
-        vm.getBackgroundColor = function () {
-            if (vm.theme == "default") {
-                return vm.defaultStyle.backgroundColor;
-            }
-            else {
-                return vm.altStyle.backgroundColor;
-            }
-        }
 
     }
 })();
