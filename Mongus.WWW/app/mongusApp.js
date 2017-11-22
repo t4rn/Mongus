@@ -19,6 +19,12 @@
         templateUrl: "/app/components/users/users.html"
     });
 
+    $routeProvider.when("/charts", {
+        controller: "chartsController",
+        //controllerAs: "vm",
+        templateUrl: "/app/components/charts/charts.html"
+    });
+
     //$routeProvider.when("/editor/:tripName", {
     //    controller: "tripEditorController",
     //    controllerAs: "vm",

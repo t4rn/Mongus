@@ -1,6 +1,6 @@
 ﻿
 <div ng-controller="usersController as vm">
-    <md-content class="md-padding" layout="row">
+    <md-content class="md-padding" layout="row" layout-xs="column">
         <div flex-xs flex-gt-xs="25">
             <md-card>
                 <md-card-title>
@@ -18,24 +18,22 @@
                 </md-card-content>
             </md-card>
 
-            <md-card class="md-padding">
+            <md-card>
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">Get User</span>
                     </md-card-title-text>
                 </md-card-title>
-
-                <md-input-container flex class="md-icon-float md-block md-title">
-                    <label>User ID</label>
-                    <input type="text" ng-model="userId">
-                </md-input-container>
-                <div>
+                <md-card-content layout="column" layout-align="space-between">
+                    <md-input-container flex class="md-icon-float md-block md-title">
+                        <label>User ID</label>
+                        <input type="text" ng-model="userId">
+                    </md-input-container>
                     <md-button id="btnGetUserById" class="md-raised md-primary"
                                ng-click="vm.getUserById($event, userId)">
                         Get user by ID
                     </md-button>
-                </div>
-
+                </md-card-content>
             </md-card>
         </div>
         <div flex-xs flex-gt-xs="75" layout="column">

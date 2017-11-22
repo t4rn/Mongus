@@ -5,7 +5,7 @@
     angular.module("mongusApp")
 	.controller("usersController", usersController);
 
-    function usersController($scope, $http, $mdDialog, $q) {
+    function usersController($scope, $http, $mdDialog) {
 
         var vm = this;
         var urlForApi = API_URL + "/api/users/";
