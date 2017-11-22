@@ -7,7 +7,7 @@
 
     function usersController($scope, $http, $mdDialog, $q) {
 
-        var vm = $scope;
+        var vm = this;
         var urlForApi = API_URL + "/api/users/";
         vm.isBusy = false;
         vm.usersAll = [];

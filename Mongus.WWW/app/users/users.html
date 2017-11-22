@@ -1,5 +1,5 @@
 ﻿
-<div ng-controller="usersController">
+<div ng-controller="usersController as vm">
     <md-content class="md-padding" layout="row">
         <div flex-xs flex-gt-xs="25">
             <md-card>
@@ -12,7 +12,7 @@
                 <md-card-content layout="column" layout-align="space-between">
 
                     <md-button id="btnAddUser" class="md-raised md-primary"
-                               ng-click="showAddUserDialog()">
+                               ng-click="vm.showAddUserDialog()">
                         Add User
                     </md-button>
                 </md-card-content>
@@ -31,7 +31,7 @@
                 </md-input-container>
                 <div>
                     <md-button id="btnGetUserById" class="md-raised md-primary"
-                               ng-click="getUserById($event, userId)">
+                               ng-click="vm.getUserById($event, userId)">
                         Get user by ID
                     </md-button>
                 </div>
@@ -55,7 +55,7 @@
                             <th>Create Date</th>
                             <th>Birth Date</th>
                         </tr>
-                        <tr ng-repeat="user in usersAll">
+                        <tr ng-repeat="user in vm.usersAll">
                             <td>{{ user.Id }}</td>
                             <td>{{ user.Login }}</td>
                             <td>{{ user.FirstName }}</td>
