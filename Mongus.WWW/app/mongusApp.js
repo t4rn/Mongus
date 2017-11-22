@@ -4,19 +4,19 @@
     $routeProvider.when("/values", {
         controller: "valuesController",
         controllerAs: "vm",
-        templateUrl: "/app/values/values.html"
+        templateUrl: "/app/components/values/values.html"
     });
 
     $routeProvider.when("/register", {
         controller: "valuesController",
         //controllerAs: "vm",
-        templateUrl: "/app/register/register.html"
+        templateUrl: "/app/components/register/register.html"
     });
 
     $routeProvider.when("/users", {
         controller: "usersController",
         //controllerAs: "vm",
-        templateUrl: "/app/users/users.html"
+        templateUrl: "/app/components/users/users.html"
     });
 
     //$routeProvider.when("/editor/:tripName", {
