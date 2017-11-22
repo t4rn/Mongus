@@ -1,4 +1,4 @@
-﻿angular.module("mongusApp", ["ngMaterial", "ngRoute"])
+﻿angular.module("mongusApp", ["ngMaterial", "ngRoute", "chart.js"])
 .config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide) {
 
     $routeProvider.when("/values", {
