@@ -45,5 +45,9 @@
         vm.toggleSidebar = function () {
             $mdSidenav("leftSidebar").toggle();
         };
+
+        vm.openMenu = function ($mdMenu, ev) {
+            $mdMenu.open(ev);
+        };
     }
 })();

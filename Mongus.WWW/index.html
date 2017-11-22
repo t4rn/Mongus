@@ -31,7 +31,7 @@
         <!--<md-content class="md-no-momentum">-->
         <header>
 
-            <md-toolbar>
+            <md-toolbar  class="md-whiteframe-7dp">
                 <div class="md-toolbar-tools">
                     <md-button class="md-icon-button" aria-label="Side Panel" ng-click="toggleSidebar()">
                         <md-tooltip>Open Side Panel</md-tooltip>
@@ -65,18 +65,31 @@
                         <md-icon class="material-icons">notifications</md-icon>
                     </md-button>
 
+                    <md-menu md-position-mode="target-right target">
+                        <md-button aria-label="Tools menu" class="md-icon-button" ng-click="openMenu($mdMenu, $event)">
+                            <md-tooltip>Tools...</md-tooltip>
+                            <md-icon class="material-icons">more_vert</md-icon>
+                        </md-button>
+                        <md-menu-content width="3">
+                            <md-menu-item>
+                                <md-button ng-click="changeTheme()">
+                                    <md-icon class="material-icons">airplay</md-icon>
+                                    Change Theme
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="">
+                                    <md-icon class="material-icons">directions_run</md-icon>
+                                    Logout
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
 
-                    <md-button class="md-icon-button" aria-label="Tools button" ng-click="">
-                        <md-tooltip>Tools...</md-tooltip>
-                        <md-icon class="material-icons">more_vert</md-icon>
-                    </md-button>
-
-                    <md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
+                    <!--<md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
                         Change Theme
-                    </md-button>
-
-
-                    <!--<md-fab-speed-dial md-open="false" md-direction="down" class="md-scale md-fab-top-right">
+                    </md-button>-->
+                    <!--<md-fab-speed-dial md-open="false" md-direction="down" class="md-scale">
                         <md-fab-trigger>
                             <md-button aria-label="menu">
                                 <md-icon class="material-icons">more_vert</md-icon>
@@ -86,11 +99,7 @@
                         <md-fab-actions>
                             <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="changeTheme()">
                                 <md-tooltip>Change Theme</md-tooltip>
-                                <md-icon class="material-icons">notifications</md-icon>
-                            </md-button>
-                            <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="changeTheme()">
-                                <md-tooltip>Change Theme</md-tooltip>
-                                <md-icon class="material-icons">notifications</md-icon>
+                                <md-icon class="material-icons">airplay</md-icon>
                             </md-button>
                         </md-fab-actions>
                     </md-fab-speed-dial>-->
