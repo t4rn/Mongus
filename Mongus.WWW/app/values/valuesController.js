@@ -71,7 +71,11 @@
                     // failure
                     var err = JSON.stringify(error);
                     console.log(err);
-                    alert("error: " + err);
+                    // mock
+                    vm.values = [
+                        "Mocked 1" , "Mocked 2", "Mocked 3"
+                    ];
+                    //alert("error: " + err);
                 })
                 .finally(function () {
                     vm.isBusy = false;

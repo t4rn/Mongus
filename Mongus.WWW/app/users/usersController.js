@@ -12,6 +12,13 @@
         vm.isBusy = false;
         vm.usersAll = [];
 
+        var mockedUsers = [
+            { Id: "5a0ad33d96c3c237eca3bcde", Login: "asmith", FirstName: "Adam", LastName: "Smith", CreateDate: new Date(), BirthDate: new Date() },
+            { Id: "5a0c433096c3c2376cc4480f", Login: "kwitkowski", FirstName: "Kris", LastName: "Wit", CreateDate: new Date(), BirthDate: new Date() },
+            { Id: "5a0c437296c3c2376cc44810", Login: "onowak", FirstName: "Olaf", LastName: "Nowak", CreateDate: new Date(), BirthDate: new Date() },
+            { Id: "5a0eccef96c3c33384990091", Login: "tmark", FirstName: "Teddy", LastName: "Mark", CreateDate: new Date(), BirthDate: new Date() },
+        ];
+
         // initial users getting
         getUsersAll();
 
@@ -44,12 +51,12 @@
                                 console.log("GET success, data: " + JSON.stringify(user));
                                 var dialogContent = "User: " + user.FirstName + " " + user.LastName + " born on " + user.BirthDate
                                     + " was created on " + user.CreateDate;
-                                showDialog(dialogContent, ev);
+                                showDialog(dialogContent, "Process succeded!", ev);
                             }, function (error) {
                                 // failure
                                 var err = JSON.stringify(error);
                                 console.log(err);
-                                showDialog(err, ev);
+                                showDialog(err, "Error occured!", ev);
                             })
                 .finally(function () {
                     vm.isBusy = false;
@@ -127,19 +134,23 @@
                             // failure
                             var err = JSON.stringify(error);
                             console.log(err);
-                            alert("error: " + err);
-                        })
+
+                            // mock
+                            vm.usersAll = mockedUsers;
+
+                            //alert("error: " + err);
+                            })
             .finally(function () {
                 vm.isBusy = false;
             });
         }
 
-        function showDialog(text, event) {
+        function showDialog(text, title, event) {
             $mdDialog.show(
                   $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))
                     .clickOutsideToClose(true)
-                    .title('Process succeded!')
+                    .title(title)
                     .textContent(text)
                     .ariaLabel('Aria Label?')
                     .ok('Ok!')

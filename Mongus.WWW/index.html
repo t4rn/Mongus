@@ -31,75 +31,7 @@
         <!--<md-content class="md-no-momentum">-->
         <header>
 
-            <md-sidenav class="md-sidenav-left md-whiteframe-z2"
-                        md-component-id="leftSidebar" layout="column" layout-fill>
-
-                <div flex>
-                    <md-toolbar>
-                        <span flex></span>
-
-                        <div layout="row">
-                            <div layout="column" class="md-toolbar-tools-bottom inset">
-                                <img class="round-image" src="app/assets/avatar.png" style="width: 100px; " />
-                                <span></span>
-                                <div>John Smith</div>
-                                <div>IT Company</div>
-                            </div>
-                            <span flex></span>
-                            <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="toggleSidebar()">
-                                <md-tooltip>Close Side Panel</md-tooltip>
-                                <md-icon class="material-icons">chevron_left</md-icon>
-                            </md-button>
-                        </div>
-                    </md-toolbar>
-                    <md-list>
-                        <md-list-item>
-                            <md-icon class="material-icons">home</md-icon>
-                            <p>Home</p>
-                        </md-list-item>
-                        <md-subheader class="md-no-sticky">Favorites</md-subheader>
-                        <md-list-item>
-                            <md-icon class="material-icons">&#xE0C9;</md-icon>
-                            <p>Messages</p>
-                            <div class="md-secondary">2</div>
-                        </md-list-item>
-                        <md-list-item>
-                            <md-icon class="material-icons">&#xE878;</md-icon>
-                            <p>Events</p>
-                            <md-icon class="md-secondary">2</md-icon>
-                        </md-list-item>
-                        <md-list-item>
-                            <md-icon class="material-icons">&#xE251;</md-icon>
-                            <p>Photos</p>
-                            <md-icon class="md-secondary">2</md-icon>
-                        </md-list-item>
-                        <md-divider></md-divider>
-                        <md-subheader class="md-no-sticky">Pages</md-subheader>
-                        <md-list-item>
-                            <md-icon class="material-icons">&#xE7F9;</md-icon>
-                            <p>Pages Feed</p>
-                            <div class="md-secondary">2</div>
-                        </md-list-item>
-                        <md-list-item>
-                            <md-icon class="material-icons">&#xE1BC;</md-icon>
-                            <p>Like Pages</p>
-                            <div class="md-secondary">20+</div>
-                        </md-list-item>
-                    </md-list>
-                </div>
-                <md-toolbar>
-                    <div layout="row" layout-align="center center" flex>
-                        <md-icon class="material-icons">shopping_cart</md-icon>
-                        <md-icon class="material-icons">accessible</md-icon>
-                        <md-icon class="material-icons">alarm</md-icon>
-                        <md-icon class="material-icons">bookmark_border</md-icon>
-                    </div>
-                </md-toolbar>
-
-            </md-sidenav>
-
-
-            <md-toolbar class="md-whiteframe-7dp">
+            <md-toolbar>
                 <div class="md-toolbar-tools">
                     <md-button class="md-icon-button" aria-label="Side Panel" ng-click="toggleSidebar()">
                         <md-tooltip>Open Side Panel</md-tooltip>
@@ -128,11 +60,114 @@
                         <md-tooltip>Search on website...</md-tooltip>
                         <md-icon class="material-icons">search</md-icon>
                     </md-button>
+                    <md-button class="md-icon-button" aria-label="Notifications button" ng-click="">
+                        <md-tooltip>Notifications...</md-tooltip>
+                        <md-icon class="material-icons">notifications</md-icon>
+                    </md-button>
+
+
+                    <md-button class="md-icon-button" aria-label="Tools button" ng-click="">
+                        <md-tooltip>Tools...</md-tooltip>
+                        <md-icon class="material-icons">more_vert</md-icon>
+                    </md-button>
+
                     <md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
                         Change Theme
                     </md-button>
+
+
+                    <!--<md-fab-speed-dial md-open="false" md-direction="down" class="md-scale md-fab-top-right">
+                        <md-fab-trigger>
+                            <md-button aria-label="menu">
+                                <md-icon class="material-icons">more_vert</md-icon>
+                            </md-button>
+                        </md-fab-trigger>
+
+                        <md-fab-actions>
+                            <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="changeTheme()">
+                                <md-tooltip>Change Theme</md-tooltip>
+                                <md-icon class="material-icons">notifications</md-icon>
+                            </md-button>
+                            <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="changeTheme()">
+                                <md-tooltip>Change Theme</md-tooltip>
+                                <md-icon class="material-icons">notifications</md-icon>
+                            </md-button>
+                        </md-fab-actions>
+                    </md-fab-speed-dial>-->
+
                 </div>
+
             </md-toolbar>
+
+            <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+                        md-component-id="leftSidebar" layout="column" layout-fill>
+
+                <div flex>
+                    <md-toolbar>
+                        <span flex></span>
+
+                        <div layout="row">
+                            <div layout="column" class="md-toolbar-tools-bottom inset">
+                                <img class="round-image" src="app/assets/avatar.png" style="width: 100px; " />
+                                <span></span>
+                                <div>John Smith</div>
+                            </div>
+                            <span flex></span>
+                            <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="toggleSidebar()">
+                                <md-tooltip>Close Side Panel</md-tooltip>
+                                <md-icon class="material-icons">chevron_left</md-icon>
+                            </md-button>
+                        </div>
+                    </md-toolbar>
+                    <md-list>
+                        <md-list-item>
+                            <md-icon class="material-icons">home</md-icon>
+                            <p>Home</p>
+                        </md-list-item>
+                        <md-subheader class="md-no-sticky">Favorites</md-subheader>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE0C9;</md-icon>
+                            <p>Messages</p>
+                            <div class="md-secondary">4</div>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE878;</md-icon>
+                            <p>Events</p>
+                            <md-icon class="md-secondary">2</md-icon>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE251;</md-icon>
+                            <p>Photos</p>
+                            <md-icon class="md-secondary">2</md-icon>
+                        </md-list-item>
+                        <md-divider></md-divider>
+                        <md-subheader class="md-no-sticky">Management</md-subheader>
+                        <md-list-item>
+                            <md-icon class="material-icons">&#xE7F9;</md-icon>
+                            <p>Pages Feed</p>
+                            <div class="md-secondary">2</div>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-icon class="material-icons">settings</md-icon>
+                            <p>Settings</p>
+                        </md-list-item>
+                        <md-list-item>
+                            <md-icon class="material-icons">contacts</md-icon>
+                            <p>Contacts</p>
+                        </md-list-item>
+                    </md-list>
+                </div>
+                <md-toolbar>
+                    <div layout="row" layout-align="center center" flex>
+                        <md-icon class="material-icons">shopping_cart</md-icon>
+                        <md-icon class="material-icons">accessible</md-icon>
+                        <md-icon class="material-icons">alarm</md-icon>
+                        <md-icon class="material-icons">bookmark_border</md-icon>
+                    </div>
+                </md-toolbar>
+
+            </md-sidenav>
+
         </header>
 
         <main flex>
@@ -146,8 +181,8 @@
         </main>
         <footer>
             <md-toolbar class="md-scroll-shrink">
-                <div layout="row" layout-align="center center" flex>
-                    2017 - My AngularJS Material Application
+                <div layout="row" layout-align="space-between center" flex>
+                    <div>Copyright 2017 IT Company. All rights reserved.</div>
                 </div>
             </md-toolbar>
         </footer>
