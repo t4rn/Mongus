@@ -72,7 +72,10 @@
 
 
         vm.chartFundsData = [55, 45];
-        vm.chartFundsLabels = ["Credit", "Factoring"];
+        vm.fundsLabels = ["Credit", "Factoring"];
+
+        vm.fundsOptions = {
+        };
 
         vm.chartCashFlowClick = function (points, evt) {
             console.log(points, evt);

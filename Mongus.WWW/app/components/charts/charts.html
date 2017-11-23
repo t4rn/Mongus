@@ -9,13 +9,13 @@
 
             <md-grid-tile class="box-shadow">
 
-                    <canvas id="chartCheckings" class="chart chart-bar"
-                            chart-data="vm.chartCheckingsData"
-                            chart-labels="vm.chartCheckingsLabels"
-                            chart-series="vm.chartCheckingsSeries"
-                            chart-options="vm.chartCheckingsOptions"
-                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
-                            chart-click="vm.chartCheckingsClick"></canvas>
+                <canvas id="chartCheckings" class="chart chart-bar"
+                        chart-data="vm.chartCheckingsData"
+                        chart-labels="vm.chartCheckingsLabels"
+                        chart-series="vm.chartCheckingsSeries"
+                        chart-options="vm.chartCheckingsOptions"
+                        chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                        chart-click="vm.chartCheckingsClick"></canvas>
 
 
                 <md-grid-tile-footer>
@@ -26,11 +26,12 @@
                 </md-grid-tile-footer>
             </md-grid-tile>
 
-            <md-grid-tile class=" box-shadow">
+            <md-grid-tile class="box-shadow">
 
                 <canvas id="chartCashFlow" class="chart-doughnut"
                         chart-data="vm.chartFundsData"
-                        chart-labels="vm.chartFundsLabels"
+                        chart-labels="vm.fundsLabels"
+                        chart-options="vm.fundsOptions"
                         chart-click="vm.chartFundsClick" style="padding:20px 20px"></canvas>
 
                 <md-grid-tile-footer>
