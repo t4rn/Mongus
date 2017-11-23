@@ -39,16 +39,54 @@ main {
     position:relative;
 }*/
 
+.box-shadow {
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
 
 .chartus{
   /*background-color: #333;*/
   width: 50%;
   /*padding-top: 20px;*/
+  /*height: 50%;*/
+}
+
+.chartus-flatus{
+  /*background-color: #333;*/
+  /*width: 80%;*/
+  /*padding-top: 20px;*/
 }
 
 md-card {
+    /*width: 70%;*/
     /*max-width: 700px;
     max-height: 400px;*/ 
     /*max-height: 50%*/
+
 }
+
+
+
+md-grid-list {
+  margin: 8px; }
+
+.gray {
+  background: #f5f5f5; }
+
+.green {
+  background: #b9f6ca; }
+
+.yellow {
+  background: #ffff8d; }
+
+.blue {
+  background: #84ffff; }
+
+.purple {
+  background: #b388ff; }
+
+.red {
+  background: #ff8a80; }
+
+md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
 

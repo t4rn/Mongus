@@ -1,122 +1,100 @@
 ﻿
+<div ng-controller="chartsController as vm">
 
-<div ng-controller="chartsController as vm" class="card-charts">
-    <md-content class="md-padding" layout="row" layout-xs="column">
-        <div flex-xs flex-gt-xs="50">
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Checkings</span>
-                    </md-card-title-text>
+    <md-content>
 
-                </md-card-title>
+        <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4"
+                      md-row-height="2:2"
+                      md-gutter="12px" md-gutter-gt-sm="8px">
 
-                <md-card-content layout="column" layout-align="center center">
+            <md-grid-tile class="box-shadow">
 
-                    <div class="chartus">
-                        <canvas id="chartCheckings" class="chart chart-bar"
-                                chart-data="vm.chartCheckingsData"
-                                chart-labels="vm.chartCheckingsLabels"
-                                chart-series="vm.chartCheckingsSeries"
-                                chart-options="vm.chartCheckingsOptions"
-                                chart-dataset-override="vm.chartCheckingsDatasetOverride"
-                                chart-click="vm.chartCheckingsClick" "></canvas>
-                    </div>
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
 
+
+                <md-grid-tile-footer>
                     <md-button class="md-raised md-primary"
                                ng-click="vm.chartCheckingsRandomize()">
                         Change Checkings
                     </md-button>
+                </md-grid-tile-footer>
+            </md-grid-tile>
 
-                </md-card-content>
-            </md-card>
+            <md-grid-tile class=" box-shadow">
 
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Cash flow</span>
-                    </md-card-title-text>
-                </md-card-title>
+                <canvas id="chartCashFlow" class="chart-doughnut"
+                        chart-data="vm.chartFundsData"
+                        chart-labels="vm.chartFundsLabels"
+                        chart-click="vm.chartFundsClick" style="padding:20px 20px"></canvas>
 
-                <md-card-content layout="column" layout-align="center center">
-
-                    <div class="chartus">
-                        <canvas id="chartCashFlow" class="chart-line"
-                                chart-data="vm.chartCashFlowData"
-                                chart-labels="vm.chartCashFlowLabels"
-                                chart-series="vm.chartCashFlowSeries"
-                                chart-options="vm.chartCashFlowOptions"
-                                chart-dataset-override="vm.chartCashFlowDatasetOverride"
-                                chart-click="vm.chartCashFlowClick"></canvas>
-                    </div>
-
-                    <md-button class="md-raised md-primary"
-                               ng-click="vm.chartCashFlowRandomize()">
-                        Change Cash flow
-                    </md-button>
-
-                </md-card-content>
-
-            </md-card>
-        </div>
-        <div flex-xs flex-gt-xs="50">
-            <md-card>
-
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Available funds</span>
-                    </md-card-title-text>
-                </md-card-title>
-
-                <md-card-content layout="column" layout-align="center center">
-
-                    <div class="chartus">
-                        <canvas id="chartCashFlow" class="chart-doughnut"
-                                chart-data="vm.chartFundsData"
-                                chart-labels="vm.chartFundsLabels"
-                                chart-click="vm.chartFundsClick"></canvas>
-                    </div>
-
+                <md-grid-tile-footer>
                     <md-button class="md-raised md-primary"
                                ng-click="vm.chartFundsRandomize()">
                         Change Available funds
                     </md-button>
+                </md-grid-tile-footer>
+            </md-grid-tile>
 
-                </md-card-content>
+            <md-grid-tile class="box-shadow">
 
-            </md-card>
+                <canvas id="chartCashFlow" class="chart-line"
+                        chart-data="vm.chartCashFlowData"
+                        chart-labels="vm.chartCashFlowLabels"
+                        chart-series="vm.chartCashFlowSeries"
+                        chart-options="vm.chartCashFlowOptions"
+                        chart-dataset-override="vm.chartCashFlowDatasetOverride"
+                        chart-click="vm.chartCashFlowClick"></canvas>
 
-            <md-card>
+                <md-grid-tile-footer>
+                    <md-button class="md-raised md-primary"
+                               ng-click="vm.chartCashFlowRandomize()">
+                        Change Cash flow
+                    </md-button>
+                </md-grid-tile-footer>
+            </md-grid-tile>
 
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Accounting</span>
-                    </md-card-title-text>
-                </md-card-title>
+            <md-grid-tile class="box-shadow">
 
-                <md-card-content layout="column" layout-align="center center">
-                    <div class="chartus">
-                        <canvas id="chartCashFlow" class="chart chart-line"
-                                chart-data="vm.chartAccountingData"
-                                chart-labels="vm.chartAccountingLabels"
-                                chart-series="vm.chartAccountingSeries"
-                                chart-options="vm.chartAccountingOptions"
-                                chart-dataset-override="vm.chartAccountingDatasetOverride"
-                                chart-click="vm.chartAccountingClick"></canvas>
-                    </div>
+                <canvas id="chartCashFlow" class="chart chart-line"
+                        chart-data="vm.chartAccountingData"
+                        chart-labels="vm.chartAccountingLabels"
+                        chart-series="vm.chartAccountingSeries"
+                        chart-options="vm.chartAccountingOptions"
+                        chart-dataset-override="vm.chartAccountingDatasetOverride"
+                        chart-click="vm.chartAccountingClick"></canvas>
 
+                <md-grid-tile-footer>
                     <md-button class="md-raised md-primary"
                                ng-click="vm.chartAccountingRandomize()">
                         Change Accounting
                     </md-button>
+                </md-grid-tile-footer>
+            </md-grid-tile>
 
-                </md-card-content>
+            <md-grid-tile class="box-shadow">
 
-            </md-card>
-        </div>
+                <canvas id="chartGoals" class="chart chart-horizontal-bar"
+                        chart-data="vm.chartGoalsData"
+                        chart-labels="vm.chartGoalsLabels"
+                        chart-series="vm.chartGoalsSeries"
+                        chart-options="vm.chartGoalsOptions"
+                        chart-dataset-override="vm.chartGoalsDatasetOverride"
+                        chart-click="vm.chartGoalsClick"></canvas>
 
+                <md-grid-tile-footer>
+                    <md-button class="md-raised md-primary"
+                               ng-click="vm.chartGoalsRandomize()">
+                        Change Goals
+                    </md-button>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+
+        </md-grid-list>
     </md-content>
-
 </div>
-
-<script src="charts.js"></script>

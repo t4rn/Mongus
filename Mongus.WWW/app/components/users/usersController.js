@@ -26,7 +26,7 @@
         vm.showAddUserDialog = function (ev) {
             $mdDialog.show({
                 controller: AddUserController,
-                templateUrl: '/app/users/addUser.html',
+                templateUrl: '/app/components/users/addUser.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
