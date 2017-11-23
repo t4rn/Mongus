@@ -35,7 +35,7 @@
     //$locationProvider.html5Mode(true);
 
     $mdThemingProvider.theme('default')
-        .primaryPalette('indigo')
+        .primaryPalette('blue')
         .accentPalette('brown');
 
     $mdThemingProvider.theme('altTheme')
