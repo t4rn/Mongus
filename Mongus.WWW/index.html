@@ -9,6 +9,7 @@
     <link href="Content/angular-material.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="Content/font-awesome.css" rel="stylesheet" />
 
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
@@ -19,12 +20,15 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script src="app/config.js"></script>
+
     <script src="app/mongusApp.js"></script>
+    <script src="app/components/clients/clientService.js"></script>
     <script src="app/components/index/indexController.js"></script>
     <script src="app/components/values/valuesController.js"></script>
     <script src="app/components/register/registerController.js"></script>
     <script src="app/components/users/usersController.js"></script>
     <script src="app/components/charts/chartsController.js"></script>
+    <script src="app/components/clients/clientsController.js"></script>
     <script src="app/components/chartsGoogle/chartsGoogleController.js"></script>
     <!-- preety url -->
     <!--<base href="/">-->
@@ -36,7 +40,7 @@
         <!--<md-content class="md-no-momentum">-->
         <header>
 
-            <md-toolbar  class="md-whiteframe-7dp">
+            <md-toolbar class="md-whiteframe-7dp">
                 <div class="md-toolbar-tools">
                     <md-button class="md-icon-button" aria-label="Side Panel" ng-click="toggleSidebar()">
                         <md-tooltip>Open Side Panel</md-tooltip>
@@ -60,14 +64,21 @@
                     <md-button aria-label="Users..." href="#!/charts">
                         Charts
                     </md-button>
+                    <md-button aria-label="Users..." href="#!/clients">
+                        Clients
+                    </md-button>
                     <md-button aria-label="Users..." href="#!/chartsgoogle">
                         Charts Google
                     </md-button>
                     <span flex></span>
-                    <md-button class="md-icon-button" aria-label="Search button" ng-click="">
-                        <md-tooltip>Search on website...</md-tooltip>
-                        <md-icon class="material-icons">search</md-icon>
-                    </md-button>
+
+                    <div id="search-caller">
+                        <input type="text" id="search-input" placeholder="Search on website..." />
+                        <md-button class="md-icon-button" aria-label="Search button" ng-click="">
+                            <md-icon class="material-icons">search</md-icon>
+                        </md-button>
+                    </div>
+
                     <md-button class="md-icon-button" aria-label="Notifications button" ng-click="">
                         <md-tooltip>Notifications...</md-tooltip>
                         <md-icon class="material-icons">notifications</md-icon>

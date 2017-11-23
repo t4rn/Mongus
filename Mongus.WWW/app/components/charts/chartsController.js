@@ -5,7 +5,7 @@
     angular.module("mongusApp")
 	.controller("chartsController", chartsController);
 
-    function chartsController($scope, $http, $mdDialog) {
+    function chartsController() {
 
         var vm = this;
         var paddingLeftRight = {
