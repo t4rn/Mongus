@@ -24,6 +24,11 @@
         //controllerAs: "vm",
         templateUrl: "/app/components/charts/charts.html"
     });
+    $routeProvider.when("/chartsgoogle", {
+      controller: "chartsGoogleController",
+      controllerAs: "vm",
+      templateUrl: "/app/components/chartsGoogle/chartsGoogle.html"
+    });
 
     //$routeProvider.when("/editor/:tripName", {
     //    controller: "tripEditorController",
