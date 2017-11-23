@@ -8,6 +8,12 @@
     function chartsController($scope, $http, $mdDialog) {
 
         var vm = this;
+        var paddingLeftRight = {
+            left: 10,
+            right: 10,
+            top: 0,
+            bottom: 0
+        };
 
         /************************ Checkings *****************/
 
@@ -16,6 +22,9 @@
         vm.chartCheckingsData = [[28, 48, 40, 19, 86, 27, 90, 65, 59, 20, 81, 56]];
 
         vm.chartCheckingsOptions = {
+            layout: {
+                padding: paddingLeftRight
+            },
             datasetFill: false,
             scales: {
                 xAxes: [{
@@ -70,11 +79,37 @@
 
         /************************ Available funds *****************/
 
+        vm.fundsData = [55, 45, 11];
+        var fundsSum = 0;
+        for (var i = 0; i < vm.fundsData.length; i++) { fundsSum += vm.fundsData[i]; }
 
-        vm.chartFundsData = [55, 45];
-        vm.fundsLabels = ["Credit", "Factoring"];
+        vm.doughnutText = "Funds sum is: " + vm.fundsData.reduce((a, b) => a + b, 0) + " $";
+        vm.doughnutTextSmall = "Available funds";
+        vm.fundsLabels = ["Credit", "Factoring", "Rest"];
 
         vm.fundsOptions = {
+            cutoutPercentage: 70,
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 20,
+                    bottom: 68
+                }
+            },
+            responsive: true,
+            legend: {
+                display: false,
+                position: 'top',
+            },
+            title: {
+                display: false,
+                text: 'title'
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
         };
 
         vm.chartCashFlowClick = function (points, evt) {
@@ -82,15 +117,15 @@
         };
 
         vm.chartFundsRandomize = function () {
-            vm.chartFundsData = [];
+            vm.fundsData = [];
 
-            for (var i = 0; i < 2; i++) {
+            for (var i = 0; i < 3; i++) {
                 var random = Math.floor(Math.random() * 100);
-                vm.chartFundsData.push(random);
+                vm.fundsData.push(random);
             }
+
+            vm.doughnutText = "Funds sum is: " + vm.fundsData.reduce((a, b) => a + b, 0) + " $";
         };
-
-
 
         /************************ Cash flow *****************/
 
@@ -104,6 +139,9 @@
         };
         vm.chartCashFlowDatasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
         vm.chartCashFlowOptions = {
+            layout: {
+                padding: paddingLeftRight
+            },
             scales: {
                 xAxes: [{
                     gridLines: {
@@ -158,6 +196,9 @@
         };
         vm.chartAccountingDatasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
         vm.chartAccountingOptions = {
+            layout: {
+                padding: paddingLeftRight
+            },
             scales: {
                 xAxes: [{
                     gridLines: {
@@ -207,29 +248,9 @@
         vm.chartGoalsData = [[22, 48, 40]];
 
         vm.chartGoalsOptions = {
-            datasetFill: false,
-            scales: {
-                xAxes: [{
-                    display: true,
-                    gridLines: {
-                        display: false,
-                    },
-                    ticks: {
-                        fontSize: 15,
-                    }
-                }],
-                yAxes: [{
-                    display: true,
-                    position: 'left'
-                }, {
-                    display: false,
-                    position: 'right'
-                }]
+            layout: {
+                padding: paddingLeftRight
             },
-        };
-
-
-        vm.chartGoalsOptions = {
             scales: {
                 xAxes: [{
                     gridLines: {
@@ -259,7 +280,6 @@
 
             vm.chartGoalsData.push(tempTab);
         }
-
 
     }
 
