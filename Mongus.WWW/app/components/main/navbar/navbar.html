@@ -3,13 +3,14 @@
             layout-align="space-between center"
             layout-align-gt-sm="space-between center">
     <div layout="row">
-        <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.toggleSidebar()">
+
+        <md-button aria-label="Side Panel" ng-click="vm.toggleSidebar()" hide-gt-sm>
             <md-tooltip>Open Side Panel</md-tooltip>
             <md-icon class="material-icons">menu</md-icon>
         </md-button>
 
-        <a href="/">
-            <img class="logo-image" src="/app/assets/img/logo.png" style="width: 44px; height:44px;">
+        <a href="/" style="padding: 0 0 0 10px;">
+            <img id="logo-image" src="/app/assets/img/logo.png" style="">
         </a>
 
         <div layout="row" hide-xs hide-sm>
