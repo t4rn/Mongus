@@ -1,0 +1,31 @@
+﻿
+<div layout="column" ng-controller="clientsController as vm">
+    <md-toolbar layout="row">
+        <md-button class="menu" ng-click="vm.toggleSidenav()" aria-label="Show Client List" hide-gt-sm>
+            <md-icon class="material-icons">menu</md-icon>
+        </md-button>
+        <h2 style="margin: auto;">Clients</h2>
+    </md-toolbar>
+    <div class="container" layout="row" flex>
+        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="sidenav-left">
+            <md-list ng-click="vm.toggleSidenav()">
+                <md-list-item ng-repeat="c in vm.clients">
+                    <md-button ng-click="vm.selectClient(c)">
+                        <md-icon md-svg-src="{{ c.avatar }}" class="avatar"></md-icon>
+                        {{ c.name }}
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <md-content id="content" flex style="padding: 5px 40px 0px 40px">
+            <md-icon md-svg-src="{{ vm.selected.avatar }}" class="avatar"></md-icon>
+            <h2>{{ vm.selected.name }}</h2>
+            <p>{{ vm.selected.content }}</p>
+
+            <md-button class="share" md-no-ink aria-label="Share with {{ vm.selected.name }}" ng-click="vm.share(vm.selected)">
+                <md-icon>share</md-icon>
+            </md-button>
+        </md-content>
+    </div>
+</div>
+

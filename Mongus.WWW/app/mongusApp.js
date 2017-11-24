@@ -1,5 +1,5 @@
 ﻿angular.module("mongusApp", ["ngMaterial", "ngRoute", "chart.js"])
-.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide) {
+.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide, $mdIconProvider) {
 
     $routeProvider.when("/values", {
         controller: "valuesController",
@@ -56,5 +56,7 @@
         .accentPalette('pink');
 
     $provide.value('themeProvider', $mdThemingProvider);
+
+    $mdIconProvider.defaultIconSet("/app/assets/svg/avatars.svg", 128);
 
 });

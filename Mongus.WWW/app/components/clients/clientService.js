@@ -3,7 +3,9 @@
     "use strict";
 
     angular.module("mongusApp")
-	.service("clientService", function ($q) {
+	.service("clientService", clientService);
+
+    function clientService($q) {
 
         var vm = this;
         var clients = [
@@ -47,8 +49,7 @@
             }
         };
 
-
-    })
+    }
 
 
 })();

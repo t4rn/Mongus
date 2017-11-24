@@ -7,7 +7,7 @@
 
     <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/angular-material.css" rel="stylesheet" />
-    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/clients.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="Content/font-awesome.css" rel="stylesheet" />
 
@@ -20,42 +20,38 @@
 
     <script src="app/config.js"></script>
     <script src="app/mongusApp.js"></script>
-    <script src="app/components/index/indexController.js"></script>
-    <script src="app/components/values/valuesController.js"></script>
-    <script src="app/components/register/registerController.js"></script>
-    <script src="app/components/users/usersController.js"></script>
-    <script src="app/components/charts/chartsController.js"></script>
+    <script src="app/components/clients/clientService.js"></script>
     <script src="app/components/clients/clientsController.js"></script>
 
-    <!-- preety url -->
-    <!--<base href="/">-->
     <script src="Scripts/Chart.js"></script>
     <script src="Scripts/angular-chart.js"></script>
 </head>
 <body ng-app="mongusApp" layout="column" ng-controller="clientsController as vm">
-    <md-toolbar>
+    <md-toolbar layout="row">
+        <md-button class="menu" ng-click="vm.toggleSidenav()" aria-label="Show Client List" hide-gt-sm>
+            <md-icon class="material-icons">menu</md-icon>
+        </md-button>
         <h1>Angular Material Starter</h1>
     </md-toolbar>
     <div class="container" layout="row" flex>
-        <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
-            <md-list>
-                <md-list-item>
-                    <md-button>
-                        <md-icon md-svg-src="app/assets/svg/avatar-1.svg" class="avatar"></md-icon>
-                        Jan Kowalski
-                    </md-button>
-                </md-list-item>
+        <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="sidenav-left">
+            <md-list ng-click="vm.toggleSidenav()">
                 <md-list-item ng-repeat="c in vm.clients">
-                    <md-button ng-click="vm.selectetClient(c)">
-
+                    <md-button ng-click="vm.selectClient(c)">
+                        <md-icon md-svg-src="{{ c.avatar }}" class="avatar"></md-icon>
+                        {{ c.name }}
                     </md-button>
                 </md-list-item>
             </md-list>
         </md-sidenav>
-        <md-content id="content" flex>
-            <md-icon md-svg-src="app/assets/svg/avatar-1.svg" class="avatar"></md-icon>
-            <h2>Jan Kowalski</h2>
-            <p>Lorem ipsum dolor sit amet, perfecto suscipiantur duo ne. Ne mel magna fabulas. Tamquam eleifend vis ea, ex dolore altera ius. Nam diam delicata facilisis ei, nec vide probo vocibus ex. Mel in nostrud officiis adolescens. Eam id deserunt lobortis. Eu sit virtute ullamcorper, nam ne perfecto referrentur.</p>
+        <md-content id="content" flex style="padding: 5px 40px 0px 40px">
+            <md-icon md-svg-src="{{ vm.selected.avatar }}" class="avatar"></md-icon>
+            <h2>{{ vm.selected.name }}</h2>
+            <p>{{ vm.selected.content }}</p>
+
+            <md-button class="share" md-no-ink aria-label="Share with {{ vm.selected.name }}" ng-click="vm.share(vm.selected)">
+                <md-icon>share</md-icon>
+            </md-button>
         </md-content>
     </div>
 </body>

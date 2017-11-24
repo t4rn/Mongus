@@ -45,6 +45,17 @@ main {
   -moz-transform: scale(0.70);
 }
 
+#content .md-button.share {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+  margin: 8px auto 16px 0;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+}
+
 /*footer {
 bottom: 0;
 left: 0;
@@ -85,9 +96,6 @@ right: 0;
     position:relative;
 }*/
 
-.box-shadow {
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-}
 
 .doughnut-text-inside {
     width: 100%; height: 40px; position: absolute; top: 45%; left: 0; margin-top: -20px; line-height:19px; text-align: center; z-index: 999999999999999
