@@ -1,7 +1,6 @@
 ﻿
 <md-sidenav class="md-sidenav-left md-whiteframe-4p"
-            md-component-id="sidenav" layout="column" layout-fill
->
+            md-component-id="sidenav" layout="column" layout-fill>
 
     <div flex>
         <md-toolbar>
@@ -20,11 +19,21 @@
                 </md-button>
             </div>
         </md-toolbar>
+
         <md-list ng-click="vm.toggleSidebar()">
-            <md-list-item>
-                <md-icon class="material-icons">home</md-icon>
-                <p><a href="/">Home</a></p>
+
+            <md-list-item ng-repeat="p in vm.subPages">
+                <md-icon class="material-icons">{{ p.icon }}</md-icon>
+                <p ng-click="vm.changePage(p.name)">
+                        <a href="{{ p.url }}">
+                            {{ p.name }}
+                        </a>
+                </p>
             </md-list-item>
+        </md-list>
+
+        <md-list ng-click="vm.toggleSidebar()">
+
             <md-subheader class="md-no-sticky">Favorites</md-subheader>
             <md-list-item>
                 <md-icon class="material-icons">&#xE0C9;</md-icon>
@@ -44,7 +53,7 @@
             <md-divider></md-divider>
             <md-subheader class="md-no-sticky">Management</md-subheader>
             <md-list-item>
-                <md-icon class="material-icons">&#xE7F9;</md-icon>
+                <md-icon class="material-icons">lightbulb_outline</md-icon>
                 <p>Pages Feed</p>
                 <div class="md-secondary">2</div>
             </md-list-item>
@@ -52,11 +61,8 @@
                 <md-icon class="material-icons">settings</md-icon>
                 <p>Settings</p>
             </md-list-item>
-            <md-list-item>
-                <md-icon class="material-icons">contacts</md-icon>
-                <p>Contacts</p>
-            </md-list-item>
         </md-list>
+
     </div>
     <md-toolbar>
         <div layout="row" layout-align="center center" flex>

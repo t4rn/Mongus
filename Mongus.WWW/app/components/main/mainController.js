@@ -10,6 +10,24 @@
         var vm = this;
         vm.theme = "default";
         vm.toggleSidebar = toggleSidebar;
+        vm.currentPage = "Home";
+        vm.subPages = [
+            { url: "/", name: "Home", icon: "home" },
+            { url: "/#!/values", name: "Values", icon: "message" },
+            { url: "/#!/register", name: "Register", icon: "face" },
+            { url: "/#!/users", name: "Users", icon: "supervisor_account" },
+            { url: "/#!/clients", name: "Clients", icon: "contacts" },
+            { url: "/#!/charts", name: "Charts", icon: "insert_chart" },
+            { url: "/#!/chartsgoogle", name: "Charts Google", icon: "pie_chart" },
+            { url: "/#!/highCharts", name: "Highcharts", icon: "multiline_chart" }
+        ];
+        vm.changePage = changePage;
+
+
+        function changePage(pageName) {
+            vm.currentPage = pageName;
+            console.log("page name: " + pageName);
+        };
 
         vm.defaultStyle = {
             theme: "default",
@@ -44,7 +62,6 @@
         };
 
         function toggleSidebar() {
-            console.log("click");
             $mdSidenav("sidenav").toggle();
         };
 

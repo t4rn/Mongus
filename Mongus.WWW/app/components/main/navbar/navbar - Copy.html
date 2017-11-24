@@ -2,9 +2,9 @@
             layout="row"
             layout-align="space-between center"
             layout-align-gt-sm="space-between center">
-
     <div layout="row">
-        <md-button aria-label="Side Panel" ng-click="vm.toggleSidebar()" hide-gt-sm>
+
+        <md-button aria-label="Side Panel" ng-click="vm.toggleSidebar()"> <!--hide-gt-sm>-->
             <md-tooltip>Open Side Panel</md-tooltip>
             <md-icon class="material-icons">menu</md-icon>
         </md-button>
@@ -14,9 +14,9 @@
             <img id="logo-image" src="/app/assets/img/logo.png" style="">
         </a>
 
-        <!--<h3 flex>{{ vm.currentPage }}</h3>-->
+        <h3>{{ vm.currentPage }}</h3>
 
-        <div layout="row" hide-xs hide-sm>
+        <!--<div layout="row" hide-xs hide-sm>
             <md-button aria-label="Values" href="#!/values">
                 Values
             </md-button>
@@ -38,7 +38,8 @@
             <md-button aria-label="HighCharts" href="#!/highCharts">
                 HighCharts
             </md-button>
-        </div>
+        </div>-->
+
     </div>
     <div layout="row">
         <div id="search-caller">
