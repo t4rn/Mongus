@@ -23,7 +23,7 @@
 
     <script src="app/mongusApp.js"></script>
     <script src="app/components/clients/clientService.js"></script>
-    <script src="app/components/navbar/navbarController.js"></script>
+    <script src="app/components/main/navbar/navbarController.js"></script>
     <script src="app/components/values/valuesController.js"></script>
     <script src="app/components/register/registerController.js"></script>
     <script src="app/components/users/usersController.js"></script>
@@ -39,39 +39,22 @@
     <script src="Scripts/highcharts.js"></script>
 </head>
 <body ng-app="mongusApp" ng-controller="navbarController as vm">
+
     <div layout="column" layout-fill ng-cloak md-theme="{{ vm.theme }}" ng-style="vm.myStyle">
+
         <header>
-
-            <div ng-include="'app/components/navbar/navbar.html'"></div>
-
-            <div ng-include="'app/components/sidebar/sidebar.html'"></div>
-
+            <div ng-include="'app/components/main/navbar/navbar.html'"></div>
+            <div ng-include="'app/components/main/sidebar/sidebar.html'"></div>
         </header>
 
         <main flex>
-
-            <md-whiteframe class="md-whiteframe-2dp" layout-align="center center">
-
-                <div ng-view></div>
-
-            </md-whiteframe>
-
+            <div ng-view></div>
         </main>
-        <footer>
-            <md-toolbar>
-                <div layout="row" layout-align="space-between center" flex>
-                    <div>Copyright 2017 IT Company. All rights reserved.</div>
 
-                    <div class="toolbar-icons">
-                        <i class="fa fa-linkedin-square"></i>
-                        <i class="fa fa-facebook"></i>
-                        <i class="fa fa-instagram"></i>
-                        <i class="fa fa-twitter"></i>
-                        <i class="fa fa-youtube"></i>
-                    </div>
-                </div>
-            </md-toolbar>
+        <footer>
+            <div ng-include="'app/components/main/footer/footer.html'"></div>
         </footer>
+
     </div>
 </body>
 </html>

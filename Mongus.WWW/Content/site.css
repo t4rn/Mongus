@@ -29,13 +29,25 @@ main {
     }
 }
 
-.toolbar-icons {
-    padding-right: 20px;
+/* Footer */
+
+#footer-toolbar {
+    display: flex;
+    flex: 0 0 5%;
+    background-color: #58595B;
+    color: white;
+    font-size: small;
+    padding: 0px 20px;
 }
 
-    .toolbar-icons i {
-        padding: 0px 10px;
+    #footer-toolbar a {
+        text-decoration: none;
+        color: white;
     }
+
+.toolbar-items a {
+    padding: 0px 10px;
+}
 
 .avatar {
     position: relative;
