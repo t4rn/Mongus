@@ -3,11 +3,11 @@
     "use strict";
 
     angular.module("mongusApp")
-    .controller("indexController", indexController);
+    .controller("navbarController", navbarController);
 
-    function indexController($scope, $mdSidenav) {
+    function navbarController($mdSidenav) {
 
-        var vm = $scope;
+        var vm = this;
         vm.theme = "default";
 
         vm.defaultStyle = {

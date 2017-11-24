@@ -1,0 +1,69 @@
+﻿
+<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+            md-component-id="leftSidebar" layout="column" layout-fill>
+
+    <div flex>
+        <md-toolbar>
+            <span flex></span>
+
+            <div layout="row">
+                <div layout="column" class="md-toolbar-tools-bottom inset">
+                    <img class="round-image" src="app/assets/img/avatar.png" style="width: 100px; " />
+                    <span></span>
+                    <div>John Smith</div>
+                </div>
+                <span flex></span>
+                <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.toggleSidebar()">
+                    <md-tooltip>Close Side Panel</md-tooltip>
+                    <md-icon class="material-icons">chevron_left</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-list-item>
+                <md-icon class="material-icons">home</md-icon>
+                <p>Home</p>
+            </md-list-item>
+            <md-subheader class="md-no-sticky">Favorites</md-subheader>
+            <md-list-item>
+                <md-icon class="material-icons">&#xE0C9;</md-icon>
+                <p>Messages</p>
+                <div class="md-secondary">4</div>
+            </md-list-item>
+            <md-list-item>
+                <md-icon class="material-icons">&#xE878;</md-icon>
+                <p>Events</p>
+                <md-icon class="md-secondary">2</md-icon>
+            </md-list-item>
+            <md-list-item>
+                <md-icon class="material-icons">&#xE251;</md-icon>
+                <p>Photos</p>
+                <md-icon class="md-secondary">2</md-icon>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader class="md-no-sticky">Management</md-subheader>
+            <md-list-item>
+                <md-icon class="material-icons">&#xE7F9;</md-icon>
+                <p>Pages Feed</p>
+                <div class="md-secondary">2</div>
+            </md-list-item>
+            <md-list-item>
+                <md-icon class="material-icons">settings</md-icon>
+                <p>Settings</p>
+            </md-list-item>
+            <md-list-item>
+                <md-icon class="material-icons">contacts</md-icon>
+                <p>Contacts</p>
+            </md-list-item>
+        </md-list>
+    </div>
+    <md-toolbar>
+        <div layout="row" layout-align="center center" flex>
+            <md-icon class="material-icons">shopping_cart</md-icon>
+            <md-icon class="material-icons">accessible</md-icon>
+            <md-icon class="material-icons">alarm</md-icon>
+            <md-icon class="material-icons">bookmark_border</md-icon>
+        </div>
+    </md-toolbar>
+
+</md-sidenav>
