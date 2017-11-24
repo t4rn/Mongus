@@ -1,5 +1,5 @@
 ﻿
-<md-sidenav class="md-sidenav-left md-whiteframe-4p"
+<md-sidenav id="sidebar-left" class="md-sidenav-left md-whiteframe-4p"
             md-component-id="sidenav" layout="column" layout-fill>
 
     <div flex>
@@ -22,12 +22,13 @@
 
         <md-list ng-click="vm.toggleSidebar()">
 
-            <md-list-item ng-repeat="p in vm.subPages">
+            <md-list-item ng-repeat="p in vm.subPages" class="md-button"
+                          layout="row" layout-align="center end">
                 <md-icon class="material-icons">{{ p.icon }}</md-icon>
                 <p ng-click="vm.changePage(p.name)">
-                        <a href="{{ p.url }}">
-                            {{ p.name }}
-                        </a>
+                    <a href="{{ p.url }}">
+                        {{ p.name }}
+                    </a>
                 </p>
             </md-list-item>
         </md-list>
