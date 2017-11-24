@@ -1,6 +1,10 @@
 ﻿angular.module("mongusApp", ["ngMaterial", "ngRoute", "chart.js"])
 .config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide, $mdIconProvider) {
 
+    $routeProvider.when("/", {
+        templateUrl: "/app/components/main/mainContent.html"
+    });
+
     $routeProvider.when("/values", {
         controller: "valuesController",
         controllerAs: "vm",
