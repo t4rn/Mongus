@@ -42,20 +42,20 @@
 </head>
 <body ng-app="mongusApp" ng-controller="mainController as vm">
 
-    <div layout="column" layout-fill ng-cloak md-theme="{{ vm.theme }}" ng-style="vm.myStyle">
-
+    <div id="mongus-wrapper" ng-cloak md-theme="{{ vm.theme }}" ng-style="vm.myStyle">
         <header>
             <div ng-include="'app/components/main/navbar/navbar.html'"></div>
             <div ng-include="'app/components/main/sidebar/sidebar.html'"></div>
         </header>
-        <main flex>
-            <div ng-view></div>
-        </main>
 
-        <footer>
-            <div ng-include="'app/components/main/footer/footer.html'"></div>
-        </footer>
+        <main>
+            <div  ng-view></div>
+        </main>
+            <footer>
+                <div ng-include="'app/components/main/footer/footer.html'"></div>
+            </footer>
 
     </div>
+
 </body>
 </html>
