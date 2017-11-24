@@ -3,12 +3,13 @@
     "use strict";
 
     angular.module("mongusApp")
-    .controller("navbarController", navbarController);
+    .controller("mainController", mainController);
 
-    function navbarController($mdSidenav) {
+    function mainController($mdSidenav) {
 
         var vm = this;
         vm.theme = "default";
+        vm.toggleSidebar = toggleSidebar;
 
         vm.defaultStyle = {
             theme: "default",
@@ -42,8 +43,9 @@
             }
         };
 
-        vm.toggleSidebar = function () {
-            $mdSidenav("leftSidebar").toggle();
+        function toggleSidebar() {
+            console.log("click");
+            $mdSidenav("sidenav").toggle();
         };
 
         vm.openMenu = function ($mdMenu, ev) {

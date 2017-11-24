@@ -1,6 +1,7 @@
 ﻿
-<md-sidenav class="md-sidenav-left md-whiteframe-z2"
-            md-component-id="leftSidebar" layout="column" layout-fill>
+<md-sidenav class="md-sidenav-left md-whiteframe-4p"
+            md-component-id="sidenav" layout="column" layout-fill
+>
 
     <div flex>
         <md-toolbar>
@@ -19,10 +20,10 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-list>
+        <md-list ng-click="vm.toggleSidebar()">
             <md-list-item>
                 <md-icon class="material-icons">home</md-icon>
-                <p>Home</p>
+                <p><a href="/">Home</a></p>
             </md-list-item>
             <md-subheader class="md-no-sticky">Favorites</md-subheader>
             <md-list-item>

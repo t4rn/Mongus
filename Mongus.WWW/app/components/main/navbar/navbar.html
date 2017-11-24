@@ -1,6 +1,8 @@
-﻿<md-toolbar class="md-whiteframe-7dp">
-
-    <div class="md-toolbar-tools">
+﻿<md-toolbar class="md-whiteframe-7dp"
+            layout="row"
+            layout-align="space-between center"
+            layout-align-gt-sm="space-between center">
+    <div layout="row">
         <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.toggleSidebar()">
             <md-tooltip>Open Side Panel</md-tooltip>
             <md-icon class="material-icons">menu</md-icon>
@@ -8,31 +10,35 @@
 
         <a href="/">
             <img class="logo-image" src="/app/assets/img/logo.png" style="width: 44px; height:44px;">
-            <!--<md-truncate>Mongus Dominus AngularJS Material</md-truncate>-->
         </a>
-        <md-button aria-label="Values" href="#!/values">
-            Values
-        </md-button>
-        <md-button aria-label="Register" href="#!/register">
-            Register
-        </md-button>
-        <md-button aria-label="Users" href="#!/users">
-            Users
-        </md-button>
-        <md-button aria-label="Clients" href="#!/clients">
-            Clients
-        </md-button>
-        <md-button aria-label="Charts" href="#!/charts">
-            Chart.js
-        </md-button>
-        <md-button aria-label="ChartsGoogle" href="#!/chartsgoogle">
-            Charts Google
-        </md-button>
-        <md-button aria-label="HighCharts" href="#!/highCharts">
-            HighCharts
-        </md-button>
-        <span flex></span>
 
+        <div layout="row" hide-xs hide-sm>
+            <md-button aria-label="Values" href="#!/values">
+                Values
+            </md-button>
+            <md-button aria-label="Register" href="#!/register">
+                Register
+            </md-button>
+            <md-button aria-label="Users" href="#!/users">
+                Users
+            </md-button>
+            <md-button aria-label="Clients" href="#!/clients">
+                Clients
+            </md-button>
+            <md-button aria-label="Charts" href="#!/charts">
+                Chart.js
+            </md-button>
+            <md-button aria-label="ChartsGoogle" href="#!/chartsgoogle">
+                Charts Google
+            </md-button>
+            <md-button aria-label="HighCharts" href="#!/highCharts">
+                HighCharts
+            </md-button>
+        </div>
+
+    </div>
+
+    <div layout="row">
         <div id="search-caller">
             <input type="text" id="search-input" placeholder="Search on website..." />
             <md-button class="md-icon-button" aria-label="Search button" ng-click="">
@@ -83,7 +89,5 @@
                 </md-button>
             </md-fab-actions>
         </md-fab-speed-dial>-->
-
     </div>
-
 </md-toolbar>
