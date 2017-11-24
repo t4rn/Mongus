@@ -19,6 +19,12 @@
         templateUrl: "/app/components/users/users.html"
     });
 
+    $routeProvider.when("/clients", {
+        controller: "clientsController",
+        //controllerAs: "vm",
+        templateUrl: "/app/components/clients/clients.html"
+    });
+
     $routeProvider.when("/charts", {
         controller: "chartsController",
         //controllerAs: "vm",
@@ -30,12 +36,11 @@
       templateUrl: "/app/components/chartsGoogle/chartsGoogle.html"
     });
 
-    $routeProvider.when("/clients", {
-        controller: "clientsController",
+    $routeProvider.when("/highCharts", {
+        controller: "highChartsController",
         //controllerAs: "vm",
-        templateUrl: "/app/components/clients/clients.html"
+        templateUrl: "/app/components/highCharts/highCharts.html"
     });
-
 
     //$routeProvider.when("/editor/:tripName", {
     //    controller: "tripEditorController",
