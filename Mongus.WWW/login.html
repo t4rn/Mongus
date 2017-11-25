@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mongus 2.0</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/angular-material.css" rel="stylesheet" />
+    <link href="Content/login.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+
+    <!-- Angular -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-aria.js"></script>
+    <script src="Scripts/angular-messages.js"></script>
+    <script src="Scripts/angular-material.js"></script>
+
+    <!-- App -->
+    <script src="app/config.js"></script>
+    <script src="app/components/login/LoginController.js"></script>
+
+</head>
+<body ng-app="login">
+
+    <div id="wrapper" ng-controller="loginController as vm">
+
+        <div id="main-content" flex>
+            <header>
+
+                <md-toolbar id="navbar-toolbar" class="md-whiteframe-7dp">
+                    <div class="md-toolbar-tools">
+                        <a href="/">
+                            <img id="logo-image" src="/app/assets/img/if.png" style="">
+                        </a>
+                    </div>
+                </md-toolbar>
+
+            </header>
+
+            <main >
+                <h2>Main 2 + 2 = {{ 2 + 2 }}</h2>
+
+                <div id="login-card" class="md-whiteframe-7dp" style="width: 405px; background-color: #ffffff; padding: 0 600px 0 0">
+                    <div class="card-image">
+                        <img src="app/assets/img/workstation-small.png" alt="workstation">
+                        <span class="card-title">Login to your account</span>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <footer>
+            <md-toolbar id="footer-toolbar">
+                <div layout="column"
+                     layout-gt-sm="row"
+                     layout-align="center center"
+                     layout-align-gt-sm="space-between center"
+                     flex>
+                    <div>
+                        Copyright 2017 IT Company. All rights reserved.
+                    </div>
+
+                    <div layout="column" layout-gt-sm="row" layout-align="center center">
+                        <div class="footer-links">
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Sitemap</a>
+                            <a href="#">Contact</a>
+                        </div>
+                        <div class="footer-social">
+                            <a href="http://linkedin.com"><i class="fa fa-linkedin-square"></i></a>
+                            <a href="http://facebook.com"><i class="fa fa-facebook"></i></a>
+                            <a href="http://instagram.com"><i class="fa fa-instagram"></i></a>
+                            <a href="http://twitter.com"><i class="fa fa-twitter"></i></a>
+                            <a href="http://youtube.com"><i class="fa fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </md-toolbar>
+        </footer>
+
+    </div>
+
+</body>
+</html>
