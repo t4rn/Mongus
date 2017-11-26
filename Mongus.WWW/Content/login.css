@@ -12,11 +12,17 @@
     height: 100vh;
 }
 
-#main-content {
-    background-image: url(/app/assets/img/login-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main {
+    padding: 20px 40px;
+}
+
+.padding-5-10 {
+    padding: 5px 10px;
 }
 
 /*main {
@@ -48,8 +54,6 @@
 }
 
     #footer-toolbar a {
-        text-decoration: none;
-        color: inherit;
         padding: 0px 10px;
     }
 
@@ -60,3 +64,135 @@
     #footer-toolbar .footer-social i {
         font-size: 24px;
     }
+
+/* Main Content */
+
+#main-content {
+    background-image: url(/app/assets/img/login-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+}
+
+.title {
+    font-family: 'Century Gothic', 'Helvetica Neue', sans-serif;
+    font-size: 72px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+    .title .blue-bold {
+        color: #4A78BC;
+        font-weight: bold;
+    }
+
+.separator-blue {
+    width: 100px;
+    height: 3px;
+    background-color: #4A78BC;
+    border: none;
+}
+
+.subtitle {
+    font-family: 'Century Gothic', 'Helvetica Neue', sans-serif;
+    font-size: 48px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+/* Main content - Card */
+
+.card {
+    background-color: #FAFAFA;
+    padding: 25px 25px;
+}
+
+.image-container {
+    position: relative;
+    width: 405px;
+    height: 180px;
+}
+
+    .image-container .image-overlay {
+        font-size: 24px;
+        color: #FFFFFF;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(74, 120, 188, 0.8);
+    }
+
+    .image-container .text-overlay {
+        font-size: 24px;
+        color: #FFFFFF;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0px 0px 25px 35px;
+    }
+
+.button-custom {
+    height: 36px;
+    color: #ffffff;
+    background-color: #1C9B51;
+    /*box-shadow: 0, 6, 6;*/
+    text-transform: uppercase;
+    padding: 16px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    margin: 30px 0px;
+}
+
+    .button-custom:hover {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+#button-google {
+    color: #ffffff;
+    background-color: orange;
+    margin: 30px 0px;
+}
+
+.hr-with-text-container {
+    width: 100%;
+    height: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.38);
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0,0,0,0.38);
+}
+
+.hr-with-text-content {
+    background-color: #FAFAFA;
+    padding: 0 10px;
+}
+
+/* ---------------------------- */
+
+.text-regular {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+    .text-regular a {
+        color: #4A78BC;
+    }
+
+
+#icon-lock {
+    color: #E39839;
+}
+
+
+.yellow {
+    background: #ffff8d;
+    background-color: #ffff8d;
+}
+
+.blue {
+    background: #84ffff;
+    background-color: #84ffff;
+}
+
+.red {
+    background: #ff8a80;
+}
