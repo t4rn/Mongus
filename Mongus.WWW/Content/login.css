@@ -6,7 +6,9 @@
 }
 
 #container {
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 a {
@@ -30,6 +32,12 @@ img {
 
 /* Navbar */
 
+header {
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 5%;
+}
+
 #toolbar-navbar {
     background-color: #ffffff;
 }
@@ -41,9 +49,9 @@ img {
 /* Footer */
 
 #toolbar-footer {
-    position:absolute;
-    bottom: 0;
-    width: 100%;
+    display: flex;
+    flex: 0 0 5%;
+
     font-size: 14px;
     color: #ffffff;
     height: 76px;
@@ -66,10 +74,12 @@ img {
 /* Main Content */
 
 #main-with-header-content {
-    padding-bottom: 76px;
+    flex: 1 0;
+    display: flex;
+    flex-direction: column;
     background-image: url(/app/assets/img/bg.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto 100%;
     background-position: right;
 }
 
