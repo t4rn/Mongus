@@ -1,15 +1,12 @@
 ﻿html, body {
     height: 100vh;
-    width: 100%;
     margin: 0;
     padding: 0;
     background-color: #EEEEEE;
 }
 
-#wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+#container {
+    min-height: 100vh;
 }
 
 a {
@@ -17,8 +14,10 @@ a {
     color: inherit;
 }
 
-main {
-    padding: 20px 40px;
+img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
 }
 
 .padding-0-10 {
@@ -29,54 +28,53 @@ main {
     padding: 0px 25px;
 }
 
-/*main {
-    flex: 1 0;
-    display: flex;
-    flex-direction: column;
-}*/
-
 /* Navbar */
 
-#navbar-toolbar {
+#toolbar-navbar {
     background-color: #ffffff;
 }
 
 #logo-image {
     height: 44px;
-    display: block;
 }
 
 /* Footer */
 
-#footer-toolbar {
+#toolbar-footer {
+    position:absolute;
+    bottom: 0;
+    width: 100%;
     font-size: 14px;
     color: #ffffff;
     height: 76px;
     background-color: #58595B;
-    display: flex;
-    flex: 0 0 5%;
     padding: 0px 40px;
 }
 
-    #footer-toolbar a {
+    #toolbar-footer a {
         padding: 0px 10px;
     }
 
-    #footer-toolbar .footer-links {
+    #toolbar-footer .footer-links {
         padding: 0px 40px;
     }
 
-    #footer-toolbar .footer-social i {
+    #toolbar-footer .footer-social i {
         font-size: 24px;
     }
 
 /* Main Content */
 
-#main-content {
+#main-with-header-content {
+    padding-bottom: 76px;
     background-image: url(/app/assets/img/bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
+}
+
+#main-content {
+    margin: 20px 40px;
 }
 
 .title {
@@ -112,8 +110,8 @@ main {
 
 .image-container {
     position: relative;
-    width: 405px;
-    height: 180px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
     .image-container .image-overlay {
@@ -155,9 +153,14 @@ main {
 
 #button-google {
     color: #ffffff;
-    background-color: orange;
+    background-color: #E28F26;
     margin: 16px 8px;
 }
+
+    #button-google:hover {
+        background-color: #C77E21;
+    }
+
     #button-google i {
         padding: 0px 16px 0px 0px;
     }

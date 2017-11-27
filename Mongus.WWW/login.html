@@ -27,12 +27,11 @@
 </head>
 <body ng-app="login">
 
-    <div id="wrapper" ng-controller="loginController as vm">
+    <div id="container" ng-controller="loginController as vm">
 
-        <div id="main-content" flex>
+        <div id="main-with-header-content">
             <header>
-
-                <md-toolbar id="navbar-toolbar" class="md-whiteframe-7dp">
+                <md-toolbar id="toolbar-navbar" class="md-whiteframe-7dp">  <!--style="background-color: transparent">-->
                     <div class="md-toolbar-tools">
                         <a href="/">
                             <img id="logo-image" src="/app/assets/img/if.png">
@@ -42,9 +41,7 @@
 
             </header>
 
-            <main layout="column"
-                  layout-align="center stretch"
-                  style="flex: 1 0;display: flex;flex-direction: column;">
+            <main id="main-content" layout="column" layout-align="center stretch">
                 <div layout="column"
                      layout-gt-sm="row"
                      layout-align="center center"
@@ -68,17 +65,17 @@
                         <div class="card">
 
                             <md-content layout-padding class="md-no-momentum">
-                                <form>
+                                <form ng-submit="vm.Signin()">
                                     <md-input-container class="md-block">
-                                        <input ng-model="user.email" type="email" placeholder="Email">
+                                        <input ng-model="vm.email" type="email" placeholder="Email">
                                     </md-input-container>
 
                                     <md-input-container class="md-block">
-                                        <input ng-model="user.name" type="password" placeholder="Password">
+                                        <input ng-model="vm.passwd" type="password" placeholder="Password">
                                     </md-input-container>
 
                                     <md-input-container class="md-block">
-                                        <md-checkbox name="rememberme" ng-model="user.remember">
+                                        <md-checkbox name="rememberme" ng-model="vm.remember">
                                             Remembed me.
                                         </md-checkbox>
                                     </md-input-container>
@@ -92,7 +89,7 @@
                                             </span>
                                         </div>
 
-                                        <md-button id="button-google">
+                                        <md-button id="button-google" ng-click="vm.GoogleSignIn()">
                                             <div class="padding-0-10" layout="row" layout-align="center center">
                                                 <i class="fa fa-2x fa-google"></i>
                                                 Login with Google
@@ -118,7 +115,7 @@
         </div>
 
         <footer>
-            <md-toolbar id="footer-toolbar">
+            <md-toolbar id="toolbar-footer"> <!--style="background-color:transparent">-->
                 <div layout="column"
                      layout-gt-sm="row"
                      layout-align="center center"
