@@ -31,7 +31,8 @@
 
         <div id="main-with-header-content">
             <header>
-                <md-toolbar id="toolbar-navbar" class="md-whiteframe-7dp">  <!--style="background-color: transparent">-->
+                <md-toolbar id="toolbar-navbar" class="md-whiteframe-7dp">
+                    <!--style="background-color: transparent">-->
                     <div class="md-toolbar-tools">
                         <a href="/">
                             <img id="logo-image" src="/app/assets/img/if.png">
@@ -41,14 +42,14 @@
 
             </header>
 
-            <main id="main-content" layout="column" layout-align="center stretch">
+            <main id="main-content" layout="column" layout-align="space-between stretch" flex>
                 <div layout="column"
                      layout-gt-sm="row"
                      layout-align="center center">
                     <div hide-xs hide-sm>
-                        <span class="title">Welcome <span class="blue-bold">back!</span></span>
-                        <hr class="separator-blue" />
-                        <span class="subtitle">We're delighted to see you again.</span>
+                        <span class="title">Welcome<br /> <span class="blue-bold">back!</span></span>
+                        <hr class="separator-blue" align="left" />
+                        <span class="subtitle">We're delighted to<br /> see you again.</span>
                     </div>
 
                     <div class="md-whiteframe-7dp">
@@ -105,16 +106,30 @@
                     </div>
                 </div>
 
-                <div class="text-regular">
-                    <md-icon id="icon-lock" class="material-icons">lock</md-icon>
-                    IT Company is committed to your security and the protection of your confidential information throughout your IT Company experience.
-                    <a href="#">Learn more</a> about our security measures.
+
+                <div class="text-regular" layout="row" layout-align="start center">
+                    <div><md-icon class="material-icons yellow-margin-10">lock</md-icon></div>
+                    <div>
+                        <span>
+                            IT Company is committed to your security and the protection of your confidential information throughout your IT Company experience.
+                            <a href="#">Learn more</a> about our security measures.
+                        </span>
+                    </div>
                 </div>
+
+                <!--<div class="text-regular">
+                    <md-icon class="material-icons color-yellow" style="display: inline; ">lock</md-icon>
+                    <span style="display: inline; vertical-align:middle;">
+                        IT Company is committed to your security and the protection of your confidential information throughout your IT Company experience.
+                        <a href="#">Learn more</a> about our security measures.
+                    </span>
+                </div>-->
             </main>
         </div>
 
         <footer>
-            <md-toolbar id="toolbar-footer"> <!--style="background-color:transparent">-->
+            <md-toolbar id="toolbar-footer">
+                <!--style="background-color:transparent">-->
                 <div layout="column"
                      layout-gt-sm="row"
                      layout-align="center center"
