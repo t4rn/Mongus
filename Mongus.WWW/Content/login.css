@@ -172,14 +172,21 @@ header {
         position: absolute;
         bottom: 0;
         left: 0;
-        padding: 0px 0px 25px 35px;
+        padding: 0px 35px 25px 35px;
     }
+
+@media only screen and (max-width : 340px) {
+        .image-container .text-overlay {
+        padding: 0px 15px 25px;
+    }
+}
 
 .button-custom {
     height: 36px;
     color: #ffffff;
     background-color: #1C9B51;
     font-size: 14px;
+    font-weight: 500;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
     border: none;
     margin: 8px 8px 16px;
