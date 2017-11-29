@@ -40,11 +40,19 @@ img {
 header {
     display: flex;
     flex-direction: row;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 2;
 }
 
 #toolbar-navbar {
     background-color: #ffffff;
 }
+
+    #toolbar-navbar > div {
+        min-height: 64px;
+    }
 
 /* Footer */
 
@@ -98,6 +106,7 @@ header {
 
 #main-content {
     padding: 20px 40px;
+    margin-top: 64px;
 }
 
 @media only screen and (max-width: 600px) {
