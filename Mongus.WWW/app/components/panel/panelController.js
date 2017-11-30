@@ -81,12 +81,12 @@ app.directive("scroll",
                     element.css('height', legacyToolbarH + 'px');
                     title.css('transform', 'scale(1,1)');
                 }
-                if ((dim.bottom - baseDimensions.top) < legacyToolbarH * 2 && !fab.hasClass('hide')) {
+                if ((dim.bottom - baseDimensions.top) < legacyToolbarH * 2) {
                     console.log('jestem hide legacyToolbarH=' + legacyToolbarH + ', dim.bottom=' + dim.bottom + ', baseDimensions.top=' + baseDimensions.top);
                     fab.addClass('hide');
                     iconColor('#000000');
                 }
-                if ((dim.bottom - baseDimensions.top) > legacyToolbarH * 2 && fab.hasClass('hide')) {
+                if ((dim.bottom - baseDimensions.top) > legacyToolbarH * 2) {
 
                     console.log('jestem remove hide legacyToolbarH=' + legacyToolbarH + ', dim.bottom=' + dim.bottom + ', baseDimensions.top=' + baseDimensions.top);
                     fab.removeClass('hide');
