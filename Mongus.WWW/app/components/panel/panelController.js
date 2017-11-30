@@ -35,7 +35,7 @@ app.directive("scroll",
             /* DOM element with main-fab class (a DOM element which contains the main float action button element) */
             var fab = angular.element(document.querySelector('.main-fab'));
             /* The height of a toolbar by default in Angular Material */
-            var legacyToolbarH = 76;
+            var legacyToolbarH = 64;
             /* The mid-height of a float action button by default in Angular Material */
             var legacyFabMid = 56 / 2;
             /* The zoom scale of the toolbar title when it's placed at the bottom of the header picture */
