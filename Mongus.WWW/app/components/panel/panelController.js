@@ -32,12 +32,8 @@ app.directive("scroll",
             var title = angular.element(document.querySelector('[md-header-title]'));
             /* DOM element with md-header-picture attribute (picture in header) */
             var picture = angular.element(document.querySelector('[md-header-picture]'));
-            /* DOM element with main-fab class (a DOM element which contains the main float action button element) */
-            var fab = angular.element(document.querySelector('.main-fab'));
             /* The height of a toolbar by default in Angular Material */
             var legacyToolbarH = 64;
-            /* The mid-height of a float action button by default in Angular Material */
-            var legacyFabMid = 56 / 2;
             /* The zoom scale of the toolbar title when it's placed at the bottom of the header picture */
             var titleZoom = 1.5;
             /* The primary color palette used by Angular Material */
@@ -73,8 +69,7 @@ app.directive("scroll",
                   avatar.classList.remove('hide');
                 }
 
-                fab.css('top', (dim.height - legacyFabMid) + 'px');
-                iconColor('#fff');
+                iconTextColor('#fff');
 
                 if ((dim.bottom - baseDimensions.top) > legacyToolbarH) {
                     title.css('top', ((dim.bottom - baseDimensions.top) - legacyToolbarH) + 'px');
@@ -89,14 +84,12 @@ app.directive("scroll",
                 }
                 if ((dim.bottom - baseDimensions.top) < legacyToolbarH * 2) {
                     console.log('jestem hide legacyToolbarH=' + legacyToolbarH + ', dim.bottom=' + dim.bottom + ', baseDimensions.top=' + baseDimensions.top);
-                    fab.addClass('hide');
-                    iconColor('#000000');
+                    iconTextColor('#000000');
                 }
                 if ((dim.bottom - baseDimensions.top) > legacyToolbarH * 2) {
 
                     console.log('jestem remove hide legacyToolbarH=' + legacyToolbarH + ', dim.bottom=' + dim.bottom + ', baseDimensions.top=' + baseDimensions.top);
-                    fab.removeClass('hide');
-                    iconColor('#fff');
+                    iconTextColor('#fff');
                 }
                 element.css('background-color',
                     'rgba(' +
@@ -109,12 +102,9 @@ app.directive("scroll",
                     (1 - ratio(dim)) +
                     ')');
                 picture.css('background-position', '50% ' + (ratio(dim) * 50) + '%');
-                /* Uncomment the line below if you want shadow inside picture (low performance) */
-                //element.css('box-shadow', '0 -'+(dim.height*3/4)+'px '+(dim.height/2)+'px -'+(dim.height/2)+'px rgba(0,0,0,'+ratio(dim)+') inset');
             }
 
-            function iconColor(color) {
-                //console.log('color=' + color);
+            function iconTextColor(color) {
                 for (var i = 0; i < icons.length; i++) {
                     icons[i].style.color = color;
                 }
