@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mongus 2.0</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/angular-material.css" rel="stylesheet" />
+    <link href="Content/panel.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/panel.css" rel="stylesheet" />
+
+    <!-- Angular -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-aria.js"></script>
+    <script src="Scripts/angular-messages.js"></script>
+    <script src="Scripts/angular-material.js"></script>
+
+    <!-- App -->
+    <script src="app/config.js"></script>
+    <script src="app/components/panel/panelController.js"></script>
+</head>
+<body ng-app="app">
+
+    <div id="container" ng-controller="panelController as vm">
+        
+        <header md-page-header>
+            <div md-header-picture></div>
+            <md-toolbar scroll class="md-whiteframe-5dp">
+                <div class="md-toolbar-tools">
+                    <md-button class="menu" ng-click="vm.toggleSidenav()" aria-label="Show Client List">
+                        <md-icon class="material-icons md-header-icon">menu</md-icon>
+                    </md-button>
+
+                    <h2 flex="" md-truncate="" class="md-header-icon">Home</h2>
+
+                    <md-button class="md-icon-button" aria-label="Search button" ng-click="">
+                        <md-icon class="material-icons md-header-icon">search</md-icon>
+                    </md-button>
+
+
+                    <md-button class="md-icon-button" aria-label="Notifications button" ng-click="">
+                        <md-tooltip>Notifications...</md-tooltip>
+                        <md-icon class="material-icons md-header-icon">notifications</md-icon>
+                    </md-button>
+
+                    <md-menu md-position-mode="target-right target">
+                        <md-button aria-label="Tools menu" class="md-icon-button" ng-click="vm.openMenu($mdMenu, $event)">
+                            <md-tooltip>Tools...</md-tooltip>
+                            <md-icon class="material-icons md-header-icon">more_vert</md-icon>
+                        </md-button>
+                        <md-menu-content width="3">
+                            <md-menu-item>
+                                <md-button ng-click="">
+                                    <md-icon class="material-icons">directions_run</md-icon>
+                                    Logout
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+
+                </div>
+                
+                <div flex></div>
+
+                <div layout="column" layout-align="start stretch" class="header-containt main-fab">
+                    
+                    <div class="logged-user main-fab md-padding" layout="row" layout-align="start center">
+
+                        <img src="app/assets/img/avatar.png"/>
+                        <div class="md-padding" layout="column" layout-align="space-between start">
+                            <span class="business-name">Business name</span>
+                            <span class="logged-name">Logged in user</span>
+                        </div>
+                    </div>
+
+                    <div class="placeholders main-fab" md-placeholders layout="row" layout-align="space-around end">
+                        <div flex>
+                            Placeholder
+                        </div>
+
+                        <div flex>
+                            Placeholder
+                        </div>
+
+                        <div flex>
+                            Placeholder
+                        </div>
+
+                        <div flex>
+                            Placeholder
+                        </div>
+
+                    </div>
+                </div>
+            </md-toolbar>
+        </header> 
+        
+        <section id="page-section" class="md-padding">
+            <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3"
+                          md-row-height="2:2"
+                          md-gutter="12px" md-gutter-gt-sm="8px">
+
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+
+
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+
+
+            </md-grid-list>
+        </section>
+
+
+        <!--<header  md-page-header>
+            <md-toolbar id="main-panel" class="md-hue-2 md-whiteframe-glow-z1" scroll>
+                <div class="md-toolbar-tools">
+                    <md-button class="menu" ng-click="vm.toggleSidenav()" aria-label="Show Client List">
+                        <md-icon class="material-icons">menu</md-icon>
+                    </md-button>
+
+                    <h2 flex="" md-truncate="">Home</h2>
+                        
+                        
+                    <div id="search-caller">
+                        <md-button class="md-icon-button" aria-label="Search button" ng-click="">
+                            <md-icon class="material-icons">search</md-icon>
+                        </md-button>
+                    </div>
+
+                    <md-button class="md-icon-button" aria-label="Notifications button" ng-click="">
+                        <md-tooltip>Notifications...</md-tooltip>
+                        <md-icon class="material-icons">notifications</md-icon>
+                    </md-button>
+                        
+                    <md-menu md-position-mode="target-right target">
+                        <md-button aria-label="Tools menu" class="md-icon-button" ng-click="vm.openMenu($mdMenu, $event)">
+                            <md-tooltip>Tools...</md-tooltip>
+                            <md-icon class="material-icons">more_vert</md-icon>
+                        </md-button>
+                        <md-menu-content width="3">
+                            <md-menu-item>
+                                <md-button ng-click="">
+                                    <md-icon class="material-icons">directions_run</md-icon>
+                                    Logout
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+         
+                <div class="placeholders" layout="row" layout-align="space-around end">
+                    <div flex>
+                        Placeholder
+                    </div>
+
+                    <div flex>
+                        Placeholder
+                    </div>
+
+                    <div flex>
+                        Placeholder
+                    </div>
+
+                    <div flex>
+                        Placeholder
+                    </div>
+
+                </div>
+                
+
+            </md-toolbar>
+
+        </header>-->
+            
+        
+
+        <!--<main id="main-content" flex>
+                
+            <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3"
+                          md-row-height="2:2"
+                          md-gutter="12px" md-gutter-gt-sm="8px">
+                
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+                
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+                
+                
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+                
+                <md-grid-tile class="md-whiteframe-3dp">
+                    <canvas id="chartCheckings" class="chart chart-bar"
+                            chart-data="vm.chartCheckingsData"
+                            chart-labels="vm.chartCheckingsLabels"
+                            chart-series="vm.chartCheckingsSeries"
+                            chart-options="vm.chartCheckingsOptions"
+                            chart-dataset-override="vm.chartCheckingsDatasetOverride"
+                            chart-click="vm.chartCheckingsClick"></canvas>
+                    <md-grid-tile-footer>
+                        <md-button class="md-raised md-primary"
+                                   ng-click="vm.chartCheckingsRandomize()">
+                            Change Checkings
+                        </md-button>
+                    </md-grid-tile-footer>
+                </md-grid-tile>
+                
+
+            </md-grid-list>
+            
+
+
+        </main>-->
+
+
+
+    </div>
+
+</body>
+</html>
