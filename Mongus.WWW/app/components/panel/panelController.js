@@ -48,6 +48,8 @@ app.directive("scroll",
             var placeholder = document.querySelector('[md-placeholders]');
             var placeholderBotPosition = placeholder.getBoundingClientRect();
 
+            var avatar = document.querySelector('.logged-user');
+            var avatarPosition = avatar.getBoundingClientRect();
 
             function styleInit() {
                 title.css('padding-left', '16px');
@@ -56,16 +58,20 @@ app.directive("scroll",
             }
 
             function handleStyle(dim) {
-                console.log('placeholder=' + JSON.stringify(placeholder.bottom) + ', dim.bottom=' + dim.bottom);
 
+                // placeholder hidden
                 if (dim.bottom < placeholderBotPosition.bottom) {
-                    console.log('chowam');
                     placeholder.classList.add('hide');
                 } else {
-                    console.log('pyk pokazuje');
                     placeholder.classList.remove('hide');
                 }
 
+                // avatar hidden
+                if (dim.bottom < avatarPosition.bottom) {
+                  avatar.classList.add('hide');
+                } else {
+                  avatar.classList.remove('hide');
+                }
 
                 fab.css('top', (dim.height - legacyFabMid) + 'px');
                 iconColor('#fff');
