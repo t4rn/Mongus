@@ -33,6 +33,9 @@
     transition: all .25s ease-out;
 }
 
+.logged-user {
+    padding: 16px 20px;
+}
 
 .logged-user > img {
     width: 56px;
