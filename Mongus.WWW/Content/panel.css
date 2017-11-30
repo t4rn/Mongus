@@ -57,9 +57,22 @@
 }
 
 #main-grid {
+    background-color: #EEEEEE;
     padding: 24px;
 }
 
+    #main-grid md-content {
+        background-color: transparent;
+    }
+
     #main-grid md-grid-tile-footer {
         background-color: transparent;
+    }
+
+    #main-grid md-card-footer {
+        padding: 16px 0 0;
+    }
+
+    #main-grid md-card md-card-title {
+        padding: 30px 38px 16px;
     }

@@ -8,7 +8,6 @@
     <!-- CSS -->
     <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/angular-material.css" rel="stylesheet" />
-    <link href="Content/panel.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="Content/font-awesome.css" rel="stylesheet" />
     <link href="Content/panel.css" rel="stylesheet" />
@@ -28,7 +27,7 @@
 <body ng-app="app">
 
     <div id="container" ng-controller="panelController as vm">
-        
+
         <header md-page-header>
             <div md-header-picture></div>
             <md-toolbar scroll class="md-whiteframe-5dp">
@@ -65,14 +64,14 @@
                     </md-menu>
 
                 </div>
-                
-             
+
+
 
                 <div layout="column" layout-align="start stretch" class="header-containt">
-                    
+
                     <div class="logged-user" layout="row" layout-align="start center">
 
-                        <img src="app/assets/img/avatar.png"/>
+                        <img src="app/assets/img/avatar.png" />
                         <div class="md-padding" layout="column" layout-align="space-between start">
                             <span class="business-name">Business name</span>
                             <span class="logged-name">Logged in user</span>
@@ -99,10 +98,116 @@
                     </div>
                 </div>
             </md-toolbar>
-        </header> 
-        
+        </header>
+
         <section id="main-grid">
-            <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3"
+
+            <md-content layout-xs="column" layout="row">
+                <div flex-xs="" flex-gt-xs="33" layout="column">
+
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <div layout="row">
+                                    <span class="md-headline" flex>Header</span>
+                                    <div dir="rtl">
+                                        <md-checkbox ng-model="asd">Tool</md-checkbox>
+                                    </div>
+                                </div>
+                                <span class="md-subhead">Subheader</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content layout="row" layout-align="center center">
+
+                            <p>
+                                Placeholder
+                            </p>
+
+                        </md-card-content>
+                        <md-card-footer>
+                            <md-button class="card-button">
+                                More
+                            </md-button>
+                        </md-card-footer>
+                    </md-card>
+
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <div layout="row">
+                                    <span class="md-headline" flex>Header</span>
+                                </div>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content layout="row" layout-align="center center">
+
+                            <p>
+                                Placeholder
+                            </p>
+
+                        </md-card-content>
+                        <md-card-footer>
+                            <md-button class="card-button">
+                                More
+                            </md-button>
+                        </md-card-footer>
+                    </md-card>
+                </div>
+
+
+
+                <div flex-xs="" flex-gt-xs="33" layout="column">
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <div layout="row">
+                                    <span class="md-headline" flex>Header</span>
+                                </div>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content layout="row" layout-align="center center">
+
+                            <p>
+                                Placeholder
+                            </p>
+
+                        </md-card-content>
+                        <md-card-footer>
+                            <md-button class="card-button">
+                                More
+                            </md-button>
+                        </md-card-footer>
+                    </md-card>
+                </div>
+
+                <div flex-xs="" flex-gt-xs="33" layout="column">
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <div layout="row">
+                                    <span class="md-headline" flex>Header</span>
+                                </div>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content layout="row" layout-align="center center">
+
+                            <p>
+                                Placeholder
+                            </p>
+
+                        </md-card-content>
+                        <md-card-footer>
+                            <md-button class="card-button">
+                                More
+                            </md-button>
+                        </md-card-footer>
+                    </md-card>
+                </div>
+
+
+            </md-content>
+
+            <!--<md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3"
                           md-row-height="2:2"
                           md-gutter="12px" md-gutter-gt-sm="24px">
 
@@ -138,13 +243,12 @@
                         </md-button>
                     </md-grid-tile-footer>
                 </md-grid-tile>
+            </md-grid-list>-->
 
-
-            </md-grid-list>
         </section>
 
 
-       
+
         <md-fab-speed-dial md-open="demo.isOpen" md-direction="up" class="md-fling md-fab-bottom-right" style="position:fixed !important;">
             <md-fab-trigger>
                 <md-button aria-label="menu" class="md-fab" style="background-color: #1D9B51">
@@ -158,8 +262,8 @@
             </md-fab-actions>-->
 
         </md-fab-speed-dial>
-       
-        
+
+
 
     </div>
 
