@@ -25,13 +25,13 @@
     <script src="app/components/panel/panel2Controller.js"></script>
 </head>
 <body ng-app="app" ng-controller="panel2Controller as vm">
-    <!--ng-class="{min:boolChangeClass}"--> 
+    <!--ng-class="{min:boolChangeClass}"-->
     <md-toolbar scroll ng-class="{'header-max': isHeaderMax, 'header-min': !isHeaderMax}" id="page" class="md-whiteframe-5dp">
         <div class="md-toolbar-tools">
             <md-button class="menu" ng-click="vm.toggleSidenav()">
                 <md-icon class="material-icons md-header-icon">menu</md-icon>
             </md-button>
-        
+
             <h2 flex="" md-truncate="" class="md-header-icon">Home</h2>
 
             <md-button class="md-icon-button" aria-label="Search button" ng-click="">
@@ -60,7 +60,7 @@
             </md-menu>
 
         </div>
-    
+
         <div layout="column" layout-align="start stretch" class="header-containt">
 
             <div class="logged-user" layout="row" layout-align="start center">
@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="placeholders" md-placeholders layout="row" layout-align="space-around end">
+            <div class="placeholders" md-placeholders layout="row" layout-align="space-around end" hide-xs>
                 <div flex>
                     Placeholder
                 </div>
@@ -93,7 +93,7 @@
         </div>
 
     </md-toolbar>
-    
+
     <section id="main-grid" ng-style="myStyle">
         <md-content layout-xs="column" layout="row">
             <div flex-xs="" flex-gt-xs="33" layout="column">
@@ -207,7 +207,7 @@
 
         </md-content>
     </section>
-    
+
     <md-fab-speed-dial md-open="demo.isOpen" md-direction="up" class="md-fling md-fab-bottom-right" style="position:fixed !important;">
         <md-fab-trigger>
             <md-button aria-label="menu" class="md-fab" style="background-color: #1D9B51">
