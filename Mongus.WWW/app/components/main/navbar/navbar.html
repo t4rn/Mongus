@@ -3,15 +3,14 @@
             layout-align="space-between center"
             layout-align-gt-sm="space-between center">
 
-    <div layout="row">
-        <md-button aria-label="Side Panel" ng-click="vm.toggleSidebar()" hide-gt-sm>
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Side Panel" ng-click="vm.toggleSidebar()" ng-show="vm.showMenuButton">
             <md-tooltip>Open Side Panel</md-tooltip>
             <md-icon class="material-icons">menu</md-icon>
         </md-button>
 
-
-        <a href="/" style="padding: 0 0 0 10px;">
-            <img id="logo-image" src="/app/assets/img/logo.png" style="">
+        <a href="/">
+            <img id="logo-image" src="/app/assets/img/logo.png" style="" alt="logo">
         </a>
 
         <!--<h3 flex>{{ vm.currentPage }}</h3>-->
@@ -39,53 +38,56 @@
                 HighCharts
             </md-button>
         </div>
-    </div>
-    <div layout="row">
-        <div id="search-caller">
-            <input type="text" id="search-input" placeholder="Search on website..." />
-            <md-button class="md-icon-button" aria-label="Search button" ng-click="">
-                <md-icon class="material-icons">search</md-icon>
+
+        <div flex></div>
+
+        <div layout="row">
+            <div id="search-caller">
+                <input type="text" id="search-input" placeholder="Search on website..." />
+                <md-button id="search-button" class="md-icon-button" aria-label="Search button" ng-click="">
+                    <md-icon class="material-icons">search</md-icon>
+                </md-button>
+            </div>
+            <md-button class="md-icon-button" aria-label="Notifications button" ng-click="">
+                <md-tooltip>Notifications...</md-tooltip>
+                <md-icon class="material-icons">notifications</md-icon>
             </md-button>
-        </div>
-        <md-button class="md-icon-button" aria-label="Notifications button" ng-click="">
-            <md-tooltip>Notifications...</md-tooltip>
-            <md-icon class="material-icons">notifications</md-icon>
-        </md-button>
-        <md-menu md-position-mode="target-right target">
-            <md-button aria-label="Tools menu" class="md-icon-button" ng-click="vm.openMenu($mdMenu, $event)">
-                <md-tooltip>Tools...</md-tooltip>
-                <md-icon class="material-icons">more_vert</md-icon>
-            </md-button>
-            <md-menu-content width="3">
-                <md-menu-item>
-                    <md-button ng-click="vm.changeTheme()">
-                        <md-icon class="material-icons">airplay</md-icon>
-                        Change Theme
-                    </md-button>
-                </md-menu-item>
-                <md-menu-item>
-                    <md-button ng-click="">
-                        <md-icon class="material-icons">directions_run</md-icon>
-                        Logout
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-        <!--<md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
-            Change Theme
-        </md-button>-->
-        <!--<md-fab-speed-dial md-open="false" md-direction="down" class="md-scale">
-            <md-fab-trigger>
-                <md-button aria-label="menu">
+            <md-menu md-position-mode="target-right target">
+                <md-button aria-label="Tools menu" class="md-icon-button" ng-click="vm.openMenu($mdMenu, $event)">
+                    <md-tooltip>Tools...</md-tooltip>
                     <md-icon class="material-icons">more_vert</md-icon>
                 </md-button>
-            </md-fab-trigger>
-            <md-fab-actions>
-                <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="changeTheme()">
-                    <md-tooltip>Change Theme</md-tooltip>
-                    <md-icon class="material-icons">airplay</md-icon>
-                </md-button>
-            </md-fab-actions>
-        </md-fab-speed-dial>-->
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button ng-click="vm.changeTheme()">
+                            <md-icon class="material-icons">airplay</md-icon>
+                            Change Theme
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="">
+                            <md-icon class="material-icons">directions_run</md-icon>
+                            Logout
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <!--<md-button aria-label="Change Theme..." ng-click="changeTheme()" class="md-raised md-warn">
+                Change Theme
+            </md-button>-->
+            <!--<md-fab-speed-dial md-open="false" md-direction="down" class="md-scale">
+                <md-fab-trigger>
+                    <md-button aria-label="menu">
+                        <md-icon class="material-icons">more_vert</md-icon>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <md-button aria-label="Twitter" class="md-fab md-raised md-mini" ng-click="changeTheme()">
+                        <md-tooltip>Change Theme</md-tooltip>
+                        <md-icon class="material-icons">airplay</md-icon>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>-->
+        </div>
     </div>
 </md-toolbar>
