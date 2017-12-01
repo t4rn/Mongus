@@ -27,8 +27,8 @@
 <body ng-app="app" ng-controller="panel2Controller as vm">
     <!--ng-class="{min:boolChangeClass}"-->
     <md-toolbar scroll ng-class="{'header-max': isHeaderMax, 'header-min': !isHeaderMax}" id="page" class="md-whiteframe-5dp">
-        <div class="md-toolbar-tools">
-            <md-button class="menu" ng-click="vm.toggleSidenav()">
+        <div class="md-toolbar-tools" style="flex-shrink: 0">
+            <md-button class="menu md-icon-button" ng-click="vm.toggleSidenav()">
                 <md-icon class="material-icons md-header-icon">menu</md-icon>
             </md-button>
 
