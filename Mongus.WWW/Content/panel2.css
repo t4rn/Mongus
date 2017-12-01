@@ -1,0 +1,99 @@
+﻿body { margin: 0; background: lightgrey; }
+
+.header-max {
+    background-image: url('/app/assets/img/bg2.jpg');
+    box-shadow: inset 0 0 0 1000px rgba(74, 120, 188,.8);
+    height: 476px;
+}
+.header-min {
+    background-color: #fff;
+    color: #000;
+    height: 50px;
+}
+
+#page {
+    width:100%;
+    box-sizing: border-box;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 150;
+    font: 18px sans-serif;
+    transition: all .25s ease-out;
+}
+
+.placeholders > div {
+    background-color: #ebf2f6;
+    opacity: 0.5;
+    filter: alpha(opacity=70);
+    margin: 20px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A1A1A;
+    transition: all .25s ease-out;
+}
+
+.logged-user {
+    padding: 16px 20px;
+}
+
+.logged-user > img {
+    width: 56px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.logged-user > div > .business-name {
+    font-size: 48px;
+}
+
+.logged-user > div > .logged-name {
+    font-size: 20px;
+}
+
+.header-containt {
+    padding-left: 39px;
+    padding-right: 39px;
+}
+
+
+#main-grid {
+    margin-top: 476px;
+    background-color: #EEEEEE;
+    padding: 24px;
+    box-sizing: border-box;
+    font: 14px sans-serif;
+    transition: all .25s ease-out;
+}
+
+#main-grid md-content {
+    background-color: transparent;
+}
+
+#main-grid md-grid-tile-footer {
+    background-color: transparent;
+}
+
+#main-grid md-card-footer {
+    padding: 16px 0 0;
+}
+
+#main-grid md-card md-card-title {
+    padding: 30px 38px 16px;
+}
+
+
+/*Mocks*/
+.height-300 {
+    height: 300px;
+}
+
+.height-400 {
+    height: 400px;
+}
+.height-500 {
+    height: 500px;
+}
