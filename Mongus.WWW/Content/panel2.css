@@ -85,6 +85,10 @@
     padding: 30px 38px 16px;
 }
 
+.card-button {
+    color: #1C9B51;
+    font-weight: bold;
+}
 
 /*Mocks*/
 .height-300 {
