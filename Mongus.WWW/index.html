@@ -5,12 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!--CSS-->
+    <link href="logo.png" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/angular-material.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="Content/font-awesome.css" rel="stylesheet" />
 
+    <!--AngularJS-->
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/angular-animate.js"></script>
@@ -19,6 +21,7 @@
     <script src="Scripts/angular-material.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    <!--App JS-->
     <script src="app/config.js"></script>
 
     <script src="app/mongusApp.js"></script>
@@ -41,20 +44,32 @@
 </head>
 <body ng-app="mongusApp" ng-controller="mainController as vm">
 
-    <div id="mongus-wrapper" ng-cloak md-theme="{{ vm.theme }}" ng-style="vm.myStyle">
-        <header>
-            <div ng-include="'app/components/main/navbar/navbar.html'"></div>
-            <div ng-include="'app/components/main/sidebar/sidebar.html'"></div>
-        </header>
+    <div id="container"
+         md-theme="{{ vm.theme }}"
+         ng-cloak
+         ng-style="vm.myStyle"
+         layout="row" flex>
 
-        <main>
-            <div ng-view></div>
-        </main>
-        <footer>
-            <div ng-include="'app/components/main/footer/footer.html'"></div>
-        </footer>
+        <div layout="column" ng-include="'app/components/main/sidebar/sidebar.html'"></div>
+
+        <div layout="column" flex>
+
+            <div ng-include="'app/components/main/navbar/navbar.html'"></div>
+
+            <md-content layout="column" flex>
+
+                <div ng-view></div>
+
+                <div flex></div>
+
+                <div ng-include="'app/components/main/footer/footer.html'"></div>
+
+            </md-content>
+
+        </div>
 
     </div>
+
 
 </body>
 </html>

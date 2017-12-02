@@ -9,11 +9,14 @@
 
         var vm = this;
         vm.theme = "default";
+        vm.userFullName = "John Smith";
+        vm.showMenuButton = true;
+        vm.showSidenav = true;
         vm.toggleSidebar = toggleSidebar;
         vm.currentPage = "Home";
         vm.subPages = [
             { url: "/", name: "Home", icon: "home" },
-            { url: "/#!/values", name: "Values", icon: "message" },
+            { url: "/#!/values", name: "Values", icon: "local_atm" },
             { url: "/#!/register", name: "Register", icon: "face" },
             { url: "/#!/users", name: "Users", icon: "supervisor_account" },
             { url: "/#!/clients", name: "Clients", icon: "contacts" },
@@ -62,7 +65,8 @@
         };
 
         function toggleSidebar() {
-            $mdSidenav("sidenav").toggle();
+            vm.showSidenav = !vm.showSidenav;
+            //$mdSidenav("sidenav").toggle();
         };
 
         vm.openMenu = function ($mdMenu, ev) {

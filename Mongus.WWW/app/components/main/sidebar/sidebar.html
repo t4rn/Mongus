@@ -1,71 +1,71 @@
 ﻿
-<md-sidenav id="sidebar-left" class="md-sidenav-left md-whiteframe-4p"
-            md-component-id="sidenav" layout="column" layout-fill>
+<md-sidenav id="sidebar-left" class="md-whiteframe-7dp"
+            md-is-locked-open="$mdMedia('gt-sm') && vm.showSidenav"
+            md-component-id="sidenav"
+            layout="column" flex>
 
-    <div flex>
-        <md-toolbar>
-            <span flex></span>
+    <div>
 
-            <div layout="row">
-                <div layout="column" class="md-toolbar-tools-bottom inset">
-                    <img class="round-image" src="app/assets/img/avatar.png" style="width: 100px; " />
-                    <span></span>
-                    <div>John Smith</div>
-                </div>
-                <span flex></span>
+        <md-toolbar layout="column" style="padding: 12px 12px">
+
+            <div layout="row" layout-align="space-between center" style="margin: 0 0 30px">
+
+                <img src="/app/assets/img/logo.png" aria-label="logo" />
+
                 <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.toggleSidebar()">
                     <md-tooltip>Close Side Panel</md-tooltip>
                     <md-icon class="material-icons">chevron_left</md-icon>
                 </md-button>
+
             </div>
+
+            <div layout="column" class="md-toolbar-tools-bottom inset">
+                <img class="round-image" src="app/assets/img/avatar.png"
+                     style="width: 35px; margin: 0 0 10px" />
+                <div>{{ vm.userFullName }}</div>
+
+
+
+                <md-select ng-model="vm.userFullName" placeholder="{{vm.userFullName}}" class="md-no-underline">
+                    <md-option value="Anna Nowak">Anna Nowak</md-option>
+                    <md-option value="Adam Snow">Adam Snow</md-option>
+                    <md-option value="Eric Leigh">Eric Leigh</md-option>
+                </md-select>
+
+
+            </div>
+
         </md-toolbar>
 
-        <md-list ng-click="vm.toggleSidebar()">
 
-            <md-list-item ng-repeat="p in vm.subPages" class="md-button"
-                          layout="row" layout-align="center end">
+        <md-list>
+
+            <md-list-item ng-repeat="p in vm.subPages" ng-click="vm.changePage(p.name)">
                 <md-icon class="material-icons">{{ p.icon }}</md-icon>
-                <p ng-click="vm.changePage(p.name)">
-                    <a href="{{ p.url }}">
-                        {{ p.name }}
-                    </a>
-                </p>
+                <p> {{ p.name }}</p>
             </md-list-item>
-        </md-list>
 
-        <md-list ng-click="vm.toggleSidebar()">
-
-            <md-subheader class="md-no-sticky">Favorites</md-subheader>
-            <md-list-item>
-                <md-icon class="material-icons">&#xE0C9;</md-icon>
-                <p>Messages</p>
-                <div class="md-secondary">4</div>
-            </md-list-item>
-            <md-list-item>
-                <md-icon class="material-icons">&#xE878;</md-icon>
-                <p>Events</p>
-                <md-icon class="md-secondary">2</md-icon>
-            </md-list-item>
-            <md-list-item>
-                <md-icon class="material-icons">&#xE251;</md-icon>
-                <p>Photos</p>
-                <md-icon class="md-secondary">2</md-icon>
-            </md-list-item>
-            <md-divider></md-divider>
             <md-subheader class="md-no-sticky">Management</md-subheader>
-            <md-list-item>
+
+            <md-list-item ng-click="vm.changePage('feeds')">
                 <md-icon class="material-icons">lightbulb_outline</md-icon>
                 <p>Pages Feed</p>
                 <div class="md-secondary">2</div>
             </md-list-item>
-            <md-list-item>
+
+            <md-list-item ng-click="vm.changePage('settings')">
                 <md-icon class="material-icons">settings</md-icon>
                 <p>Settings</p>
+                <div class="md-secondary">4</div>
             </md-list-item>
+
         </md-list>
 
     </div>
-    <md-toolbar>
+
+    <div flex></div>
+
+    <md-toolbar id="footer-sidebar">
         <div layout="row" layout-align="center center" flex>
             <md-icon class="material-icons">shopping_cart</md-icon>
             <md-icon class="material-icons">accessible</md-icon>

@@ -4,18 +4,17 @@
             layout-align-gt-sm="space-between center">
 
     <div class="md-toolbar-tools">
-        <md-button aria-label="Side Panel" ng-click="vm.toggleSidebar()" ng-show="vm.showMenuButton">
+        <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.toggleSidebar()" ng-show="!vm.showSidenav">
             <md-tooltip>Open Side Panel</md-tooltip>
             <md-icon class="material-icons">menu</md-icon>
         </md-button>
 
-        <a href="/">
-            <img id="logo-image" src="/app/assets/img/logo.png" style="" alt="logo">
-        </a>
-
         <!--<h3 flex>{{ vm.currentPage }}</h3>-->
 
         <div layout="row" hide-xs hide-sm>
+            <md-button aria-label="Values" href="/">
+                Home
+            </md-button>
             <md-button aria-label="Values" href="#!/values">
                 Values
             </md-button>
