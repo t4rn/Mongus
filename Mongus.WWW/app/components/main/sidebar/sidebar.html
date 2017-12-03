@@ -1,14 +1,14 @@
 ﻿
 <md-sidenav id="sidebar-left" class="md-whiteframe-7dp"
-            md-is-locked-open="$mdMedia('gt-sm') && vm.showSidenav"
+            md-is-locked-open="$mdMedia('gt-sm') && vm.isSidebarOpen"
             md-component-id="sidenav"
             layout="column" flex>
 
     <div>
 
-        <md-toolbar layout="column" style="padding: 12px 12px">
+        <md-toolbar id="sidebar-toolbar" layout="column" layout-align="space-between stretch">
 
-            <div layout="row" layout-align="space-between center" style="margin: 0 0 30px">
+            <div layout="row" layout-align="space-between center">
 
                 <img src="/app/assets/img/logo.png" aria-label="logo" />
 
@@ -20,18 +20,14 @@
             </div>
 
             <div layout="column" class="md-toolbar-tools-bottom inset">
-                <img class="round-image" src="app/assets/img/avatar.png"
-                     style="width: 35px; margin: 0 0 10px" />
-                <div>{{ vm.userFullName }}</div>
+                <img class="avatar" src="app/assets/img/avatar.png"/>
+                <div><span style="font-weight: bold">{{ vm.userFullName }}</span></div>
 
-
-
-                <md-select ng-model="vm.userFullName" placeholder="{{vm.userFullName}}" class="md-no-underline">
+                <md-select id="sidebar-select" ng-model="vm.userFullName" placeholder="{{vm.userFullName}}" class="md-no-underline">
                     <md-option value="Anna Nowak">Anna Nowak</md-option>
                     <md-option value="Adam Snow">Adam Snow</md-option>
                     <md-option value="Eric Leigh">Eric Leigh</md-option>
                 </md-select>
-
 
             </div>
 

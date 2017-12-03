@@ -5,13 +5,13 @@
     angular.module("mongusApp")
     .controller("mainController", mainController);
 
-    function mainController($mdSidenav) {
+    function mainController($mdSidenav, $mdMedia) {
 
         var vm = this;
         vm.theme = "default";
         vm.userFullName = "John Smith";
         vm.showMenuButton = true;
-        vm.showSidenav = true;
+        vm.isSidebarOpen = $mdMedia('gt-sm');
         vm.toggleSidebar = toggleSidebar;
         vm.currentPage = "Home";
         vm.subPages = [
@@ -65,7 +65,7 @@
         };
 
         function toggleSidebar() {
-            vm.showSidenav = !vm.showSidenav;
+            vm.isSidebarOpen = !vm.isSidebarOpen;
             //$mdSidenav("sidenav").toggle();
         };
 
