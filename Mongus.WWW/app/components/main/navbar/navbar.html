@@ -9,35 +9,37 @@
             <md-tooltip>Open Side Panel</md-tooltip>
             <md-icon class="material-icons">menu</md-icon>
         </md-button>
+        
+        <!--<h3 flex> {{ vm.currentState }} </h3>-->
+        <h3 flex>{{ $state.current.name }}</h3>
 
-        <!--<h3 flex>{{ vm.currentPage }}</h3>-->
 
-        <div layout="row" hide-xs hide-sm>
-            <md-button aria-label="Values" href="/">
+        <!--<div layout="row" hide-xs hide-sm>
+            <md-button aria-label="Values" ui-sref="home">
                 Home
             </md-button>
-            <md-button aria-label="Values" href="#!/values">
+            <md-button aria-label="Values" ui-sref="values">
                 Values
             </md-button>
-            <md-button aria-label="Register" href="#!/register">
+            <md-button aria-label="Register" ui-sref="register">
                 Register
             </md-button>
-            <md-button aria-label="Users" href="#!/users">
+            <md-button aria-label="Users" ui-sref="users">
                 Users
             </md-button>
-            <md-button aria-label="Clients" href="#!/clients">
+            <md-button aria-label="Clients" ui-sref="clients">
                 Clients
             </md-button>
-            <md-button aria-label="Charts" href="#!/charts">
+            <md-button aria-label="Charts" ui-sref="charts">
                 Chart.js
             </md-button>
-            <md-button aria-label="ChartsGoogle" href="#!/chartsgoogle">
+            <md-button aria-label="ChartsGoogle" ui-sref="chartsgoogle">
                 Charts Google
             </md-button>
-            <md-button aria-label="HighCharts" href="#!/highCharts">
+            <md-button aria-label="HighCharts" ui-sref="highCharts">
                 HighCharts
             </md-button>
-        </div>
+        </div>-->
 
         <div flex></div>
 

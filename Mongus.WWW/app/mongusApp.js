@@ -1,59 +1,55 @@
-﻿angular.module("mongusApp", ["ngMaterial", "ngRoute", "chart.js"])
-.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide, $mdIconProvider) {
+﻿var app =
+angular.module("mongusApp", ["ngMaterial", "ngRoute", "chart.js", "ui.router"])
+.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide, $mdIconProvider, $stateProvider) {
 
-    $routeProvider.when("/", {
-        templateUrl: "/app/components/main/mainContent.html"
-    });
+    $stateProvider
+        .state("Home", {
+            url: "/",
+            templateUrl: "/app/components/main/mainContent.html"
+        })
+        .state("Values", {
+            url: "/values",
+            controller: "valuesController",
+            controllerAs: "vm",
+            templateUrl: "/app/components/values/values.html"
+        })
+        .state("Register", {
+            url: "/register",
+            controller: "registerController",
+            controllerAs: "vm",
+            templateUrl: "/app/components/register/register.html"
+        })
+        .state("Users", {
+            url: "/users",
+            controller: "usersController",
+            //controllerAs: "vm",
+            templateUrl: "/app/components/users/users.html"
+        })
+        .state("Clients", {
+            url: "/clients",
+            controller: "clientsController",
+            //controllerAs: "vm",
+            templateUrl: "/app/components/clients/clients.html"
+        })
+        .state("Charts", {
+            url: "/charts",
+            controller: "chartsController",
+            //controllerAs: "vm",
+            templateUrl: "/app/components/charts/charts.html"
+        })
+        .state("ChartsGoogle", {
+            url: "/chartsGoogle",
+            controller: "chartsGoogleController",
+            controllerAs: "vm",
+            tempateUrl: "/app/components/chartsGoogle/chartsGoogle.html"
+        })
+        .state("HighCharts", {
+            url: "/highCharts",
+            controller: "highChartsController",
+            //controllerAs: "vm",
+            templateUrl: "/app/components/highCharts/highCharts.html"
+        });
 
-    $routeProvider.when("/values", {
-        controller: "valuesController",
-        controllerAs: "vm",
-        templateUrl: "/app/components/values/values.html"
-    });
-
-    $routeProvider.when("/register", {
-        controller: "valuesController",
-        //controllerAs: "vm",
-        templateUrl: "/app/components/register/register.html"
-    });
-
-    $routeProvider.when("/users", {
-        controller: "usersController",
-        //controllerAs: "vm",
-        templateUrl: "/app/components/users/users.html"
-    });
-
-    $routeProvider.when("/clients", {
-        controller: "clientsController",
-        //controllerAs: "vm",
-        templateUrl: "/app/components/clients/clients.html"
-    });
-
-    $routeProvider.when("/charts", {
-        controller: "chartsController",
-        //controllerAs: "vm",
-        templateUrl: "/app/components/charts/charts.html"
-    });
-    $routeProvider.when("/chartsgoogle", {
-      controller: "chartsGoogleController",
-      controllerAs: "vm",
-      templateUrl: "/app/components/chartsGoogle/chartsGoogle.html"
-    });
-
-    $routeProvider.when("/highCharts", {
-        controller: "highChartsController",
-        //controllerAs: "vm",
-        templateUrl: "/app/components/highCharts/highCharts.html"
-    });
-
-    //$routeProvider.when("/editor/:tripName", {
-    //    controller: "tripEditorController",
-    //    controllerAs: "vm",
-    //    templateUrl: "/views/tripEditorView.html"
-    //});
-
-    $routeProvider.otherwise({ redirectTo: "/" });
-    //$locationProvider.html5Mode(true);
 
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
@@ -69,3 +65,38 @@
     $mdIconProvider.defaultIconSet("/app/assets/svg/avatars.svg", 128);
 
 });
+
+app.run(['$rootScope', '$state', '$stateParams', '$log', function ($rootScope, $state, $stateParams, $log) {
+
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+
+    //$rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+
+    //    $log.debug('successfully changed states');
+
+    //    $log.debug('event', event);
+    //    $log.debug('toState', toState);
+    //    $log.debug('toParams', toParams);
+    //    $log.debug('fromState', fromState);
+    //    $log.debug('fromParams', fromParams);
+    //});
+
+    $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
+
+        $log.error('The requested state was not found: ', unfoundState);
+
+    });
+
+    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+
+        $log.error('An error occurred while changing states: ', error);
+
+        $log.debug('event', event);
+        $log.debug('toState', toState);
+        $log.debug('toParams', toParams);
+        $log.debug('fromState', fromState);
+        $log.debug('fromParams', fromParams);
+    });
+
+}]);

@@ -20,7 +20,7 @@
             </div>
 
             <div layout="column" class="md-toolbar-tools-bottom inset">
-                <img class="avatar" src="app/assets/img/avatar.png"/>
+                <img class="avatar" src="app/assets/img/avatar.png" />
                 <div><span style="font-weight: bold">{{ vm.userFullName }}</span></div>
 
                 <md-select id="sidebar-select" ng-model="vm.userFullName" placeholder="{{vm.userFullName}}" class="md-no-underline">
@@ -36,20 +36,29 @@
 
         <md-list>
 
-            <md-list-item ng-repeat="p in vm.subPages" ng-click="vm.changePage(p.name)">
+            <md-list-item ng-repeat="p in vm.subPages" ng-click="vm.changeState(p.state)">
                 <md-icon class="material-icons">{{ p.icon }}</md-icon>
-                <p> {{ p.name }}</p>
+                <p> {{ p.state }}</p>
             </md-list-item>
 
-            <md-subheader class="md-no-sticky">Management</md-subheader>
+            <md-subheader class="md-no-sticky">Charts</md-subheader>
 
-            <md-list-item ng-click="vm.changePage('feeds')">
-                <md-icon class="material-icons">lightbulb_outline</md-icon>
-                <p>Pages Feed</p>
-                <div class="md-secondary">2</div>
+            <md-list-item ng-click="vm.changeState('Charts')">
+                <md-icon class="material-icons">insert_chart</md-icon>
+                <p>Charts.js</p>
             </md-list-item>
 
-            <md-list-item ng-click="vm.changePage('settings')">
+            <md-list-item ng-click="vm.changeState('ChartsGoogle')">
+                <md-icon class="material-icons">pie_chart</md-icon>
+                <p>Charts Google</p>
+            </md-list-item>
+
+            <md-list-item ng-click="vm.changeState('HighCharts')">
+                <md-icon class="material-icons">multiline_chart</md-icon>
+                <p>Highcharts</p>
+            </md-list-item>
+
+            <md-list-item ng-click="vm.changeState('Settings')">
                 <md-icon class="material-icons">settings</md-icon>
                 <p>Settings</p>
                 <div class="md-secondary">4</div>

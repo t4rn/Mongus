@@ -5,7 +5,7 @@
     angular.module("mongusApp")
     .controller("mainController", mainController);
 
-    function mainController($mdSidenav, $mdMedia) {
+    function mainController($mdSidenav, $mdMedia, $state, $log) {
 
         var vm = this;
         vm.theme = "default";
@@ -13,23 +13,25 @@
         vm.showMenuButton = true;
         vm.isSidebarOpen = $mdMedia('gt-sm');
         vm.toggleSidebar = toggleSidebar;
-        vm.currentPage = "Home";
+
+        //$log.debug("current state: " + JSON.stringify($state.current));
+
+        //vm.currentState = $state.current.name;
+
         vm.subPages = [
-            { url: "/", name: "Home", icon: "home" },
-            { url: "/#!/values", name: "Values", icon: "local_atm" },
-            { url: "/#!/register", name: "Register", icon: "face" },
-            { url: "/#!/users", name: "Users", icon: "supervisor_account" },
-            { url: "/#!/clients", name: "Clients", icon: "contacts" },
-            { url: "/#!/charts", name: "Charts", icon: "insert_chart" },
-            { url: "/#!/chartsgoogle", name: "Charts Google", icon: "pie_chart" },
-            { url: "/#!/highCharts", name: "Highcharts", icon: "multiline_chart" }
+            { state: "Home", icon: "home" },
+            { state: "Values", icon: "local_atm" },
+            { state: "Register", icon: "face" },
+            { state: "Users", icon: "supervisor_account" },
+            { state: "Clients", icon: "contacts" }
         ];
-        vm.changePage = changePage;
+        vm.changeState = changeState;
 
 
-        function changePage(pageName) {
-            vm.currentPage = pageName;
-            console.log("page name: " + pageName);
+        function changeState(stateName) {
+            $log.debug("going to page: " + stateName + " from: " + $state.current.name);
+            $state.go(stateName);
+            //vm.currentState = stateName.charAt(0).toUpperCase() + stateName.slice(1);
         };
 
         vm.defaultStyle = {
@@ -52,7 +54,7 @@
         vm.changeTheme = function changeTheme() {
             console.log("changing theme...");
 
-            if (vm.theme == "default") {
+            if (vm.theme === "default") {
                 vm.theme = vm.altStyle.theme;
                 vm.myStyle.background = vm.altStyle.backgroundColor;
                 vm.myStyle.color = vm.altStyle.color;

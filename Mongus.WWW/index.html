@@ -20,6 +20,7 @@
     <script src="Scripts/angular-messages.js"></script>
     <script src="Scripts/angular-material.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
 
     <!--App JS-->
     <script src="app/config.js"></script>
@@ -58,7 +59,8 @@
 
             <md-content layout="column" flex>
 
-                <div ng-view></div>
+                <!--<div ng-view></div>-->
+                <div ui-view></div>
 
                 <div flex></div>
 
