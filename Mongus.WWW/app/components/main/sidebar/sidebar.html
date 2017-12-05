@@ -36,29 +36,29 @@
 
         <md-list>
 
-            <md-list-item ng-repeat="p in vm.subPages" ng-click="vm.changeState(p.state)">
+            <md-list-item ng-repeat="p in vm.subPages" ui-sref="{{ p.state }}">
                 <md-icon class="material-icons">{{ p.icon }}</md-icon>
-                <p> {{ p.state }}</p>
+                <p> {{ p.name }}</p>
             </md-list-item>
 
             <md-subheader class="md-no-sticky">Charts</md-subheader>
 
-            <md-list-item ng-click="vm.changeState('Charts')">
+            <md-list-item ui-sref="charts">
                 <md-icon class="material-icons">insert_chart</md-icon>
                 <p>Charts.js</p>
             </md-list-item>
 
-            <md-list-item ng-click="vm.changeState('ChartsGoogle')">
+            <md-list-item ui-sref="chartsGoogle">
                 <md-icon class="material-icons">pie_chart</md-icon>
                 <p>Charts Google</p>
             </md-list-item>
 
-            <md-list-item ng-click="vm.changeState('HighCharts')">
+            <md-list-item ui-sref="highCharts">
                 <md-icon class="material-icons">multiline_chart</md-icon>
                 <p>Highcharts</p>
             </md-list-item>
 
-            <md-list-item ng-click="vm.changeState('Settings')">
+            <md-list-item ui-sref="settings">
                 <md-icon class="material-icons">settings</md-icon>
                 <p>Settings</p>
                 <div class="md-secondary">4</div>

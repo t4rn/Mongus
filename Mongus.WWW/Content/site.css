@@ -112,6 +112,9 @@ footer {
     padding: 0px 10px;
 }
 
+.toolbar-items i {
+    font-size: 24px;
+}
 
 #content .md-button.share {
     background-color: transparent;

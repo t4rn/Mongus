@@ -13,21 +13,18 @@
         vm.showMenuButton = true;
         vm.isSidebarOpen = $mdMedia('gt-sm');
         vm.toggleSidebar = toggleSidebar;
-
-        //$log.debug("current state: " + JSON.stringify($state.current));
-
-        //vm.currentState = $state.current.name;
-
         vm.subPages = [
-            { state: "Home", icon: "home" },
-            { state: "Values", icon: "local_atm" },
-            { state: "Register", icon: "face" },
-            { state: "Users", icon: "supervisor_account" },
-            { state: "Clients", icon: "contacts" }
+            { state: "home", name: "Home", icon: "home" },
+            { state: "values", name: "Values", icon: "local_atm" },
+            { state: "register", name: "Register", icon: "face" },
+            { state: "users", name: "Users", icon: "supervisor_account" },
+            { state: "clients", name: "Clients", icon: "contacts" }
         ];
-        vm.changeState = changeState;
+        //vm.currentState = $state.current.name;
+        //vm.changeState = changeState;
 
 
+        // obsolete - done automatically
         function changeState(stateName) {
             $log.debug("going to page: " + stateName + " from: " + $state.current.name);
             $state.go(stateName);
@@ -43,7 +40,7 @@
         vm.altStyle = {
             theme: "altTheme",
             backgroundColor: "#0C2238",
-            color: "white"
+            color: "gray"
         };
 
         vm.myStyle = {
