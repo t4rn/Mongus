@@ -2,6 +2,12 @@
 angular.module("mongusApp", ["ngMaterial", "chart.js", "ui.router"])
 .config(function ($locationProvider, $mdThemingProvider, $provide, $mdIconProvider, $stateProvider) {
 
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: true,
+        rewriteLinks: true
+    });
+
     $stateProvider
       .state("home", {
           title: 'Home',
