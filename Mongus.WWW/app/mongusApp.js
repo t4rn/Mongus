@@ -1,6 +1,6 @@
 ﻿var app =
-angular.module("mongusApp", ["ngMaterial", "ngRoute", "chart.js", "ui.router"])
-.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $provide, $mdIconProvider, $stateProvider) {
+angular.module("mongusApp", ["ngMaterial", "chart.js", "ui.router"])
+.config(function ($locationProvider, $mdThemingProvider, $provide, $mdIconProvider, $stateProvider) {
 
     $stateProvider
       .state("home", {
@@ -56,7 +56,12 @@ angular.module("mongusApp", ["ngMaterial", "ngRoute", "chart.js", "ui.router"])
           controller: "highChartsController",
           //controllerAs: "vm",
           templateUrl: "/app/components/highCharts/highCharts.html"
-      });
+      })
+      .state("notFound", {
+          title: "Page not found",
+          template: "<h3 style='text-align:center'>Page not found...</h3>"
+      })
+    ;
 
 
     $mdThemingProvider.theme('default')
@@ -95,6 +100,7 @@ app.run(['$rootScope', '$state', '$stateParams', '$log', function ($rootScope, $
 
     $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
         $log.error('The requested state was not found: ', unfoundState);
+        $state.go("notFound");
     });
 
     $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
