@@ -1,4 +1,7 @@
-﻿html,body { margin: 0; background: #EEE; }
+﻿html, body {
+    margin: 0;
+    background: #EEE;
+}
 
 .header-max {
     background-image: url('/app/assets/img/bg2.jpg');
@@ -6,6 +9,7 @@
     background-position: 50% 50%;
     height: 476px;
 }
+
 .header-min {
     background-color: #fff;
     color: #000;
@@ -13,7 +17,7 @@
 }
 
 #page {
-    width:100%;
+    width: 100%;
     box-sizing: border-box;
     position: fixed;
     right: 0;
@@ -41,19 +45,19 @@
     padding: 16px 20px;
 }
 
-.logged-user > img {
-    width: 56px;
-    height: auto;
-    border-radius: 50%;
-}
+    .logged-user > img {
+        width: 56px;
+        height: auto;
+        border-radius: 50%;
+    }
 
-.logged-user > div > .business-name {
-    font-size: 48px;
-}
+    .logged-user > div > .business-name {
+        font-size: 24px;
+    }
 
-.logged-user > div > .logged-name {
-    font-size: 20px;
-}
+    .logged-user > div > .logged-name {
+        font-size: 14px;
+    }
 
 .header-containt {
     padding-left: 39px;
@@ -64,27 +68,26 @@
 #main-grid {
     margin-top: 476px;
     background-color: #EEEEEE;
-    padding: 24px;
     box-sizing: border-box;
     font: 14px sans-serif;
     transition: all .25s ease-out;
 }
 
-#main-grid md-content {
-    background-color: transparent;
-}
+    #main-grid md-content {
+        background-color: transparent;
+    }
 
-#main-grid md-grid-tile-footer {
-    background-color: transparent;
-}
+    #main-grid md-grid-tile-footer {
+        background-color: transparent;
+    }
 
-#main-grid md-card-footer {
-    padding: 16px 0 0;
-}
+    #main-grid md-card-footer {
+        padding: 16px 0 0;
+    }
 
-#main-grid md-card md-card-title {
-    padding: 30px 38px 16px;
-}
+    #main-grid md-card md-card-title {
+        padding: 30px 38px 16px;
+    }
 
 .card-button {
     color: #1C9B51;
