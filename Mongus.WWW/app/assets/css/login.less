@@ -1,9 +1,21 @@
-﻿html, body {
+﻿@bg-main: #EEEEEE;
+@bg-navbar: #FFFFFF;
+@color-gray: #58595B;
+@color-blue: #4A78BC;
+@color-green-light: #1C9B51;
+@color-green-dark:  #198847;
+@color-lock: #E39839;
+@color-yellow-light: #E28F26;
+@color-yellow-dark: #C77E21;
+@color-black-opacity: rgba(0, 0, 0, 0.87);
+@background-image: url(/app/assets/img/if/bg.png);
+
+html, body {
     /*height: 100vh;*/
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: #EEEEEE;
+    background-color: @bg-main;
 }
 
 #container {
@@ -47,7 +59,7 @@ header {
 }
 
 #toolbar-navbar {
-    background-color: #ffffff;
+    background-color: @bg-navbar;
 }
 
     #toolbar-navbar > div {
@@ -61,7 +73,7 @@ header {
     font-size: 14px;
     color: #ffffff;
     min-height: 76px;
-    background-color: #58595B;
+    background-color: @color-gray;
     padding: 0px 40px;
 }
 
@@ -98,7 +110,7 @@ header {
     flex: 1 0;
     display: flex;
     flex-direction: column;
-    background-image: url(/app/assets/img/if/bg.png);
+    background-image: @background-image;
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position: right;
@@ -118,7 +130,7 @@ header {
 #welcome-msg {
     padding-right: 90px;
     font-family: 'Century Gothic', 'Helvetica Neue', sans-serif;
-    color: rgba(0, 0, 0, 0.87);
+    color: @color-black-opacity;
 }
 
 .title {
@@ -130,14 +142,14 @@ header {
 }
 
 .blue-bold {
-    color: #4A78BC;
+    color: @color-blue;
     font-weight: bold;
 }
 
 .separator-blue {
     width: 100px;
     height: 3px;
-    background-color: #4A78BC;
+    background-color: @color-blue;
     border: none;
     margin: 40px 0px;
 }
@@ -184,7 +196,7 @@ header {
 .button-custom {
     height: 36px;
     color: #ffffff;
-    background-color: #1C9B51;
+    background-color: @color-green-light;
     font-size: 14px;
     font-weight: 500;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
@@ -195,17 +207,17 @@ header {
 }
 
     .button-custom:hover {
-        background-color: #198847;
+        background-color: @color-green-dark;
     }
 
 #button-google {
     color: #ffffff;
-    background-color: #E28F26;
+    background-color: @color-yellow-light;
     margin: 16px 8px;
 }
 
     #button-google:hover {
-        background-color: #C77E21;
+        background-color: @color-yellow-dark;
     }
 
     #button-google i {
@@ -231,16 +243,16 @@ header {
 
 .text-regular {
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.87);
+    color: @color-black-opacity;
     text-align: justify;
 }
 
     .text-regular a {
-        color: #4A78BC;
+        color: @color-blue;
     }
 
 
 .yellow-margin-10 {
-    color: #E39839;
+    color: @color-lock;
     margin: 0 10px 0 0;
 }
