@@ -71,6 +71,7 @@
     box-sizing: border-box;
     font: 14px sans-serif;
     transition: all .25s ease-out;
+    padding: 8px;
 }
 
     #main-grid md-content {
