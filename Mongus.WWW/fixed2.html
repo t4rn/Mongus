@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Fixed Sidebar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+    <!--CSS-->
+    <link href="Content/angular-material.css" rel="stylesheet" />
+    <!--AngularJS-->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-aria.js"></script>
+    <script src="Scripts/angular-messages.js"></script>
+    <script src="Scripts/angular-material.js"></script>
+
+    <script>
+        angular.module("fixedApp", ["ngMaterial"]);
+    </script>
+
+    <style>
+        .border-red {
+            border: solid 5px red;
+        }
+
+        .border-pink {
+            border: solid 5px pink;
+        }
+
+        .border-green {
+            border: solid 5px green;
+        }
+
+        .border-yellow {
+            border: solid 5px yellow;
+        }
+    </style>
+
+</head>
+
+<body ng-app="fixedApp">
+    <!--<div layout="column" style="height: 100vh">-->
+
+        <div layout="row" class="border-green" flex style="height: 100vh">
+
+            <!----------------------------------- Sidebar -------------------------->
+
+            <md-sidenav class="md-sidenav-left md-whiteframe-5dp border-pink" md-is-locked-open="true">
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Sidebar title 2</h1>
+                </md-toolbar>
+                <md-content layout="column" layout-align="space-between start" flex>
+                    <div>Top sidebar content</div>
+                    <div>
+                        <!--<div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
+                    {{it}}
+                </div>-->
+                    </div>
+                    <div>Bottom sidebar content</div>
+                </md-content>
+            </md-sidenav>
+
+            <!------------------------------ Main content ------------------------->
+
+            <md-content class="border-yellow" flex>
+                <md-toolbar><div class="md-toolbar-tools">Main Toolbar 2</div></md-toolbar>
+                <md-content layout="column" flex>
+                    <h3>Content Title 2</h3>
+
+                    <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
+                        {{it}}
+                    </div>
+                    <md-toolbar><div class="md-toolbar-tools">Footer</div></md-toolbar>
+                </md-content>
+            </md-content>
+
+        </div>
+    <!--</div>-->
+
+</body>
+</html>
