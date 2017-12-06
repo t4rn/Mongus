@@ -5,118 +5,72 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/" />
-
     <!--CSS-->
-    <link href="logo.png" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/angular-material.css" rel="stylesheet" />
-    <!--<link href="app/assets/css/site.css" rel="stylesheet" />-->
     <!--AngularJS-->
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-animate.js"></script>
     <script src="Scripts/angular-aria.js"></script>
     <script src="Scripts/angular-messages.js"></script>
     <script src="Scripts/angular-material.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="Scripts/angular-ui-router.js"></script>
 
     <script>
-        angular.module("fixedApp", ["ngMaterial"])
-            .controller("fixed", function () {
-            });
+        angular.module("fixedApp", ["ngMaterial"]);
     </script>
 
     <style>
-        html, body {
-            display: flex;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        .border-red {
-            border: solid 5px red;
-        }
-
-        .border-blue {
-            border: solid 5px blue;
-        }
-
-        .border-green {
-            border: solid 5px green;
-        }
-        .border-yellow {
-            border: solid 5px yellow;
-        }
+        .border-red {border: solid 5px red;}
+        .border-pink {border: solid 5px pink;}
+        .border-green {border: solid 5px green;}
+        .border-yellow {border: solid 5px yellow;}
     </style>
 
 </head>
 
 <body ng-app="fixedApp">
 
-    <div layout="row" class="border-red" flex>
+    <div layout="column" class="border-red" layout-fill>
 
-        <div class="border-blue" layout="column" layout-align="space-between center">
-            <div>top sidebar</div>
-            <div>bottom sidebar</div>
-        </div>
+        <div layout="row" class="border-green" flex>
 
-        <div class="border-green" layout="column" flex>
+            <!----------------------------------- Sidebar -------------------------->
 
-            <div class="border-yellow">toolbar</div>
+            <md-sidenav class="md-sidenav-left md-whiteframe-5dp border-pink" md-is-locked-open="true">
+                <md-toolbar>
+                    <h1 class="md-toolbar-tools">Sidebar title</h1>
+                </md-toolbar>
+                <md-content layout="column" layout-align="space-between start" flex>
+                    <div>Top sidebar content</div>
+                    <div>
+                        <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
+                            {{it}}
+                        </div>
+                    </div>
+                    <div>Bottom sidebar content</div>
+                </md-content>
+            </md-sidenav>
 
-            <md-content layout="column">
+            <!------------------------------ Main content ------------------------->
 
-                <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 200px">
-                    {{it}}
-                </div>
-                <div flex></div>
+            <div layout="column" class="border-yellow" flex>
+                <md-toolbar><div class="md-toolbar-tools">Main Toolbar</div></md-toolbar>
 
-                <div class="border-yellow">footer</div>
+                <md-content class="border-pink">
 
-            </md-content>
+                    <h3>Content Title</h3>
+
+                    <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
+                        {{it}}
+                    </div>
+
+                    <md-toolbar><div class="md-toolbar-tools">Footer</div></md-toolbar>
+
+                </md-content>
+            </div>
 
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--<div layout="row" class="border-blue" style="display: flex;">
-
-        <div layout="column" layout-align="space-between center" class="border-red" style="display:flex" >
-            <div>1</div>
-            <div flex></div>
-            <div>2</div>
-        </div>
-
-        <div style="border: solid 1px blue">
-            <md-content>
-                <div style="height:200px">
-                    123
-                </div>
-
-            </md-content>
-        </div>
-    </div>-->
-    <!--<div>
-
-    </div>
-    <div layout="column" flex>
-        <md-toolbar>top</md-toolbar>
-        <md-content>cont</md-content>
-    </div>-->
-
 
 </body>
 </html>
