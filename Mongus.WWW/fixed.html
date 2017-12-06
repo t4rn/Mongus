@@ -19,55 +19,62 @@
     </script>
 
     <style>
-        .border-red {border: solid 5px red;}
-        .border-pink {border: solid 5px pink;}
-        .border-green {border: solid 5px green;}
-        .border-yellow {border: solid 5px yellow;}
+        .border-red {
+            border: solid 5px red;
+        }
+
+        .border-pink {
+            border: solid 5px pink;
+        }
+
+        .border-green {
+            border: solid 5px green;
+        }
+
+        .border-yellow {
+            border: solid 5px yellow;
+        }
     </style>
 
 </head>
 
 <body ng-app="fixedApp">
 
-    <div layout="column" class="border-red" layout-fill>
+    <div layout="row" class="border-green" layout-fill>
 
-        <div layout="row" class="border-green" flex>
+        <!----------------------------------- Sidebar -------------------------->
 
-            <!----------------------------------- Sidebar -------------------------->
-
-            <md-sidenav class="md-sidenav-left md-whiteframe-5dp border-pink" md-is-locked-open="true">
-                <md-toolbar>
-                    <h1 class="md-toolbar-tools">Sidebar title</h1>
-                </md-toolbar>
-                <md-content layout="column" layout-align="space-between start" flex>
-                    <div>Top sidebar content</div>
-                    <div>
-                        <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
-                            {{it}}
-                        </div>
-                    </div>
-                    <div>Bottom sidebar content</div>
-                </md-content>
-            </md-sidenav>
-
-            <!------------------------------ Main content ------------------------->
-
-            <div layout="column" class="border-yellow" flex>
-                <md-toolbar><div class="md-toolbar-tools">Main Toolbar</div></md-toolbar>
-
-                <md-content class="border-pink">
-
-                    <h3>Content Title</h3>
-
+        <md-sidenav class="md-sidenav-left md-whiteframe-5dp border-pink" md-is-locked-open="true">
+            <md-toolbar>
+                <h1 class="md-toolbar-tools">Sidebar title</h1>
+            </md-toolbar>
+            <md-content layout="column" layout-align="space-between start" flex>
+                <div>Top sidebar content</div>
+                <div>
                     <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
                         {{it}}
                     </div>
+                </div>
+                <div>Bottom sidebar content</div>
+            </md-content>
+        </md-sidenav>
 
-                    <md-toolbar><div class="md-toolbar-tools">Footer</div></md-toolbar>
+        <!------------------------------ Main content ------------------------->
 
-                </md-content>
-            </div>
+        <div layout="column" class="border-yellow" flex>
+            <md-toolbar><div class="md-toolbar-tools">Main Toolbar</div></md-toolbar>
 
+            <md-content class="border-pink">
+
+                <h3>Content Title</h3>
+
+                <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
+                    {{it}}
+                </div>
+
+                <md-toolbar><div class="md-toolbar-tools">Footer</div></md-toolbar>
+
+            </md-content>
         </div>
 
     </div>
