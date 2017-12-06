@@ -24,29 +24,32 @@
     <script src="app/config.js"></script>
     <script src="app/components/panel/panel3Controller.js"></script>
 </head>
-<body ng-app="app" ng-controller="panel2Controller as vm">
+<body ng-app="app" ng-controller="panel3Controller as vm">
 
+    <div layout="row" layout-fill>
 
-    <div layout="row" class="border-green" flex style="height: 100vh">
+        <!----------------------------------- Sidebar -------------------------->
 
-        <md-sidenav class="md-sidenav-left md-whiteframe-5dp border-pink" md-is-locked-open="true">
+        <md-sidenav class="md-sidenav-left md-whiteframe-5dp" md-is-locked-open="$mdMedia('gt-sm')">
             <md-toolbar>
-                <h1 class="md-toolbar-tools">Sidebar title 2</h1>
+                <h1 class="md-toolbar-tools">Sidebar title</h1>
                 <h2 class="md-toolbar-tools">isHeaderMax: {{isHeaderMax}}</h2>
             </md-toolbar>
             <md-content layout="column" layout-align="space-between start" flex>
                 <div>Top sidebar content</div>
                 <div>
-                    <!--<div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">
-                    {{it
-}}
-                </div>-->
+                    <div ng-repeat="it in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, 17, 18, 19, 20]" style="height: 50px">{{it}}</div>
                 </div>
                 <div>Bottom sidebar content</div>
             </md-content>
         </md-sidenav>
 
+        <!------------------------------ Main content ------------------------->
+
         <md-content id="main-container" flex>
+
+            <!------------------------------ Navbar ------------------------->
+
             <md-toolbar scroll ng-class="{'header-max': isHeaderMax, 'header-min': !isHeaderMax}" id="page" class="md-whiteframe-5dp">
                 <div class="md-toolbar-tools" style="flex-shrink: 0">
                     <md-button class="menu md-icon-button" ng-click="vm.toggleSidenav()">
@@ -115,123 +118,127 @@
 
             </md-toolbar>
 
-            <md-content layout="column" flex>
-                <section id="main-grid" ng-style="myStyle">
-                    <md-content layout="row" layout-wrap layout-xs="column">
-                        <div flex="33" flex-sm="50" flex-xs="100">
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <div layout="row">
-                                            <span class="md-headline" flex>Header</span>
-                                            <div dir="rtl">
-                                                <md-checkbox ng-model="asd">Tool</md-checkbox>
-                                            </div>
-                                        </div>
-                                        <!--<span class="md-subhead">Subheader</span>-->
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="center center" class="height-300">
-                                    <p>
-                                        Placeholder1
-                                    </p>
-                                </md-card-content>
-                                <md-card-footer>
-                                    <md-button class="card-button">
-                                        More
-                                    </md-button>
-                                </md-card-footer>
-                            </md-card>
-                        </div>
-                        <div flex="33" flex-sm="50" flex-xs="100">
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <div layout="row">
-                                            <span class="md-headline" flex>Header</span>
-                                        </div>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="center center" class="height-300">
-                                    <p>
-                                        Placeholder2
-                                    </p>
-                                </md-card-content>
-                                <md-card-footer>
-                                    <md-button class="card-button">
-                                        More
-                                    </md-button>
-                                </md-card-footer>
-                            </md-card>
-                        </div>
-                        <div flex="33" flex-sm="50" flex-xs="100">
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <div layout="row">
-                                            <span class="md-headline" flex>Header</span>
-                                        </div>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="center center" class="height-300">
-                                    <p>
-                                        Placeholder3
-                                    </p>
-                                </md-card-content>
-                                <md-card-footer>
-                                    <md-button class="card-button">
-                                        More
-                                    </md-button>
-                                </md-card-footer>
-                            </md-card>
-                        </div>
-                        <div flex="33" flex-sm="50" flex-xs="100">
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <div layout="row">
-                                            <span class="md-headline" flex>Header</span>
-                                        </div>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="center center" class="height-400">
-                                    <p>
-                                        Placeholder4
-                                    </p>
-                                </md-card-content>
-                                <md-card-footer>
-                                    <md-button class="card-button">
-                                        More
-                                    </md-button>
-                                </md-card-footer>
-                            </md-card>
-                        </div>
-                        <div flex="33" flex-sm="50" flex-xs="100">
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <div layout="row">
-                                            <span class="md-headline" flex>Header</span>
-                                        </div>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="center center" class="height-400">
-                                    <p>
-                                        Placeholder5
-                                    </p>
-                                </md-card-content>
-                                <md-card-footer>
-                                    <md-button class="card-button">
-                                        More
-                                    </md-button>
-                                </md-card-footer>
-                            </md-card>
-                        </div>
+            <!------------------------------ Content ------------------------>
 
-                    </md-content>
-                </section>
-            </md-content>
+            <section id="main-grid" ng-style="myStyle">
+                <md-content layout="row" layout-wrap layout-xs="column">
+                    <div flex="33" flex-sm="50" flex-xs="100">
+                        <md-card>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <div layout="row">
+                                        <span class="md-headline" flex>Header</span>
+                                        <div dir="rtl">
+                                            <md-checkbox ng-model="asd">Tool</md-checkbox>
+                                        </div>
+                                    </div>
+                                    <!--<span class="md-subhead">Subheader</span>-->
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content layout="row" layout-align="center center" class="height-300">
+                                <p>
+                                    Placeholder1
+                                </p>
+                            </md-card-content>
+                            <md-card-footer>
+                                <md-button class="card-button">
+                                    More
+                                </md-button>
+                            </md-card-footer>
+                        </md-card>
+                    </div>
+                    <div flex="33" flex-sm="50" flex-xs="100">
+                        <md-card>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <div layout="row">
+                                        <span class="md-headline" flex>Header</span>
+                                    </div>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content layout="row" layout-align="center center" class="height-300">
+                                <p>
+                                    Placeholder2
+                                </p>
+                            </md-card-content>
+                            <md-card-footer>
+                                <md-button class="card-button">
+                                    More
+                                </md-button>
+                            </md-card-footer>
+                        </md-card>
+                    </div>
+                    <div flex="33" flex-sm="50" flex-xs="100">
+                        <md-card>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <div layout="row">
+                                        <span class="md-headline" flex>Header</span>
+                                    </div>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content layout="row" layout-align="center center" class="height-300">
+                                <p>
+                                    Placeholder3
+                                </p>
+                            </md-card-content>
+                            <md-card-footer>
+                                <md-button class="card-button">
+                                    More
+                                </md-button>
+                            </md-card-footer>
+                        </md-card>
+                    </div>
+                    <div flex="33" flex-sm="50" flex-xs="100">
+                        <md-card>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <div layout="row">
+                                        <span class="md-headline" flex>Header</span>
+                                    </div>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content layout="row" layout-align="center center" class="height-400">
+                                <p>
+                                    Placeholder4
+                                </p>
+                            </md-card-content>
+                            <md-card-footer>
+                                <md-button class="card-button">
+                                    More
+                                </md-button>
+                            </md-card-footer>
+                        </md-card>
+                    </div>
+                    <div flex="33" flex-sm="50" flex-xs="100">
+                        <md-card>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <div layout="row">
+                                        <span class="md-headline" flex>Header</span>
+                                    </div>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-content layout="row" layout-align="center center" class="height-400">
+                                <p>
+                                    Placeholder5
+                                </p>
+                            </md-card-content>
+                            <md-card-footer>
+                                <md-button class="card-button">
+                                    More
+                                </md-button>
+                            </md-card-footer>
+                        </md-card>
+                    </div>
+
+                </md-content>
+            </section>
+
+            <md-toolbar><div class="md-toolbar-tools">Footer</div></md-toolbar>
+
         </md-content>
+
     </div>
 
     <md-fab-speed-dial md-open="demo.isOpen" md-direction="up" class="md-fling md-fab-bottom-right" style="position:fixed !important;">
@@ -240,12 +247,7 @@
                 <md-icon class="material-icons">add</md-icon>
             </md-button>
         </md-fab-trigger>
-        <!--<md-fab-actions>
-            <md-button aria-label="Twitter" class="md-fab md-raised md-mini">
-                <md-icon class="material-icons">save</md-icon>
-            </md-button>
-        </md-fab-actions>-->
-
     </md-fab-speed-dial>
+
 </body>
 </html>

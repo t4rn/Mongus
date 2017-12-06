@@ -1,5 +1,5 @@
 ﻿var app = angular.module("app", ["ngMaterial"])
-    .controller("panel2Controller", panel2Controller);
+    .controller("panel3Controller", panel2Controller);
 
 function panel2Controller($mdSidenav, $scope) {
     $scope.header
@@ -20,27 +20,27 @@ app.directive("scroll", function ($window) {
     return function (scope, element, attrs) {
         scope.isHeaderMax = true;
 
-        var divek = document.getElementById("main-container");
+        var scrolledDiv = document.getElementById("main-container");
+        //console.log(scrolledDiv);
 
-        angular.element(divek).bind("scroll", function () {
+        angular.element(scrolledDiv).bind("scroll", function () {
 
-            console.log("scroller start - this.pageYOffset: " + divek.scrollTop);
+            //console.log("scroller start - this.pageYOffset: " + scrolledDiv.scrollTop);
 
             var icons = angular.element(document.querySelectorAll('.md-header-icon'));
             var headerAvatar = document.querySelector('.header-containt');
 
-            if (divek.scrollTop >= 50) {
+            if (scrolledDiv.scrollTop >= 50) {
                 scope.boolChangeClass = true;
                 scope.isHeaderMax = false;
-                scope.myStyle = {
-                    'margin-top': '170px'
-                };
+                scope.myStyle = { 'margin-top': '170px' };
                 element.css('background-color', '#fff');
                 iconTextColor('#000');
                 headerAvatar.classList.add('hide');
             } else {
                 scope.boolChangeClass = false;
                 //scope.myStyle = { 'margin-top': '476px' };
+                scope.myStyle = { 'margin-top': '0' };
                 scope.isHeaderMax = true;
                 iconTextColor('#fff');
                 headerAvatar.classList.remove('hide');

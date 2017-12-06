@@ -17,6 +17,10 @@
     position: fixed;
 }
 
+#main-container {
+    background-color: transparent;
+}
+
 #page {
     width: 100%;
     box-sizing: border-box;
