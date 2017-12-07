@@ -106,3 +106,32 @@
 .height-500 {
     height: 500px;
 }
+
+
+.owl-prev,
+.owl-next {
+    position: absolute;
+    top: 50%;
+    margin-top: 0;
+    font-size: 40px;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    font-weight: bold;
+}
+
+    .owl-prev:hover,
+    .owl-next:hover {
+        opacity: 0.8;
+        filter: alpha(opacity=80); /* For IE8 and earlier */
+    }
+.owl-prev { left: 15px; }
+.owl-next { right: 15px; }
+
+@media screen and (min-width: 960px) {
+    .owl-prev,
+    .owl-next { display: none; }
+}
+@media screen and (max-width: 960px) {
+    .owl-prev,
+    .owl-next { display: block; }
+}

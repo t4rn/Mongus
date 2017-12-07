@@ -12,6 +12,7 @@
     <link href="Content/font-awesome.css" rel="stylesheet" />
     <link href="Content/panel2.css" rel="stylesheet" />
 
+    <link href="Content/tiny-slider.css" rel="stylesheet" />
     <!-- Angular -->
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
@@ -23,6 +24,7 @@
     <!-- App -->
     <script src="app/config.js"></script>
     <script src="app/components/panel/panel2Controller.js"></script>
+    <script src="Scripts/tiny-slider.js"></script>
 </head>
 <body ng-app="app" ng-controller="panel2Controller as vm">
     <!--ng-class="{min:boolChangeClass}"-->
@@ -71,8 +73,7 @@
                     <span class="logged-name">Logged in user</span>
                 </div>
             </div>
-
-            <div class="placeholders" md-placeholders layout="row">
+            <!--<div class="placeholders" md-placeholders layout="row">
                 <div flex="25" flex-sm="50" flex-xs="100">
                     Placeholder1
                 </div>
@@ -89,9 +90,30 @@
                     Placeholder4
                 </div>
                
-            </div>
-        </div>
+            </div>-->
+            
+            <div class="placeholders" layout="row">
+                <div flex="25">
+                    Placeholder1
+                </div>
 
+                <div flex="25">
+                    Placeholder2
+                </div>
+
+                <div flex="25">
+                    Placeholder3
+                </div>
+
+                <div flex="25">
+                    Placeholder4
+                </div>
+
+            </div>
+            
+            <div class="owl-prev">&#8249;</div>
+            <div class="owl-next">&#8250;</div>
+        </div>
     </md-toolbar>
 
     <section id="main-grid" ng-style="myStyle">
@@ -222,5 +244,37 @@
         </md-fab-actions>-->
 
     </md-fab-speed-dial>
+    
+<script>
+    
+
+    var slider = tns({
+        "container": '.placeholders',
+        "speed": 400,
+        "mouseDrag": true,
+        "items": 1,
+        "controls": false,
+        "slideBy": "page",
+        "nav": false,
+        "rewind": true,
+        "responsive": {
+            "960": {
+                "items": 4
+            },
+            "600": {
+                "items": 2
+            }
+        }
+       
+    });
+
+    document.querySelector(".owl-next").onclick = (() => {
+        slider.goTo("next");
+    });
+
+    document.querySelector(".owl-prev").onclick = (() => {
+        slider.goTo("prev");
+    });;
+</script>
 </body>
 </html>
