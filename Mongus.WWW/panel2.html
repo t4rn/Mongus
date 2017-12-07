@@ -246,8 +246,6 @@
     </md-fab-speed-dial>
     
 <script>
-    
-
     var slider = tns({
         "container": '.placeholders',
         "speed": 400,
@@ -255,7 +253,7 @@
         "items": 1,
         "controls": false,
         "slideBy": "page",
-        "nav": false,
+        "nav": true,
         "rewind": true,
         "responsive": {
             "960": {
@@ -274,7 +272,8 @@
 
     document.querySelector(".owl-prev").onclick = (() => {
         slider.goTo("prev");
-    });;
+    });
+
 </script>
 </body>
 </html>

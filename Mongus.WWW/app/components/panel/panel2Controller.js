@@ -1,8 +1,7 @@
 ﻿var app = angular.module("app", ["ngMaterial"])
     .controller("panel2Controller", panel2Controller);
 
-function panel2Controller($mdSidenav, $scope) {
-    $scope.header
+function panel2Controller($mdSidenav) {
     var vm = this;
 
     vm.openMenu = function ($mdMenu, ev) {
