@@ -21,12 +21,12 @@ angular.module("mongusApp", ["ngMaterial", "chart.js", "ui.router"])
           controllerAs: "vm",
           templateUrl: "/app/components/values/values.html"
       })
-      .state("register", {
+      .state("signup", {
           title: "Sign Up",
-          url: "/register",
-          controller: "registerController",
+          url: "/signup",
+          controller: "signupController",
           controllerAs: "vm",
-          templateUrl: "/app/components/register/register.html"
+          templateUrl: "/app/components/signup/signup.html"
       })
       .state("users", {
           title: "Users",

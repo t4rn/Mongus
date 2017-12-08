@@ -16,7 +16,7 @@
         vm.subPages = [
             { state: "home", name: "Home", icon: "home" },
             { state: "values", name: "Values", icon: "local_atm" },
-            { state: "register", name: "Register", icon: "face" },
+            { state: "signup", name: "Register", icon: "face" },
             { state: "users", name: "Users", icon: "supervisor_account" },
             { state: "clients", name: "Clients", icon: "contacts" }
         ];
