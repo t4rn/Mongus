@@ -6,5 +6,9 @@
   {
     "outputFile": "app/assets/css/login.css",
     "inputFile": "app/assets/css/login.less"
+  },
+  {
+    "outputFile": "assets/css/login.css",
+    "inputFile": "assets/css/login.less"
   }
 ]

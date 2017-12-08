@@ -11,17 +11,23 @@
         var email, passwd = "";
         var remember = false;
 
-        vm.Signin = Signin;
-        vm.GoogleSignIn = GoogleSignIn;
+        vm.signin = signin;
+        vm.googleSignIn = googleSignIn;
+        vm.register = register;
 
-        function Signin() {
+
+        function signin() {
             var msg = "Email: " + vm.email + " Pass: " + vm.passwd + " rememberme: " + vm.remember;
             alert(msg);
         };
 
-        function GoogleSignIn() {
+        function googleSignIn() {
             alert("Google SignIn clicked!");
         };
+
+        function register() {
+            $window.location.href = '/register.html';
+        }
     }
 
 })();

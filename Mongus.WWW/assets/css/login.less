@@ -7,11 +7,10 @@
 @color-lock: #E39839;
 @color-yellow-light: #E28F26;
 @color-yellow-dark: #C77E21;
-@color-black-opacity: rgba(0, 0, 0, 0.87);
-@background-image: url(/assets/img/bg.png);
-@background-image2: url(/assets/img/bg2.jpg);
-@mcafee-logo: url(/assets/img/mcafee.png);
-@google-btn: url(/assets/img/google-btn/btn_google_signin_light_normal_web.png);
+@color-black-overlay: rgba(0, 0, 0, 0.87);
+@color-blue-overlay: rgba(74, 120, 188,.8);
+@bg: url(/assets/img/if/bg2.jpg);
+@google-btn: url(/assets/img/google/btn_google_signin_light_normal_web.png);
 
 html, body {
     width: 100%;
@@ -20,7 +19,7 @@ html, body {
     background-color: @bg-main;
 }
 
-#container {
+#wrapper {
     min-height: 100vh;
 }
 
@@ -33,6 +32,10 @@ img {
     max-width: 100%;
     max-height: 100%;
     display: flex;
+}
+
+.padding-20 {
+    padding: 20px;
 }
 
 .padding-0-8 {
@@ -49,6 +52,10 @@ img {
 
 .padding-20-50-10-20 {
     padding: 20px 50px 10px 20px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
 }
 
 .display-flex {
@@ -116,38 +123,47 @@ header {
 
 #main-with-header-content {
     flex: 1 0;
-    display: flex;
-    flex-direction: column;
-    /*background-image: @background-image;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: right;*/
 }
 
 #main-content {
-    padding: 50px 40px 20px;
+    padding: 50px 10px 20px;
     margin-top: 64px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 960px) {
     #main-content {
         padding: 20px 20px;
     }
+
+    #welcome-msg {
+        flex-basis: auto;
+        /*flex: 0 1 auto;*/
+    }
+
+    #card > md-card {
+        flex-basis: auto;
+        /*flex: 0 1 auto;*/
+    }
+}
+
+#card {
+    max-width: 1080px;
+}
+
+.flex-540px {
+    flex: 1 1 540px;
 }
 
 #welcome-msg {
     /*font-family: 'Century Gothic', 'Helvetica Neue', sans-serif;*/
     color: #ffffff;
     padding: 30px 28px 30px;
-    background-image: @background-image2;
+    background-image: @bg;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    box-shadow: inset 0 0 0 1000px rgba(74, 120, 188,.8);
-    /*background-position: 50% 50%;*/
-}
-
-.title {
+    box-shadow: inset 0 0 0 540px @color-blue-overlay;
+    box-sizing: border-box;
     font-size: 64px;
 }
 
@@ -156,7 +172,6 @@ header {
 }
 
 .bold {
-    /*color: @color-blue;*/
     font-weight: bold;
 }
 
@@ -168,53 +183,24 @@ header {
     margin: 40px 0px;
 }
 
-/* Main content - Card */
+/* Main content - Login form */
 
-.login-card {
+.login-form {
     margin: 0;
 }
 
-.login-card md-card-content {
-    padding: 20px 60px;
+.login-form md-card-content {
+    padding: 0px 60px;
 }
 
-#card {
-    background-color:red; 
-    max-width: 1080px;
-    /*background-color: #FAFAFA;
-    padding: 5px 25px 20px;*/
-}
-
-.image-container {
-    position: relative;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.image-container .image-overlay {
-    font-size: 24px;
-    color: #FFFFFF;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(74, 120, 188, 0.8);
-}
-
-.image-container .text-overlay {
-    font-size: 24px;
-    color: #FFFFFF;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 0px 35px 25px 35px;
-}
-
-@media only screen and (max-width : 340px) {
-    .image-container .text-overlay {
-        padding: 0px 15px 25px;
+@media only screen and (max-width: 360px) {
+    .login-form md-card-content {
+        padding: 0px 20px;
     }
+}
+
+#card md-card-title {
+    padding: 35px 35px 16px;
 }
 
 .button-custom {
@@ -234,30 +220,13 @@ header {
     background-color: @color-green-dark;
 }
 
-.btn-google{
+.google-btn {
     width: 191px;
     height: 46px;
     background-image: @google-btn;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    }
-
-
-
-
-#button-google {
-    color: #ffffff;
-    background-color: @color-yellow-light;
-    margin: 16px 8px;
-}
-
-#button-google:hover {
-    background-color: @color-yellow-dark;
-}
-
-#button-google i {
-    padding: 0px 12px 0px 0px;
 }
 
 .hr-with-text-container {
@@ -279,7 +248,7 @@ header {
 
 .text-regular {
     font-size: 14px;
-    color: @color-black-opacity;
+    color: @color-black-overlay;
     text-align: justify;
 }
 
@@ -287,18 +256,6 @@ header {
     color: @color-blue;
 }
 
-
 .yellow {
     color: @color-lock;
-}
-
-.mcafee {
-    /*width: 100px;
-    height: 36px;*/
-     //margin-left: 20px;
-     padding: 20px;
-    /*background-image: @mcafee-logo;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;*/
 }

@@ -1,77 +1,65 @@
 ﻿<main id="main-content" layout="row"
       layout-align="center start" flex>
 
-    <div flex="15" hide-xs></div>
+    <div id="card"
+         layout="column"
+         layout-gt-sm="row"
+         layout-align="center stretch"
+         class="md-whiteframe-7dp">
 
-    <div id="card" flex="70">
-
-        <div layout="column"
-             layout-gt-sm="row"
-             layout-align="center stretch"
-             class="md-whiteframe-7dp">
-
-
-            <div id="welcome-msg" hide-xs>
-                <span class="title">Welcome <span class="bold">back!</span></span>
-                <hr class="separator-white" align="left" hide-sm />
-                <span class="subtitle" hide-sm>We're delighted to see you again.</span>
-            </div>
-
-            <md-content>
-                <md-card class="login-card">
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline">Login</span>
-                        </md-card-title-text>
-                    </md-card-title>
-
-                    <md-card-content>
-
-                        <form ng-submit="vm.Signin()">
-                            <md-input-container class="md-block">
-                                <input ng-model="vm.email" type="email" placeholder="Email">
-                            </md-input-container>
-
-                            <md-input-container class="md-block">
-                                <input ng-model="vm.passwd" type="password" placeholder="Password">
-                            </md-input-container>
-
-                            <md-input-container class="md-block">
-                                <md-checkbox name="remember" ng-model="vm.remember">
-                                    Remember me.
-                                </md-checkbox>
-                            </md-input-container>
-
-                            <div layout="column" layout-align="center center">
-                                <input type="submit" class="button-custom padding-0-25" value="Login">
-
-                                <div class="hr-with-text-container">
-                                    <span class="hr-with-text-content">
-                                        Or
-                                    </span>
-                                </div>
-
-                                <md-button class="btn-google" ng-click="vm.GoogleSignIn()">
-                                </md-button>
-
-                            </div>
-                        </form>
-                        <br />
-                        <p class="text-regular"><a href="/">Forgot password?</a></p>
-                        <p class="text-regular">Don't have an account? Click <a ui-sref="register">here</a> to sign up.</p>
-
-                    </md-card-content>
-                    <md-card-footer class="padding-20-50-10-20">
-                        <div ng-include="'/app/shared/security.html'"></div>
-                    </md-card-footer>
-                </md-card>
-
-            </md-content>
-
+        <div id="welcome-msg" class="flex-540px" hide-xs>
+            <span>Welcome <span class="bold">back!</span></span>
+            <hr class="separator-white" align="left" />
+            <span class="subtitle">We're delighted to see you again.</span>
         </div>
 
-    </div>
+        <md-card class="login-form flex-540px">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Login</span>
+                </md-card-title-text>
+            </md-card-title>
 
-    <div flex="15"></div>
+            <md-card-content>
+
+                <form ng-submit="vm.signin()">
+                    <md-input-container class="md-block">
+                        <input ng-model="vm.email" type="email" placeholder="Email">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <input ng-model="vm.passwd" type="password" placeholder="Password">
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <md-checkbox name="remember" ng-model="vm.remember">
+                            Remember me.
+                        </md-checkbox>
+                    </md-input-container>
+
+                    <div class="margin-bottom-20" layout="column" layout-align="center center">
+                        <input type="submit" class="button-custom padding-0-25" value="Login">
+
+                        <div class="hr-with-text-container">
+                            <span class="hr-with-text-content">
+                                Or
+                            </span>
+                        </div>
+
+                        <md-button class="google-btn" ng-click="vm.googleSignIn()">
+                        </md-button>
+
+                    </div>
+                </form>
+                <p class="text-regular"><a href="/">Forgot password?</a></p>
+                <p class="text-regular">Don't have an account? Click <a href="register.html">here</a> to sign up.</p>
+
+            </md-card-content>
+            <md-card-footer class="padding-20-50-10-20">
+                <div ng-include="'/app/components/shared/security.html'"></div>
+            </md-card-footer>
+        </md-card>
+
+    </div>
 
 </main>
