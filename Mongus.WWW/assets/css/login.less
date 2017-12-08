@@ -47,7 +47,11 @@ img {
 }
 
 .padding-20-0-0 {
-    padding: 20px 0px 0px;
+    padding: 20px 0 0;
+}
+
+.padding-20-10-10 {
+    padding: 20px 10px 0px;
 }
 
 .padding-20-50-10-20 {
@@ -140,7 +144,7 @@ header {
         /*flex: 0 1 auto;*/
     }
 
-    #card > md-card {
+    #card md-card {
         flex-basis: auto;
         /*flex: 0 1 auto;*/
     }
@@ -157,7 +161,7 @@ header {
 #welcome-msg {
     /*font-family: 'Century Gothic', 'Helvetica Neue', sans-serif;*/
     color: #ffffff;
-    padding: 30px 28px 30px;
+    padding: 40px 28px 30px;
     background-image: @bg;
     background-repeat: no-repeat;
     background-size: cover;
@@ -171,16 +175,12 @@ header {
     font-size: 40px;
 }
 
-.bold {
-    font-weight: bold;
-}
-
 .separator-white {
     width: 100px;
     height: 3px;
     background-color: #ffffff;
     border: none;
-    margin: 40px 0px;
+    margin: 40px 0px 20px;
 }
 
 /* Main content - Login form */
@@ -200,8 +200,13 @@ header {
 }
 
 #card md-card-title {
-    padding: 35px 35px 16px;
+    padding: 35px 35px 30px;
 }
+
+#card md-input-container{
+    margin: 5px 0;
+    }
+
 
 .button-custom {
     height: 36px;

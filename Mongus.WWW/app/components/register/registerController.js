@@ -1,61 +1,24 @@
-﻿
-"use strict";
+﻿(function () {
 
-// getting the existing module
-angular.module("mongusApp")
-.controller("registerController", registerController)
-.service("myService", myService);
+    "use strict";
 
-function registerController($scope, myService) {
+    angular.module("if", ["ngMaterial"])
+	.controller("registerController", RegisterController);
 
-    $scope.SaveUser = function () {
+    function RegisterController() {
 
-        var User =
-        {
-            FName: $scope.fName,
-            LName: $scope.lName,
-            Email: $scope.uEmail,
-            Password: $scope.uPwd,
-            UserName: $scope.uName
+        var vm = this;
+
+        vm.googleSignIn = googleSignIn;
+        vm.register = register;
+
+        function googleSignIn() {
+            alert("Google SignIn clicked!");
         };
 
-        var response = myService.AddUser(User);
-        response.then(function (data) {
-            if (data.data == "1") {
-
-                clearFields();
-                alert("User Created !");
-                window.location.href = "/Register/Login";
-            } else if (data.data == "-1") {
-
-                alert("user already present !");
-            } else {
-
-                clearFields();
-                alert("Invalid data entered !");
-            }
-        });
+        function register() {
+            alert("Register clicked!");
+        }
     }
 
-    function clearFields() {
-        $scope.fName = "";
-        $scope.lName = "";
-        $scope.uEmail = "";
-        $scope.uPwd = "";
-        $scope.uName = "";
-        $scope.userForm.$setPristine();
-    }
-};
-
-function myService() {
-    this.AddUser = function (User) {
-        var response = $http
-        ({
-            method: "post",
-            url: "/Register/AddUser",
-            data: JSON.stringify(User),
-            dataType: "json"
-        });
-        return response;
-    };
-}
+})();

@@ -2,7 +2,7 @@
 
     "use strict";
 
-    angular.module("login", ["ngMaterial"])
+    angular.module("if", ["ngMaterial"])
 	.controller("loginController", LoginController);
 
     function LoginController() {
