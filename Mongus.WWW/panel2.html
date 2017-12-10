@@ -231,7 +231,7 @@
         </md-content>
     </section>
 
-    <md-fab-speed-dial md-open="demo.isOpen" md-direction="up" class="md-fling md-fab-bottom-right" style="position:fixed !important;">
+    <md-fab-speed-dial md-open="demo.isOpen" md-direction="up" class="md-fling md-fab-bottom-right" style="position:fixed !important; z-index: 200">
         <md-fab-trigger>
             <md-button aria-label="menu" class="md-fab" style="background-color: #1D9B51">
                 <md-icon class="material-icons">add</md-icon>
@@ -248,13 +248,13 @@
 <script>
     var slider = tns({
         "container": '.placeholders',
-        "speed": 400,
-        "mouseDrag": true,
         "items": 1,
         "controls": false,
+        "mouseDrag": true,
         "slideBy": "page",
+        
         "nav": true,
-        "rewind": true,
+        "rewind": false,
         "responsive": {
             "960": {
                 "items": 4
