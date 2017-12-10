@@ -4,15 +4,11 @@
     "inputFile": "assets/css/site.less"
   },
   {
-    "outputFile": "app/assets/css/login.css",
-    "inputFile": "app/assets/css/login.less"
-  },
-  {
     "outputFile": "assets/css/login.css",
     "inputFile": "assets/css/login.less"
   },
   {
-    "outputFile": "app/assets/css/loginOld.css",
-    "inputFile": "app/assets/css/loginOld.less"
+    "outputFile": "assets/css/loginOld.css",
+    "inputFile": "assets/css/loginOld.less"
   }
 ]
