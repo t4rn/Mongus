@@ -10,7 +10,7 @@
 
             <div layout="row" layout-align="space-between center">
 
-                <img src="/app/assets/img/logo.png" aria-label="logo" />
+                <a href="/"><img src="assets/img/logo.png" aria-label="logo" /></a>
 
                 <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.toggleSidebar()">
                     <md-tooltip>Close Side Panel</md-tooltip>
@@ -20,7 +20,7 @@
             </div>
 
             <div layout="column" class="md-toolbar-tools-bottom inset">
-                <img class="avatar" src="app/assets/img/avatar.png" />
+                <img class="avatar" src="assets/img/avatar.png" />
                 <div><span style="font-weight: bold">{{ vm.userFullName }}</span></div>
 
                 <md-select id="sidebar-select" ng-model="vm.userFullName" placeholder="{{vm.userFullName}}" class="md-no-underline">

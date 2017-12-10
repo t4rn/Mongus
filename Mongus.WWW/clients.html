@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Mongus 2.0</title>
+    <title>Clients</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="icon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/angular-material.css" rel="stylesheet" />
-    <link href="Content/clients.css" rel="stylesheet" />
+    <link href="assets/css/clients.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="Content/font-awesome.css" rel="stylesheet" />
 
@@ -19,14 +19,14 @@
     <script src="Scripts/angular-material.js"></script>
 
     <script src="app/config.js"></script>
-    <script src="app/mongusApp.js"></script>
+    <script src="app/clientApp.js"></script>
     <script src="app/components/clients/clientService.js"></script>
     <script src="app/components/clients/clientsController.js"></script>
 
     <script src="Scripts/Chart.js"></script>
     <script src="Scripts/angular-chart.js"></script>
 </head>
-<body ng-app="mongusApp" layout="column" ng-controller="clientsController as vm">
+<body ng-app="clientApp" layout="column" ng-controller="clientsController as vm">
     <md-toolbar layout="row">
         <md-button class="menu" ng-click="vm.toggleSidenav()" aria-label="Show Client List" hide-gt-sm>
             <md-icon class="material-icons">menu</md-icon>

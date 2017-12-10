@@ -81,7 +81,7 @@ angular.module("mongusApp", ["ngMaterial", "chart.js", "ui.router"])
 
     $provide.value('themeProvider', $mdThemingProvider);
 
-    $mdIconProvider.defaultIconSet("/app/assets/svg/avatars.svg", 128);
+    $mdIconProvider.defaultIconSet("/assets/svg/avatars.svg", 128);
 
 });
 
