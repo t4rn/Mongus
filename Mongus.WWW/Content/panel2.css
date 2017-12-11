@@ -157,9 +157,9 @@
         padding: 0;
         margin: 0 5px;
         border-radius: 50%;
-        background: #999;
+        background: rgba(255,255,255, 0.54);
         border: 0;
     }
 
-    .tns-nav > [aria-selected="true"] { background: #ddd; }
+    .tns-nav > [aria-selected="true"] { background: #fff; }
 
