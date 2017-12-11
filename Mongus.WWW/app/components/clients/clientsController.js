@@ -2,7 +2,7 @@
 
     "use strict";
 
-    angular.module("mongusApp")
+    angular.module("app")
 	.controller("clientsController", clientsController);
 
     function clientsController(clientService, $mdSidenav, $log, $mdBottomSheet) {

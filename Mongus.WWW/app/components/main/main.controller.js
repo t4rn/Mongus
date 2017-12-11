@@ -2,10 +2,10 @@
 
     "use strict";
 
-    angular.module("mongusApp")
-    .controller("mainController", mainController);
+    angular.module("app")
+        .controller("MainController", MainController);
 
-    function mainController($mdSidenav, $mdMedia, $state, $log) {
+    function MainController($mdSidenav, $mdMedia, $state, $log) {
 
         var vm = this;
         vm.theme = "default";
@@ -13,6 +13,8 @@
         vm.showMenuButton = true;
         vm.isSidebarOpen = $mdMedia('gt-sm');
         vm.toggleSidebar = toggleSidebar;
+        vm.changeTheme = changeTheme;
+        vm.openMenu = openMenu;
         vm.subPages = [
             { state: "home", name: "Home", icon: "home" },
             { state: "values", name: "Values", icon: "local_atm" },
@@ -22,7 +24,6 @@
         ];
         //vm.currentState = $state.current.name;
         //vm.changeState = changeState;
-
 
         // obsolete - done automatically
         function changeState(stateName) {
@@ -48,7 +49,7 @@
             color: vm.defaultStyle.color
         };
 
-        vm.changeTheme = function changeTheme() {
+        function changeTheme() {
             console.log("changing theme...");
 
             if (vm.theme === "default") {
@@ -68,7 +69,7 @@
             //$mdSidenav("sidenav").toggle();
         };
 
-        vm.openMenu = function ($mdMenu, ev) {
+        function openMenu($mdMenu, ev) {
             $mdMenu.open(ev);
         };
     }

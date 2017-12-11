@@ -2,7 +2,7 @@
 
     "use strict";
 
-    angular.module("mongusApp")
+    angular.module("app")
         .controller("signupController", SignupController)
         .service("myService", myService);
 

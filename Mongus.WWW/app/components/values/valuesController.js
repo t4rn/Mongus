@@ -3,7 +3,7 @@
     "use strict";
 
     // getting the existing module
-    angular.module("mongusApp")
+    angular.module("app")
 	.controller("valuesController", valuesController);
 
     function valuesController($scope, $http, $mdDialog) {

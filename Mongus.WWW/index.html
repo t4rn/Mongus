@@ -24,10 +24,9 @@
 
     <!--App JS-->
     <script src="app/config.js"></script>
-
-    <script src="app/mongusApp.js"></script>
+    <script src="app/app.module.js"></script>
     <script src="app/components/clients/clientService.js"></script>
-    <script src="app/components/main/mainController.js"></script>
+    <script src="app/components/main/main.controller.js"></script>
     <script src="app/components/values/valuesController.js"></script>
     <script src="app/components/signup/SignupController.js"></script>
     <script src="app/components/users/usersController.js"></script>
@@ -43,7 +42,7 @@
     <script src="Scripts/angular-chart.js"></script>
     <script src="Scripts/highcharts.js"></script>
 </head>
-<body ng-app="mongusApp" ng-controller="mainController as vm">
+<body ng-app="app" ng-controller="MainController as vm">
 
     <div
          md-theme="{{ vm.theme }}"

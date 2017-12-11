@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict';
-    var app = angular.module('mongusApp');
+    var app = angular.module('app');
     app.controller("highChartsController", highChartsController);
 
     function highChartsController($scope,$window, chartData) {
@@ -339,6 +339,6 @@
     function randomizeSingle(multiplier) {
         return Math.floor(Math.random() * multiplier);
     }
-    var appModule = angular.module("mongusApp");
+    var appModule = angular.module("app");
     appModule.factory("chartData", chartData);
 })();

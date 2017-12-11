@@ -2,7 +2,7 @@
 
     "use strict";
 
-    angular.module("mongusApp")
+    angular.module("app")
 	.service("clientService", clientService);
 
     function clientService($q) {
