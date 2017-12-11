@@ -56,6 +56,12 @@
                     </div>
                 </md-input-container>
 
+                <md-input-container class="md-block">
+                    <md-checkbox name="remember" ng-model="vm.remember">
+                        Remember me
+                    </md-checkbox>
+                </md-input-container>
+
                 <md-input-container class="md-icon-float md-block" flex-gt-sm>
                     <md-button class="md-raised md-primary" ng-click="SaveUser();" ng-disabled="!(fName && lName && uEmail && uName && uPwd)">
                         <md-tooltip>

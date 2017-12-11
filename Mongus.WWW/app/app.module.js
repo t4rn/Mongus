@@ -15,64 +15,99 @@
             rewriteLinks: true
         });
 
+        var defaultTemplateUrl = {
+            templateUrl: "/app/components/layout/layout.html"
+        };
+
         $stateProvider
           .state("home", {
-              title: 'Home',
+              title: "Home",
               url: "/",
-              templateUrl: "/app/components/main/mainContent.html"
+              views: {
+                  "": defaultTemplateUrl,
+                  "content@home": {
+                      templateUrl: "/app/components/home/home.html"
+                  }
+              },
           })
           .state("values", {
               title: "Values",
               url: "/values",
-              controller: "valuesController",
-              controllerAs: "vm",
-              templateUrl: "/app/components/values/values.html"
+              views: {
+                  "": defaultTemplateUrl,
+                  "content@values": {
+                      templateUrl: "/app/components/values/values.html"
+                  }
+              }
           })
           .state("signup", {
               title: "Sign Up",
               url: "/signup",
               controller: "signupController",
               controllerAs: "vm",
-              templateUrl: "/app/components/signup/signup.html"
+              views: {
+                  "": defaultTemplateUrl,
+                  "content@signup": {
+                      templateUrl: "/app/components/signup/signup.html"
+                  }
+              }
           })
           .state("users", {
               title: "Users",
               url: "/users",
               controller: "usersController",
-              //controllerAs: "vm",
-              templateUrl: "/app/components/users/users.html"
+              views: {
+                  "": defaultTemplateUrl,
+                  "content@users": {
+                      templateUrl: "/app/components/users/users.html"
+                  }
+              }
           })
           .state("clients", {
               title: "Clients",
               url: "/clients",
               controller: "clientsController",
               //controllerAs: "vm",
-              templateUrl: "/app/components/clients/clients.html"
+              views: {
+                  "": defaultTemplateUrl,
+                  "content@clients": {
+                      templateUrl: "/app/components/clients/clients.html"
+                  }
+              }
           })
           .state("charts", {
-              title: "Chartus",
+              title: "Chart.js",
               url: "/charts",
               controller: "chartsController",
               //controllerAs: "vm",
-              templateUrl: "/app/components/charts/charts.html"
+              views: {
+                  "": defaultTemplateUrl,
+                  "content@charts": {
+                      templateUrl: "/app/components/charts/charts.html"
+                  }
+              }
           })
-          .state("chartsGoogle", {
-              title: "Google Charts",
-              url: "/chartsGoogle",
-              controller: "chartsGoogleController",
-              controllerAs: "vm",
-              tempateUrl: "/app/components/chartsGoogle/chartsGoogle.html"
-          })
-          .state("highCharts", {
-              title: "Hight Charts",
-              url: "/highCharts",
-              controller: "highChartsController",
-              //controllerAs: "vm",
-              templateUrl: "/app/components/highCharts/highCharts.html"
-          })
+          //.state("login", {
+          //    title: "Login",
+          //    url: "/loginus",
+          //    views: {
+          //        "": {
+          //            templateUrl: "/app/components/login/login.html",
+          //            controller: "LoginController",
+          //        },
+          //        "content@login": {
+          //            templateUrl: "/app/components/login/login.content.html"
+          //        }
+          //    }
+          //})
           .state("notFound", {
               title: "Page not found",
-              template: "<h3 style='text-align:center'>Page not found...</h3>"
+              views: {
+                  "": defaultTemplateUrl,
+                  "content@notFound": {
+                      template: "<h3 style='text-align:center'>Page not found...</h3>"
+                  }
+              }
           })
         ;
 

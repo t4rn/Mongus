@@ -3,7 +3,7 @@
     "use strict";
 
     angular.module("if", ["ngMaterial"])
-	.controller("registerController", RegisterController);
+	.controller("RegisterController", RegisterController);
 
     function RegisterController() {
 

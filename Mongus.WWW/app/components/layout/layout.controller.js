@@ -3,9 +3,9 @@
     "use strict";
 
     angular.module("app")
-        .controller("MainController", MainController);
+        .controller("LayoutController", LayoutController);
 
-    function MainController($mdSidenav, $mdMedia, $state, $log) {
+    function LayoutController($mdSidenav, $mdMedia, $state, $log) {
 
         var vm = this;
         vm.theme = "default";

@@ -1,0 +1,25 @@
+﻿<div md-theme="{{ vm.theme }}"
+     ng-cloak
+     ng-style="vm.myStyle"
+     layout="row" flex layout-fill  ng-controller="LayoutController as vm">
+
+    <div layout="column" ng-include="'/app/components/layout/sidebar.html'"></div>
+
+    <div layout="column" flex>
+
+        <div ng-include="'/app/components/layout/navbar.html'"></div>
+
+        <md-content layout="column" flex>
+
+            <div ui-view="content"></div>
+
+            <div flex>
+
+            </div>
+            <div ng-include="'/app/components/layout/footer.html'"></div>
+
+        </md-content>
+
+    </div>
+
+</div>

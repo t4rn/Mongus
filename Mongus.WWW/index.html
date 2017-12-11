@@ -19,58 +19,28 @@
     <script src="Scripts/angular-aria.js"></script>
     <script src="Scripts/angular-messages.js"></script>
     <script src="Scripts/angular-material.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
 
     <!--App JS-->
     <script src="app/config.js"></script>
     <script src="app/app.module.js"></script>
     <script src="app/components/clients/clientService.js"></script>
-    <script src="app/components/main/main.controller.js"></script>
+    <script src="app/components/layout/layout.controller.js"></script>
     <script src="app/components/values/valuesController.js"></script>
     <script src="app/components/signup/SignupController.js"></script>
     <script src="app/components/users/usersController.js"></script>
     <script src="app/components/charts/chartsController.js"></script>
     <script src="app/components/clients/clientsController.js"></script>
-    <script src="app/components/chartsGoogle/chartsGoogleController.js"></script>
-    <script src="app/components/highCharts/highChartsController.js"></script>
-
+    <script src="app/components/login/login.controller.js"></script>
     <!-- preety url -->
     <!--<base href="/">-->
     <!-- charts -->
     <script src="Scripts/Chart.js"></script>
     <script src="Scripts/angular-chart.js"></script>
-    <script src="Scripts/highcharts.js"></script>
 </head>
-<body ng-app="app" ng-controller="MainController as vm">
+<body ng-app="app">
 
-    <div
-         md-theme="{{ vm.theme }}"
-         ng-cloak
-         ng-style="vm.myStyle"
-         layout="row" flex>
-
-        <div layout="column" ng-include="'app/components/main/sidebar/sidebar.html'"></div>
-
-        <div layout="column" flex>
-
-            <div ng-include="'app/components/main/navbar/navbar.html'"></div>
-
-            <md-content layout="column" flex>
-
-                <!--<div ng-view></div>-->
-                <div ui-view></div>
-
-                <div flex></div>
-
-                <div ng-include="'app/components/main/footer/footer.html'"></div>
-
-            </md-content>
-
-        </div>
-
-    </div>
-
+    <div ui-view layout-fill></div>
 
 </body>
 </html>
