@@ -113,7 +113,7 @@
               url: "/loginus",
               views: {
                   "": {
-                      templateUrl: "/app/components/shared/loginregister.html",
+                      templateUrl: "/app/components/shared/loginregister/loginregister.html",
                       controller: "LoginController",
                       controllerAs: "vm",
                   },
@@ -128,7 +128,7 @@
               url: "/registrus",
               views: {
                   "": {
-                      templateUrl: "/app/components/shared/loginregister.html",
+                      templateUrl: "/app/components/shared/loginregister/loginregister.html",
                       controller: "RegisterController",
                       controllerAs: "vm",
                   },
