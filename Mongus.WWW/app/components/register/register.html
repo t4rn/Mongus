@@ -18,26 +18,35 @@
         </md-card-title>
 
         <md-card-content>
-
-            <form ng-submit="vm.register()">
+            <form name="vm.registerForm" ng-submit="vm.register(vm.registerForm)">
                 <md-input-container class="md-block">
-                    <input ng-model="vm.firstName" type="text" placeholder="Owner's first name">
+                    <input ng-model="vm.user.firstName" name="firstName" type="text" placeholder="Owner's first name" required>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <input ng-model="vm.lastName" type="text" placeholder="Owner's last name">
+                    <input ng-model="vm.user.lastName" name="lastName" type="text" placeholder="Owner's last name" required>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <input ng-model="vm.email" type="email" placeholder="Email">
+                    <input ng-model="vm.user.email" name="email" type="email" placeholder="Email" required>
+                    <div ng-messages="vm.registerForm.email.$error" role="alert" multiple>
+                        <div ng-message="required">Email is required.</div>
+                        <div ng-message="email">Enter a valid email.</div>
+                        <div ng-message="emailExists">{{ vm.emailExistsError }}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <input ng-model="vm.passwd" type="password" placeholder="Password">
+                    <input ng-model="vm.user.passwd" name="password" type="password" placeholder="Password" required
+                           ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
+                    <div ng-messages="vm.registerForm.password.$error" role="alert">
+                        <div ng-message="required">Password is required.</div>
+                        <div ng-message="pattern">Your password must have a minimum of 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number.</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-checkbox name="remember" ng-model="vm.remember" class="md-primary">
+                    <md-checkbox name="remember" ng-model="vm.user.remember" class="md-primary">
                         Remember me
                     </md-checkbox>
                 </md-input-container>

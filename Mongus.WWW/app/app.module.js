@@ -2,7 +2,7 @@
 
     "use strict";
 
-    var app = angular.module("app", ["ngMaterial", "chart.js", "ui.router"])
+    var app = angular.module("app", ["ngMaterial", "ngMessages","chart.js", "ui.router"])
         .config(configBlock)
         .factory("injectCSS", injectCSS)
         .run(runBlock);
@@ -149,9 +149,14 @@
           })
         ;
 
+        var ifGreenMap = $mdThemingProvider.extendPalette('green', {
+            '500': '#1C9B51'
+        });
+
+        $mdThemingProvider.definePalette('ifGreen', ifGreenMap);
 
         $mdThemingProvider.theme('default')
-          .primaryPalette('blue')
+          .primaryPalette('ifGreen')
           .accentPalette('brown');
 
         $mdThemingProvider.theme('altTheme')

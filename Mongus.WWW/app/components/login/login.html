@@ -19,9 +19,12 @@
 
         <md-card-content>
 
-            <form ng-submit="vm.signIn(vm.email, vm.passwd)">
+            <form name="loginForm" ng-submit="vm.signIn(vm.email, vm.passwd)">
                 <md-input-container class="md-block">
-                    <input ng-model="vm.email" type="email" placeholder="Email">
+                    <input ng-model="vm.email" name="email" type="email" placeholder="Email">
+                    <div ng-messages="loginForm.email.$error" role="alert" multiple>
+                        <div ng-message="email">Enter a valid email.</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block">
