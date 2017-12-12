@@ -22,7 +22,7 @@
 
             <md-card-content>
 
-                <form ng-submit="vm.signin()">
+                <form ng-submit="vm.signIn(vm.email, vm.passwd)">
                     <md-input-container class="md-block">
                         <input ng-model="vm.email" type="email" placeholder="Email">
                     </md-input-container>
@@ -32,7 +32,7 @@
                     </md-input-container>
 
                     <md-input-container class="md-block">
-                        <md-checkbox name="remember" ng-model="vm.remember">
+                        <md-checkbox name="remember" ng-model="vm.remember" class="md-primary">
                             Remember me
                         </md-checkbox>
                     </md-input-container>
@@ -46,12 +46,13 @@
                             </span>
                         </div>
 
-                        <md-button class="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin">
-                        </md-button>
+                        <md-button class="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin"></md-button>
+
+                        <!--<if-external-sign-in-button button-id="google-btn" sign-in-success="vm.onGoogleSuccess"></if-external-sign-in-button>-->
 
                     </div>
                 </form>
-                <p class="text-regular"><a href="/">Forgot password?</a></p>
+                <p class="text-regular"><a href="#" ng-click="vm.showForgotPassword()">Forgot password?</a></p>
                 <p class="text-regular">Don't have an account? Click <a ui-sref="register">here</a> to sign up.</p>
 
             </md-card-content>
