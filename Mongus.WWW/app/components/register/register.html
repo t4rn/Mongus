@@ -21,15 +21,21 @@
             <form name="vm.registerForm" ng-submit="vm.register(vm.registerForm)">
                 <md-input-container class="md-block">
                     <input ng-model="vm.user.firstName" name="firstName" type="text" placeholder="Owner's first name" required>
+                    <div ng-messages="vm.registerForm.firstName.$error" role="alert">
+                        <div ng-message="required">Fist name is required.</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block">
                     <input ng-model="vm.user.lastName" name="lastName" type="text" placeholder="Owner's last name" required>
+                    <div ng-messages="vm.registerForm.lastName.$error" role="alert">
+                        <div ng-message="required">Last name is required.</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block">
                     <input ng-model="vm.user.email" name="email" type="email" placeholder="Email" required>
-                    <div ng-messages="vm.registerForm.email.$error" role="alert" multiple>
+                    <div ng-messages="vm.registerForm.email.$error" role="alert">
                         <div ng-message="required">Email is required.</div>
                         <div ng-message="email">Enter a valid email.</div>
                         <div ng-message="emailExists">{{ vm.emailExistsError }}</div>
