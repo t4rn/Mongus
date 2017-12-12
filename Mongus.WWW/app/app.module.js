@@ -4,7 +4,8 @@
 
     var app = angular.module("app", ["ngMaterial", "chart.js", "ui.router"])
         .config(configBlock)
-        .factory("injectCSS", injectCSS);
+        .factory("injectCSS", injectCSS)
+        .run(runBlock);
 
     configBlock.$inject = ["$locationProvider", "$mdThemingProvider", "$provide", "$mdIconProvider", "$stateProvider"];
 
@@ -164,9 +165,9 @@
 
     };
 
-    injectCSS.$inject = ["$q"];
+    injectCSS.$inject = ["$q", "$http"];
 
-    function injectCSS($q) {
+    function injectCSS($q, $http) {
         var injectCSS = {};
         injectCSS.setCSS = setCSS;
 
@@ -178,19 +179,34 @@
               deferred = $q.defer(),
               link;
 
-            if (!angular.element(document.querySelector('link#' + id)).length) {
-                link = createLink(id, url);
-                link.onload = deferred.resolve;
-                var headElement = document.getElementsByTagName('head')[0];
-                headElement.append(link);
-                console.log("dodalem css o url: " + url);
-            }
+            $http.get(url, { cache: true })
+                .then(function (response) {
+                    
+                    if (!angular.element(document.querySelector('link#' + id)).length) {
+                        //RemoveAllCss();
+                        link = createLink(id, url);
+                        document.getElementsByTagName('head')[0].append(link);
+                        
+                        console.log("dodalem css o url: " + url);
+                    }
+                    checkLoaded(url, deferred, tries);
 
-            checkLoaded(url, deferred, tries);
-
-            console.log(document.styleSheets);
+                    console.log(document.styleSheets);
+                })
+                .catch(function (response) {
+                    deferred.reject(response);
+                    console.log("Error: " + response);
+                });
 
             return deferred.promise;
+        };
+
+        function RemoveAllCss() {
+            var elements = document.querySelectorAll('link[rel=stylesheet]');
+
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].parentNode.removeChild(elements[i]);
+            };
         };
 
         function createLink(id, url) {
@@ -217,13 +233,11 @@
                 }
             }
             tries++;
-            setTimeout(function(){checkLoaded(url, deferred, tries);}, 50); 
+            setTimeout(function () { checkLoaded(url, deferred, tries); }, 50);
         };
 
         return injectCSS;
     };
-
-    app.run(runBlock);
 
     runBlock.$inject = ["$rootScope", "$state", "$stateParams", "$log"];
 
