@@ -1,81 +1,74 @@
-﻿<main id="main-content" layout="column"
-      layout-align="start center" flex>
+﻿
+<div layout="column"
+     layout-gt-sm="row"
+     layout-align="center stretch"
+     class="md-whiteframe-7dp">
 
-    <div id="card">
-
-        <div layout="column"
-             layout-gt-sm="row"
-             layout-align="center stretch"
-             class="md-whiteframe-7dp">
-            <div id="welcome-msg" class="flex-540px" hide-xs>
-                <span>Let's do <b>this!</b></span>
-                <hr class="separator-white" align="left" />
-                <span class="subtitle">Start your journey to faster Amazon payouts with IdeaFaktor.</span>
-            </div>
-
-            <md-card class="login-form flex-540px">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Create an account</span>
-                    </md-card-title-text>
-                </md-card-title>
-
-                <md-card-content>
-
-                    <form ng-submit="vm.register()">
-                        <md-input-container class="md-block">
-                            <input ng-model="vm.firstName" type="text" placeholder="Owner's first name">
-                        </md-input-container>
-
-                        <md-input-container class="md-block">
-                            <input ng-model="vm.lastName" type="text" placeholder="Owner's last name">
-                        </md-input-container>
-
-                        <md-input-container class="md-block">
-                            <input ng-model="vm.email" type="email" placeholder="Email">
-                        </md-input-container>
-
-                        <md-input-container class="md-block">
-                            <input ng-model="vm.passwd" type="password" placeholder="Password">
-                        </md-input-container>
-
-                        <md-input-container class="md-block">
-                            <md-checkbox name="remember" ng-model="vm.remember">
-                                Remember me
-                            </md-checkbox>
-                        </md-input-container>
-
-                        <div class="margin-bottom-20" layout="column" layout-align="center center">
-                            <input type="submit" class="button-custom padding-0-25" value="Create account">
-
-                            <div class="hr-with-text-container">
-                                <span class="hr-with-text-content">
-                                    Or
-                                </span>
-                            </div>
-
-                            <md-button class="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin">
-                            </md-button>
-
-                        </div>
-                    </form>
-                    <p class="text-regular">Have account? Click <a ui-sref="login">here</a> to login.</p>
-
-                </md-card-content>
-                <md-card-footer class="padding-20-50-10-20">
-                    <div ng-include="'/app/components/shared/security.html'"></div>
-                </md-card-footer>
-            </md-card>
-        </div>
-
-        <div class="padding-20-10-10 text-regular">
-            <span>
-                You agree that Idea 247, Inc. ("Idea Financial") or its representatives or agents may call, text, or email you at the number and/or email provided in this application, and
-                acknowledge that no purchase of credit or services is contingent upon such consent.You may opt out of receiving communications of your choice from Idea Financial as
-                provided in the Privacy Policy. By clicking Continue you agree to our <a href="/">Terms of Service</a> and <a href="/">Privacy Policy</a>.
-            </span>
-        </div>
-
+    <div id="welcome-msg" class="flex-540px" hide-xs>
+        <span>Let's do <b>this!</b></span>
+        <hr class="separator-white" align="left" />
+        <span class="subtitle">Start your journey to faster Amazon payouts with IdeaFaktor.</span>
     </div>
 
-</main>
+    <md-card class="login-form flex-540px">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Create an account</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+
+            <form ng-submit="vm.register()">
+                <md-input-container class="md-block">
+                    <input ng-model="vm.firstName" type="text" placeholder="Owner's first name">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="vm.lastName" type="text" placeholder="Owner's last name">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="vm.email" type="email" placeholder="Email">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="vm.passwd" type="password" placeholder="Password">
+                </md-input-container>
+
+                <md-input-container class="md-block md-primary">
+                    <md-checkbox name="remember" ng-model="vm.remember">
+                        Remember me
+                    </md-checkbox>
+                </md-input-container>
+
+                <div class="margin-bottom-20" layout="column" layout-align="center center">
+                    <input type="submit" class="button-custom padding-0-25" value="Create account">
+
+                    <div class="hr-with-text-container">
+                        <span class="hr-with-text-content">
+                            Or
+                        </span>
+                    </div>
+
+                    <md-button class="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin">
+                    </md-button>
+
+                </div>
+            </form>
+            <p class="text-regular">Have account? Click <a ui-sref="login">here</a> to login.</p>
+
+        </md-card-content>
+        <md-card-footer class="padding-20-50-10-20">
+            <div ng-include="'/app/components/shared/security.html'"></div>
+        </md-card-footer>
+    </md-card>
+</div>
+
+<div class="padding-20-10-10 text-regular">
+    <span>
+        You agree that Idea 247, Inc. ("Idea Financial") or its representatives or agents may call, text, or email you at the number and/or email provided in this application, and
+        acknowledge that no purchase of credit or services is contingent upon such consent.You may opt out of receiving communications of your choice from Idea Financial as
+        provided in the Privacy Policy. By clicking Continue you agree to our <a href="/">Terms of Service</a> and <a href="/">Privacy Policy</a>.
+    </span>
+</div>

@@ -87,9 +87,6 @@ header {
   }
 }
 /* Main Content */
-#main-with-header-content {
-  flex: 1 0;
-}
 #main-content {
   padding: 50px 10px 20px;
   margin-top: 64px;

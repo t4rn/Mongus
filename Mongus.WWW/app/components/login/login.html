@@ -1,66 +1,62 @@
-﻿<main id="main-content" layout="column"
-      layout-align="start center" flex>
+﻿
+<div layout="column"
+     layout-gt-sm="row"
+     layout-align="center stretch"
+     class="md-whiteframe-7dp">
 
-    <div id="card"
-         layout="column"
-         layout-gt-sm="row"
-         layout-align="center stretch"
-         class="md-whiteframe-7dp">
-
-        <div id="welcome-msg" class="flex-540px" hide-xs>
-            <span>Welcome <b>back!</b></span>
-            <hr class="separator-white" align="left" />
-            <span class="subtitle">We're delighted to see you again.</span>
-        </div>
-
-        <md-card class="login-form flex-540px">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Login</span>
-                </md-card-title-text>
-            </md-card-title>
-
-            <md-card-content>
-
-                <form ng-submit="vm.signIn(vm.email, vm.passwd)">
-                    <md-input-container class="md-block">
-                        <input ng-model="vm.email" type="email" placeholder="Email">
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <input ng-model="vm.passwd" type="password" placeholder="Password">
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <md-checkbox name="remember" ng-model="vm.remember" class="md-primary">
-                            Remember me
-                        </md-checkbox>
-                    </md-input-container>
-
-                    <div class="margin-bottom-20" layout="column" layout-align="center center">
-                        <input type="submit" class="button-custom padding-0-25" value="Login">
-
-                        <div class="hr-with-text-container">
-                            <span class="hr-with-text-content">
-                                Or
-                            </span>
-                        </div>
-
-                        <md-button class="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin"></md-button>
-
-                        <!--<if-external-sign-in-button button-id="google-btn" sign-in-success="vm.onGoogleSuccess"></if-external-sign-in-button>-->
-
-                    </div>
-                </form>
-                <p class="text-regular"><a href="#" ng-click="vm.showForgotPassword()">Forgot password?</a></p>
-                <p class="text-regular">Don't have an account? Click <a ui-sref="register">here</a> to sign up.</p>
-
-            </md-card-content>
-            <md-card-footer class="padding-20-50-10-20">
-                <div ng-include="'/app/components/shared/security.html'"></div>
-            </md-card-footer>
-        </md-card>
-
+    <div id="welcome-msg" class="flex-540px" hide-xs>
+        <span>Welcome <b>back!</b></span>
+        <hr class="separator-white" align="left" />
+        <span class="subtitle">We're delighted to see you again.</span>
     </div>
 
-</main>
+    <md-card class="login-form flex-540px">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Login</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+
+            <form ng-submit="vm.signIn(vm.email, vm.passwd)">
+                <md-input-container class="md-block">
+                    <input ng-model="vm.email" type="email" placeholder="Email">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <input ng-model="vm.passwd" type="password" placeholder="Password">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-checkbox name="remember" ng-model="vm.remember" class="md-primary">
+                        Remember me
+                    </md-checkbox>
+                </md-input-container>
+
+                <div class="margin-bottom-20" layout="column" layout-align="center center">
+                    <input type="submit" class="button-custom padding-0-25" value="Login">
+
+                    <div class="hr-with-text-container">
+                        <span class="hr-with-text-content">
+                            Or
+                        </span>
+                    </div>
+
+                    <md-button class="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin"></md-button>
+
+                    <!--<if-external-sign-in-button button-id="google-btn" sign-in-success="vm.onGoogleSuccess"></if-external-sign-in-button>-->
+
+                </div>
+            </form>
+            <p class="text-regular"><a href="#" ng-click="vm.showForgotPassword()">Forgot password?</a></p>
+            <p class="text-regular">Don't have an account? Click <a ui-sref="register">here</a> to sign up.</p>
+
+        </md-card-content>
+        <md-card-footer class="padding-20-50-10-20">
+            <div ng-include="'/app/components/shared/security.html'"></div>
+        </md-card-footer>
+    </md-card>
+
+</div>
+

@@ -1,15 +1,18 @@
 ﻿<div id="wrapper" layout="column">
 
-    <div id="main-with-header-content" layout="column">
+    <header layout="column">
+        <div ng-include="'/app/components/shared/header.html'"></div>
+    </header>
 
-        <header layout="column">
-            <div ng-include="'/app/components/shared/header.html'"></div>
-        </header>
+    <main id="main-content" layout="column" layout-align="start center" flex>
 
-        <div ui-view="content" class="display-flex"
-             flex></div>
+        <div id="card">
 
-    </div>
+            <div ui-view="content" class="display-flex" layout="column"></div>
+
+        </div>
+
+    </main>
 
     <footer>
         <div ng-include="'/app/components/shared/footer.html'"></div>
