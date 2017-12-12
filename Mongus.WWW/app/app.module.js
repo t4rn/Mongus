@@ -171,16 +171,24 @@
         injectCSS.setCSS = setCSS;
 
         function setCSS(id, url) {
+            console.log("start setCSS dla id: " + id);
+            console.log(document.styleSheets);
+
             var tries = 0,
               deferred = $q.defer(),
               link;
 
-            if (document.getElementById('link#' + id) == null) {
+            if (!angular.element(document.querySelector('link#' + id)).length) {
                 link = createLink(id, url);
                 link.onload = deferred.resolve;
                 var headElement = document.getElementsByTagName('head')[0];
                 headElement.append(link);
+                console.log("dodalem css o url: " + url);
             }
+
+            checkLoaded(url, deferred, tries);
+
+            console.log(document.styleSheets);
 
             return deferred.promise;
         };
@@ -193,6 +201,24 @@
             link.href = url;
             return link;
         }
+
+        function checkLoaded(url, deferred, tries) {
+            console.log("checkLoaded dla url: " + url);
+            var cleanUrl = url.split("/").slice(-1).join();
+
+            for (var i in document.styleSheets) {
+                var href = document.styleSheets[i].href || "";
+                var cleanHref = href.split("/").slice(-1).join();
+                console.log("href clean: " + cleanHref);
+                if (cleanHref === cleanUrl) {
+                    console.log("resolve");
+                    deferred.resolve();
+                    return;
+                }
+            }
+            tries++;
+            setTimeout(function(){checkLoaded(url, deferred, tries);}, 50); 
+        };
 
         return injectCSS;
     };
