@@ -3,7 +3,8 @@
     "use strict";
 
     var app = angular.module("app", ["ngMaterial", "chart.js", "ui.router"])
-        .config(configBlock);
+        .config(configBlock)
+        .factory("injectCSS", injectCSS);
 
     configBlock.$inject = ["$locationProvider", "$mdThemingProvider", "$provide", "$mdIconProvider", "$stateProvider"];
 
@@ -19,6 +20,19 @@
             templateUrl: "/app/components/layout/layout.html"
         };
 
+        var defaultCss = {
+            load: ["injectCSS", function (obj) {
+                return obj.setCSS("mainCss", "assets/css/site.css");
+            }]
+        };
+
+        var loginRegisterCss = {
+            load: ["injectCSS", function (obj) {
+                return obj.setCSS("loginRegisterCss", "assets/css/login.css");
+            }]
+        };
+
+
         $stateProvider
           .state("home", {
               title: "Home",
@@ -29,6 +43,7 @@
                       templateUrl: "/app/components/home/home.html"
                   }
               },
+              resolve: defaultCss
           })
           .state("values", {
               title: "Values",
@@ -38,7 +53,8 @@
                   "content@values": {
                       templateUrl: "/app/components/values/values.html"
                   }
-              }
+              },
+              resolve: defaultCss
           })
           .state("signup", {
               title: "Sign Up",
@@ -50,7 +66,8 @@
                   "content@signup": {
                       templateUrl: "/app/components/signup/signup.html"
                   }
-              }
+              },
+              resolve: defaultCss
           })
           .state("users", {
               title: "Users",
@@ -61,7 +78,8 @@
                   "content@users": {
                       templateUrl: "/app/components/users/users.html"
                   }
-              }
+              },
+              resolve: defaultCss
           })
           .state("clients", {
               title: "Clients",
@@ -73,7 +91,8 @@
                   "content@clients": {
                       templateUrl: "/app/components/clients/clients.html"
                   }
-              }
+              },
+              resolve: defaultCss
           })
           .state("charts", {
               title: "Chart.js",
@@ -85,21 +104,39 @@
                   "content@charts": {
                       templateUrl: "/app/components/charts/charts.html"
                   }
-              }
+              },
+              resolve: defaultCss
           })
-          //.state("login", {
-          //    title: "Login",
-          //    url: "/loginus",
-          //    views: {
-          //        "": {
-          //            templateUrl: "/app/components/login/login.html",
-          //            controller: "LoginController",
-          //        },
-          //        "content@login": {
-          //            templateUrl: "/app/components/login/login.content.html"
-          //        }
-          //    }
-          //})
+          .state("login", {
+              title: "Login",
+              url: "/loginus",
+              views: {
+                  "": {
+                      templateUrl: "/app/components/shared/loginregister.html",
+                      controller: "LoginController",
+                      controllerAs: "vm",
+                  },
+                  "content@login": {
+                      templateUrl: "/app/components/login/login.html"
+                  }
+              },
+              resolve: loginRegisterCss
+          })
+          .state("register", {
+              title: "Register",
+              url: "/registrus",
+              views: {
+                  "": {
+                      templateUrl: "/app/components/shared/loginregister.html",
+                      controller: "RegisterController",
+                      controllerAs: "vm",
+                  },
+                  "content@register": {
+                      templateUrl: "/app/components/register/register.html"
+                  }
+              },
+              resolve: loginRegisterCss
+          })
           .state("notFound", {
               title: "Page not found",
               views: {
@@ -127,7 +164,38 @@
 
     };
 
+    injectCSS.$inject = ["$q"];
 
+    function injectCSS($q) {
+        var injectCSS = {};
+        injectCSS.setCSS = setCSS;
+
+        function setCSS(id, url) {
+            var tries = 0,
+              deferred = $q.defer(),
+              link;
+
+            if (document.getElementById('link#' + id) == null) {
+                link = createLink(id, url);
+                link.onload = deferred.resolve;
+                var headElement = document.getElementsByTagName('head')[0];
+                headElement.append(link);
+            }
+
+            return deferred.promise;
+        };
+
+        function createLink(id, url) {
+            var link = document.createElement('link');
+            link.id = id;
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href = url;
+            return link;
+        }
+
+        return injectCSS;
+    };
 
     app.run(runBlock);
 

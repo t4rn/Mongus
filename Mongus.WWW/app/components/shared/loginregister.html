@@ -1,0 +1,18 @@
+﻿<div id="wrapper" layout="column">
+
+    <div id="main-with-header-content" layout="column">
+
+        <header layout="column">
+            <div ng-include="'/app/components/shared/header.html'"></div>
+        </header>
+
+        <div ui-view="content" class="display-flex"
+             flex></div>
+
+    </div>
+
+    <footer>
+        <div ng-include="'/app/components/shared/footer.html'"></div>
+    </footer>
+
+</div>
