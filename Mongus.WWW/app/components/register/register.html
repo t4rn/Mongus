@@ -44,7 +44,7 @@
 
                 <md-input-container class="md-block">
                     <input ng-model="vm.user.password" name="password" type="password" placeholder="Password" required
-                           ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
+                           ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/">
                     <div class="hint" ng-hide="vm.registerForm.password.$valid">
                         Your password must have a minimum of 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number.
                     </div>
@@ -69,7 +69,7 @@
                         </span>
                     </div>
 
-                    <md-button class="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin"></md-button>
+                    <md-button id="google-btn" ng-click="vm.googleSignIn()" aria-label="google-signin"></md-button>
 
                 </div>
             </form>

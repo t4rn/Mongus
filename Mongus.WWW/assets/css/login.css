@@ -168,7 +168,7 @@ header {
 /*.button-custom:disabled {
     background-color: #D9D9D9;
 }*/
-.google-btn {
+#google-btn {
   width: 191px;
   height: 46px;
   background-image: url(/assets/img/google/btn_google_signin_light_normal_web.png);
