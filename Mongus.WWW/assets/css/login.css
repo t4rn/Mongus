@@ -165,6 +165,9 @@ header {
 .button-custom:hover {
   background-color: #198847;
 }
+/*.button-custom:disabled {
+    background-color: #D9D9D9;
+}*/
 .google-btn {
   width: 191px;
   height: 46px;
@@ -197,4 +200,27 @@ header {
 }
 .yellow {
   color: #E39839;
+}
+/**************** Form hints ****************/
+form .hint {
+  /*position: absolute;*/
+  padding-top: 35px;
+  left: 2px;
+  right: auto;
+  bottom: 7px;
+  font-size: 12px;
+  line-height: 14px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  color: grey;
+}
+form .hint.ng-hide,
+.hint.ng-enter,
+.hint.ng-leave.ng-leave-active {
+  bottom: 26px;
+  opacity: 0;
+}
+form .hint.ng-leave,
+.hint.ng-enter.ng-enter-active {
+  bottom: 7px;
+  opacity: 1;
 }

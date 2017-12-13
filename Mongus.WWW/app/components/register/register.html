@@ -43,12 +43,15 @@
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <input ng-model="vm.user.passwd" name="password" type="password" placeholder="Password" required
+                    <input ng-model="vm.user.password" name="password" type="password" placeholder="Password" required
                            ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
-                    <div ng-messages="vm.registerForm.password.$error" role="alert">
-                        <div ng-message="required">Password is required.</div>
-                        <div ng-message="pattern">Your password must have a minimum of 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number.</div>
+                    <div class="hint" ng-hide="vm.registerForm.password.$valid">
+                        Your password must have a minimum of 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number.
                     </div>
+                    <!--<div ng-messages="vm.registerForm.password.$error" role="alert">
+                    <div ng-message="required">Password is required.</div>
+                    <div ng-message="pattern">Your password must have a minimum of 8 characters, 1 uppercase letter, 1 lowercase letter, and 1 number.</div>
+                </div>-->
                 </md-input-container>
 
                 <md-input-container class="md-block">
@@ -58,8 +61,8 @@
                 </md-input-container>
 
                 <div class="margin-bottom-20" layout="column" layout-align="center center">
-                    <input type="submit" class="button-custom padding-0-25" value="Create account">
-
+                    <input type="submit" class="button-custom padding-0-25" value="Create account" />
+                            <!--ng-disabled="vm.registerForm.$invalid">-->
                     <div class="hr-with-text-container">
                         <span class="hr-with-text-content">
                             Or

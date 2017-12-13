@@ -12,10 +12,10 @@
         var vm = this;
         vm.emailExistsError = "An account with that email already exists in our system. Login to access your account.";
         vm.user = {
-            firstName: "a",
-            lastName: "b",
-            email: "test@if.com",
-            passwd: "1"
+            //firstName: "a",
+            //lastName: "b",
+            //email: "test@if.com",
+            //password: "1"
         };
 
         vm.googleSignIn = googleSignIn;
