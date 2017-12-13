@@ -4,7 +4,7 @@
 }
 
 .header-max {
-    background-image: url('/app/assets/img/bg2.jpg');
+    background-image: url('/assets/img/if/bg2.jpg');
     box-shadow: inset 0 0 0 1000px rgba(74, 120, 188,.8);
     background-position: 50% 50%;
     height: 476px;

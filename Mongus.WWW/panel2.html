@@ -28,6 +28,7 @@
 </head>
 <body ng-app="app" ng-controller="panel2Controller as vm">
     <!--ng-class="{min:boolChangeClass}"-->
+
     <md-toolbar scroll ng-class="{'header-max': isHeaderMax, 'header-min': !isHeaderMax}" id="page" class="md-whiteframe-5dp">
         <div class="md-toolbar-tools" style="flex-shrink: 0">
             <md-button class="menu md-icon-button" ng-click="vm.toggleSidenav()">
@@ -67,7 +68,7 @@
 
             <div class="logged-user" layout="row" layout-align="start center">
 
-                <img src="app/assets/img/avatar.png" />
+                <img src="/assets/img/avatar.png" />
                 <div class="md-padding" layout="column" layout-align="space-between start">
                     <span class="business-name">Business name</span>
                     <span class="logged-name">Logged in user</span>
@@ -89,9 +90,9 @@
                 <div flex="25" hide-sm hide-xs>
                     Placeholder4
                 </div>
-               
+
             </div>-->
-            
+
             <div class="placeholders" layout="row">
                 <div flex="25">
                     Placeholder1
@@ -110,7 +111,7 @@
                 </div>
 
             </div>
-            
+
             <div class="owl-prev">&#8249;</div>
             <div class="owl-next">&#8250;</div>
         </div>
@@ -244,36 +245,36 @@
         </md-fab-actions>-->
 
     </md-fab-speed-dial>
-    
-<script>
-    var slider = tns({
-        "container": '.placeholders',
-        "items": 1,
-        "controls": false,
-        "mouseDrag": true,
-        "slideBy": "page",
-        
-        "nav": true,
-        "rewind": true,
-        "responsive": {
-            "960": {
-                "items": 4
-            },
-            "600": {
-                "items": 2
+
+    <script>
+        var slider = tns({
+            "container": '.placeholders',
+            "items": 1,
+            "controls": false,
+            "mouseDrag": true,
+            "slideBy": "page",
+
+            "nav": true,
+            "rewind": true,
+            "responsive": {
+                "960": {
+                    "items": 4
+                },
+                "600": {
+                    "items": 2
+                }
             }
-        }
-       
-    });
 
-    document.querySelector(".owl-next").onclick = (() => {
-        slider.goTo("next");
-    });
+        });
 
-    document.querySelector(".owl-prev").onclick = (() => {
-        slider.goTo("prev");
-    });
+        document.querySelector(".owl-next").onclick = (() => {
+            slider.goTo("next");
+        });
 
-</script>
+        document.querySelector(".owl-prev").onclick = (() => {
+            slider.goTo("prev");
+        });
+
+    </script>
 </body>
 </html>
