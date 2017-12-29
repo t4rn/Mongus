@@ -16,6 +16,16 @@
                         <div ng-message="required">First name is required!</div>
                     </div>
                 </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Pick a Color</label>
+                    <md-select name="favoriteColor" ng-model="color" open-on-focus>
+                        <md-option value="red">Red</md-option>
+                        <md-option value="blue">Blue</md-option>
+                        <md-option value="green">Green</md-option>
+                    </md-select>
+                </md-input-container>
+
                 <md-input-container class="md-icon-float md-block">
                     <label>Last Name</label>
                     <!--<md-icon md-svg-src="~/Content/Icons/employee.svg" class="lName"></md-icon>-->
@@ -24,6 +34,18 @@
                         <div ng-message="required">Last name is required !</div>
                     </div>
                 </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Choose a project</label>
+                    <md-select name="projectType" ng-model="projectType" required="">
+                        <md-option value="app">Application</md-option>
+                        <md-option value="web">Website</md-option>
+                    </md-select>
+                    <div ng-messages="userForm.projectType.$error" role="alert">
+                        <div ng-message="required">Project type is required.</div>
+                    </div>
+                </md-input-container>
+
             </div>
             <div layout-gt-sm="column" flex="30">
                 <md-input-container class="md-icon-float md-block">
